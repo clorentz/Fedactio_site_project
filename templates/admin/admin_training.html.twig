@@ -1,0 +1,99 @@
+{% extends 'admin_homepage.html.twig' %}
+
+{% block title %}
+  Page d'entraînement
+{% endblock %}
+
+{% block stylesheet %}
+  <link rel="stylesheet" href="{{ asset('build/admin.css') }}" />
+
+{% endblock %}
+
+{% block body %}
+
+{% for flashMessage in app.session.flashbag.get('success') %}
+  <div class="alert alert-success">
+    {{ flashMessage|raw }}
+  </div>
+{% endfor %}
+
+<h3>
+  Quiz difficulty:
+  {% if quiz.difficulty == 1 %}
+    First Grade
+  {% elseif quiz.difficulty == 2 %}
+    Second Grade
+  {% elseif quiz.difficulty == 3 %}
+    Third Grade
+  {% endif %}
+</h3>
+
+{{ form_start(form) }}
+<div class="form-group">
+  {{ form_row(form.difficulty)}}
+</div>
+
+{% set question_cmpt = 1 %}
+{% set question_index = 0 %}
+
+<div class="js-training-questions-wrapper"
+   data-prototype=" {{ form_widget(form.questions.vars.prototype)|e('html_attr') }}"
+   data-index="{{ form.questions|length }}">
+{% for question in form.questions %}
+  <div class="js-training-questions-item">
+  <h4> Question {{question_cmpt}} </h4>
+
+  {{ form_row(question.question) }}
+  {{ form_row(question.difficulty) }}
+  {{ form_row(question.image) }}
+
+    {% if image_location is not empty %}
+      <div class='question_image'>
+        current image:
+          <img src=" {{ asset('uploads/question_images/' ~ image_location) }} " alt="current image">
+      </div>
+    {% else %}
+      No current image found
+    {% endif %}
+
+    <h5> Answers </h5>
+    <div class="js-training-answers-wrapper"
+    data-prototype=" {{ form_widget(question.answers.vars.prototype)|e('html_attr') }}"
+    data-index="{{ question.answers|length }}"
+    data-question="{{ question_cmpt - 1}}">
+
+    <table style="width:100%" id='answers'>
+      <tr id='answers-row'>
+        {% for answer in question.answers %}
+        <td>
+          <div class="js-training-answers-item">
+          {{ form_errors(answer) }}
+          {{ form_widget(answer) }}
+          <!--<div class="col-md-1">-->
+            <a href='' class='js-remove-answers-item'> <i class="far fa-trash-alt"></i>Remove the answer</a>
+          <!-- </div> -->
+        </div>
+        </td>
+        {% endfor %}
+      </tr>
+    </table>
+    <a href="" class="js-training-answers-item-add">
+             <span class="fa fa-plus-circle"></span>
+             Add Another Answer to the question
+   </a>
+  </div>
+    {% set question_index = question_index + 1 %}
+    {% set question_cmpt = question_cmpt + 1 %}
+    <button type="button" class="btn btn-danger js-remove-questions-item">Remove the question</button>
+    </div>
+  {% endfor %}
+  <a href="" class="js-training-questions-item-add">
+           <span class="fa fa-plus-circle"></span>
+           Add Another Question to the quiz
+ </a>
+</div>
+
+{{ form_row(form.send) }}
+{{ form_end(form) }}
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'admin_homepage.html.twig' %}
+
+{% block title %}
+  Page de modification du quiz {{ quiz.id}}
+{% endblock %}
+
+{% block body %}
+
+{% for flashMessage in app.session.flashbag.get('success') %}
+  <div class="alert alert-success">
+    {{ flashMessage|raw }}
+  </div>
+{% endfor %}
+
+
+{% set prefix = "" %}
+{% if quiz.difficulty == 1 %}
+  {% set prefix = "st" %}
+{% elseif quiz.difficulty == 2 %}
+  {% set prefix = "nd" %}
+{% else %}
+  {% set prefix = "rd" %}
+{% endif %}
+
+
+<h1> Modification page for the {{ quiz.yearOfQuiz }} {{ quiz.difficulty ~ prefix}} Grade quiz </h1>
+<div class="row quiz-infos">
+  <div class="col-sm-6">
+    <a href=" {{ asset("uploads/previous_quiz/" ~ bname) }}"> <button type="button" class="btn btn-light"> See the file </button> </a>
+  </div>
+  <div class="col-sm-6">
+     <a href=" {{ path('admin_quiz_delete', {'id': quiz.id}) }} "> <button type="button" class="btn btn-danger"> Delete the file </button> </a>
+  </div>
+</div>
+
+{{form(form)}}
+
+{% endblock %}

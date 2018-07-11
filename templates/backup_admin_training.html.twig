@@ -1,0 +1,57 @@
+{% extends 'admin_homepage.html.twig' %}
+
+{% block title %}
+  Page d'entraînement
+{% endblock %}
+
+{% block stylesheet %}
+  <link rel="stylesheet" href="{{ asset('build/admin.css') }}" />
+
+{% endblock %}
+
+{% block body %}
+
+{% for flashMessage in app.session.flashbag.get('success') %}
+  <div class="alert alert-success">
+    {{ flashMessage|raw }}
+  </div>
+  {% endfor %}
+
+<h3> Quiz difficulty: {{ quiz.difficulty }} </h3>
+
+{{ form_start(form) }}
+{{ form_row(form.difficulty)}}
+
+
+{% for question in form.questions %}
+
+  {{ form_row(question.question) }}
+  {{ form_row(question.image) }}
+
+    {% if image_location is not empty %}
+      <div class='question_image'>
+        current image:
+          <img src=" {{ asset('uploads/question_images/' ~ image_location) }} " alt="current image">
+      </div>
+    {% else %}
+      No current image found
+    {% endif %}
+
+    <h5> Answers </h5>
+
+    <table style="width:100%" id='answers'>
+      <tr>
+        {% for answer in question.answers %}
+        <td>
+          {{ form_errors(answer) }}
+          {{ form_widget(answer) }}
+        </td>
+        {% endfor %}
+      </tr>
+    </table>
+  {% endfor %}
+
+{{ form_row(form.send) }}
+{{ form_end(form) }}
+
+{% endblock %}

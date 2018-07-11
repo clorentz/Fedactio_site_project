@@ -1,0 +1,32 @@
+.question_image img {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.alert {
+  margin-top: 20px;
+}
+
+a {
+  color: #212121;
+  font-size: 14px;
+}
+
+h1 {
+  margin-top: 40px;
+}
+
+.quiz-infos {
+  text-align: center;
+}
+
+.js-training-answers-wrapper {
+  margin-bottom: 25px;
+}
+
+.js-training-answers-item {
+  margin-bottom: 15px;
+}
+
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hc3NldHMvY3NzL2FkbWluLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRTtFQUNBO0NBQ0Q7O0FBR0Q7RUFDRTtDQUFEOztBQUdEO0VBQ0U7RUFDQTtDQUFEOztBQUdEO0VBQ0U7Q0FBRDs7QUFHRDtFQUNJO0NBQUg7O0FBR0Q7RUFDSTtDQUFIOztBQUdEO0VBQ0k7Q0FBSCIsImZpbGUiOiJhZG1pbi5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucXVlc3Rpb25faW1hZ2UgaW1nIHtcbiAgbWF4LXdpZHRoOiAxMDBweDtcbiAgbWF4LWhlaWdodDogMTAwcHg7XG5cbn1cblxuLmFsZXJ0IHtcbiAgbWFyZ2luLXRvcDogMjBweDtcbn1cblxuYSB7XG4gIGNvbG9yOiAjMjEyMTIxO1xuICBmb250LXNpemU6IDE0cHg7XG59XG5cbmgxIHtcbiAgbWFyZ2luLXRvcDogNDBweDtcbn1cblxuLnF1aXotaW5mb3Mge1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cblxuLmpzLXRyYWluaW5nLWFuc3dlcnMtd3JhcHBlciB7XG4gICAgbWFyZ2luLWJvdHRvbTogMjVweDtcbn1cblxuLmpzLXRyYWluaW5nLWFuc3dlcnMtaXRlbSB7XG4gICAgbWFyZ2luLWJvdHRvbTogMTVweDtcbn1cblxuXG5cbi8vIFdFQlBBQ0sgRk9PVEVSIC8vXG4vLyAuL2Fzc2V0cy9jc3MvYWRtaW4uc2NzcyJdLCJzb3VyY2VSb290IjoiIn0=*/

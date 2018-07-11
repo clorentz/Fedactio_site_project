@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Page d'accueil Administrateur
+{% endblock %}
+
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ asset('build/admin.css') }}" />
+{% endblock %}
+
+{% set route = app.request.attributes.get("_route") %}
+
+
+{% block topmenu %}
+<!-- Top menu for the public -->
+<!-- Test if the page is active to set the button correclty -->
+  <a href={{ path('admin_competition') }} class="btn btn-primary {% if 'admin_competition' == route %} active {% endif %}">Gestion Competition</a>
+  <a href={{ path('admin_aboutus') }} class="btn btn-primary {% if 'admin_aboutus' == route %} active {% endif %}">Gestion informations</a>
+  <a href={{ path('admin_regulation') }} class="btn btn-primary {% if 'admin_regulation' == route %} active {% endif %}">Gestion règlement</a>
+  <a href={{ path('admin_gallery') }} class="btn btn-primary {% if 'admin_gallery' == route %} active {% endif %}">Gestion gallerie</a>
+  <a href={{ path('admin_training') }} class="btn btn-primary {% if 'admin_training' == route %} active {% endif %}">Gestion entraînement</a>
+{% endblock %}
+
+{% block body %}
+
+{% for flashMessage in app.session.flashbag.get('success') %}
+  <div class="alert alert-success">
+    {{ flashMessage|raw }}
+  </div>
+{% endfor %}
+
+
+<!-- Only print this message on the homepage -->
+{% if 'admin_homepage' == route %}
+<div class='admin_homepage_text'>
+  <h1> Website Administrator interface </h1>
+  Hello Admin, you can modify the informations of the website by navigating via the menu on the top of this page.
+</div>
+
+{% endif %}
+
+{% block javascripts %}
+
+<script src=" {{ asset('build/admin.js') }}"></script>
+
+{% endblock %}
+
+
+
+{% endblock %}

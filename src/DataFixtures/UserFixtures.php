@@ -11,15 +11,6 @@ class UserFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-
-            $user = new User();
-            $user->setLogin('user_not_admin');
-            $user->setName('User');
-            $user->setSurname('Not Admin');
-            $user->setEmail('user_not_admin@fedactio.be');
-            $user->setAdmin(false);
-            $manager->persist($user);
-
             $user = new User();
             $user->setLogin('admin');
             $user->setName('User');

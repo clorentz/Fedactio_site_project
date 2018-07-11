@@ -1,0 +1,44 @@
+{% extends 'admin_homepage.html.twig' %}
+
+{% block title %}
+  Page d'informations
+{% endblock %}
+
+{% block body %}
+
+{% for flashMessage in app.session.flashbag.get('success') %}
+  <div class="alert alert-success">
+    {{ flashMessage|raw }}
+  </div>
+{% endfor %}
+
+Here you can modify the informations printed in the section "About Us".
+
+{{ form_start(form) }}
+
+ <div class="js-informations-items-wrapper"
+    data-prototype=" {{ form_widget(form.items.vars.prototype)|e('html_attr') }}"
+    data-index="{{ form.items|length }}">
+
+   {% for item in form.items %}
+     <div class=" row js-informations-items-item">
+       <div class="col-md-11">
+         {{ form_row(item.title) }}
+         {{ form_row(item.content) }}
+       </div>
+       <div class="col-md-1">
+         <a href='' class='js-remove-informations-item'> <i class="far fa-trash-alt"></i></a>
+       </div>
+    </div>
+   {% endfor %}
+
+   <a href="" class="js-informations-items-add">
+            <span class="fa fa-plus-circle"></span>
+            Add Another Information Item
+  </a>
+ </div>
+
+{{ form_end(form) }}
+
+
+{% endblock %}

@@ -20,7 +20,6 @@ class srcDevDebugProjectContainerUrlGenerator extends Symfony\Component\Routing\
         $this->defaultLocale = $defaultLocale;
         if (null === self::$declaredRoutes) {
             self::$declaredRoutes = array(
-        'app_lucky_number' => array(array(), array('_controller' => 'App\\Controller\\LuckyController::number'), array(), array(array('text', '/lucky/number')), array(), array()),
         '_twig_error_test' => array(array('code', '_format'), array('_controller' => 'twig.controller.preview_error::previewErrorPageAction', '_format' => 'html'), array('code' => '\\d+'), array(array('variable', '.', '[^/]++', '_format'), array('variable', '/', '\\d+', 'code'), array('text', '/_error')), array(), array()),
         '_wdt' => array(array('token'), array('_controller' => 'web_profiler.controller.profiler::toolbarAction'), array(), array(array('variable', '/', '[^/]++', 'token'), array('text', '/_wdt')), array(), array()),
         '_profiler_home' => array(array(), array('_controller' => 'web_profiler.controller.profiler::homeAction'), array(), array(array('text', '/_profiler/')), array(), array()),
@@ -33,6 +32,22 @@ class srcDevDebugProjectContainerUrlGenerator extends Symfony\Component\Routing\
         '_profiler_router' => array(array('token'), array('_controller' => 'web_profiler.controller.router::panelAction'), array(), array(array('text', '/router'), array('variable', '/', '[^/]++', 'token'), array('text', '/_profiler')), array(), array()),
         '_profiler_exception' => array(array('token'), array('_controller' => 'web_profiler.controller.exception::showAction'), array(), array(array('text', '/exception'), array('variable', '/', '[^/]++', 'token'), array('text', '/_profiler')), array(), array()),
         '_profiler_exception_css' => array(array('token'), array('_controller' => 'web_profiler.controller.exception::cssAction'), array(), array(array('text', '/exception.css'), array('variable', '/', '[^/]++', 'token'), array('text', '/_profiler')), array(), array()),
+        'admin_homepage' => array(array(), array('_controller' => 'App\\Controller\\AdminController::adminHomepage'), array(), array(array('text', '/admin/')), array(), array()),
+        'admin_competition' => array(array(), array('_controller' => 'App\\Controller\\AdminController::managementCompetition'), array(), array(array('text', '/admin/competition')), array(), array()),
+        'admin_aboutus' => array(array(), array('_controller' => 'App\\Controller\\AdminController::managementAboutUs'), array(), array(array('text', '/admin/aboutUs')), array(), array()),
+        'admin_regulation' => array(array(), array('_controller' => 'App\\Controller\\AdminController::managementRegulation'), array(), array(array('text', '/admin/regulation')), array(), array()),
+        'admin_gallery' => array(array(), array('_controller' => 'App\\Controller\\AdminController::managementGallery'), array(), array(array('text', '/admin/gallery')), array(), array()),
+        'admin_quiz' => array(array('id'), array('_controller' => 'App\\Controller\\AdminController::showQuiz'), array(), array(array('variable', '/', '[^/]++', 'id'), array('text', '/admin/quiz')), array(), array()),
+        'admin_quiz_delete' => array(array('id'), array('_controller' => 'App\\Controller\\AdminController::deleteQuiz'), array(), array(array('variable', '/', '[^/]++', 'id'), array('text', '/admin/quiz_delete')), array(), array()),
+        'admin_gallery_image' => array(array('id'), array('_controller' => 'App\\Controller\\AdminController::showImage'), array(), array(array('variable', '/', '[^/]++', 'id'), array('text', '/admin/gallery_image')), array(), array()),
+        'admin_gallery_image_delete' => array(array('id'), array('_controller' => 'App\\Controller\\AdminController::deleteImage'), array(), array(array('variable', '/', '[^/]++', 'id'), array('text', '/admin/gallery_image_delete')), array(), array()),
+        'admin_training' => array(array(), array('_controller' => 'App\\Controller\\AdminController::managementTraining'), array(), array(array('text', '/admin/training')), array(), array()),
+        'app_lucky_number' => array(array(), array('_controller' => 'App\\Controller\\LuckyController::number'), array(), array(array('text', '/lucky/number')), array(), array()),
+        'homepage' => array(array(), array('_controller' => 'App\\Controller\\PublicController::homepage'), array(), array(array('text', '/')), array(), array()),
+        'aboutus' => array(array(), array('_controller' => 'App\\Controller\\PublicController::aboutUs'), array(), array(array('text', '/aboutUs')), array(), array()),
+        'regulation' => array(array(), array('_controller' => 'App\\Controller\\PublicController::regulation'), array(), array(array('text', '/regulation')), array(), array()),
+        'gallery' => array(array(), array('_controller' => 'App\\Controller\\PublicController::gallery'), array(), array(array('text', '/gallery')), array(), array()),
+        'training' => array(array(), array('_controller' => 'App\\Controller\\PublicController::training'), array(), array(array('text', '/training')), array(), array()),
     );
         }
     }

@@ -1,0 +1,30 @@
+{% extends 'admin_homepage.html.twig' %}
+
+{% block title %}
+  Page de modification de l'image {{ image.id}}
+{% endblock %}
+
+{% block body %}
+
+{% for flashMessage in app.session.flashbag.get('success') %}
+  <div class="alert alert-success">
+    {{ flashMessage|raw }}
+  </div>
+{% endfor %}
+
+<h1> Modification page for the image below </h1>
+
+
+<div class="row quiz-infos">
+  <div class="col-sm-6">
+    <img src="{{ asset("uploads/gallery_images/") ~ bname}}" />
+    <!-- <a href=" {{ asset("uploads/previous_quiz/" ~ bname) }}"> <button type="button" class="btn btn-light"> See the file </button> </a> -->
+  </div>
+  <div class="col-sm-6">
+     <a href=" {{ path('admin_gallery_image_delete', {'id': image.id}) }} "> <button type="button" class="btn btn-danger"> Delete the image </button> </a>
+  </div>
+</div>
+
+{{form(form)}}
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'admin_homepage.html.twig' %}
+
+{% block title %}
+  Page de règlement
+{% endblock %}
+
+{% block body %}
+
+{% for flashMessage in app.session.flashbag.get('success') %}
+  <div class="alert alert-success">
+    {{ flashMessage|raw }}
+  </div>
+{% endfor %}
+
+<h1> Form </h1>
+
+
+
+{{ form_start(form) }}
+
+ <div class="js-regulation-items-wrapper"
+    data-prototype=" {{ form_widget(form.items.vars.prototype)|e('html_attr') }}"
+    data-index="{{ form.items|length }}">
+
+   {% for item in form.items %}
+     <div class=" row js-regulation-items-item">
+       <div class="col-md-11">
+         {{ form_row(item.regulation) }}
+       </div>
+       <div class="col-md-1">
+         <a href='' class='js-remove-regulation-item'> <i class="far fa-trash-alt"></i></a>
+       </div>
+    </div>
+   {% endfor %}
+
+   <a href="" class="js-regulation-items-add">
+            <span class="fa fa-plus-circle"></span>
+            Add Another Regulation
+  </a>
+ </div>
+
+{{ form_end(form) }}
+
+{% endblock %}

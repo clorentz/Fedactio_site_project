@@ -2,6 +2,9 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
+    question_images_directory: '%kernel.project_dir%/public/uploads/question_images'
+    gallery_images_directory: '%kernel.project_dir%/public/uploads/gallery_images'
+    previous_quiz_directory: '%kernel.project_dir%/public/uploads/previous_quiz'
 
 services:
     # default configuration for services in *this* file
@@ -24,5 +27,26 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\Service\QuestionImageUploader:
+      arguments:
+        $targetDirectory: '%question_images_directory%'
+    App\Service\GalleryImageUploader:
+      arguments:
+        $targetDirectory: '%gallery_images_directory%'
+    App\Service\PreviousQuizUploader:
+      arguments:
+        $targetDirectory: '%previous_quiz_directory%'
+    App\EventListener\PreviousQuizListener:
+      tags:
+        - { name: doctrine.event_listener, event: preRemove, lazy: true }
+      arguments:
+        $targetDirectory: '%previous_quiz_directory%'
+    App\EventListener\GalleryImageListener:
+      tags:
+        - { name: doctrine.event_listener, event: preRemove, lazy: true }
+      arguments:
+        $targetDirectory: '%gallery_images_directory%'

@@ -64,12 +64,23 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         switch ($pathinfo) {
             default:
                 $routes = array(
-                    '/lucky/number' => array(array('_route' => 'app_lucky_number', '_controller' => 'App\\Controller\\LuckyController::number'), null, null, null),
                     '/_profiler/' => array(array('_route' => '_profiler_home', '_controller' => 'web_profiler.controller.profiler::homeAction'), null, null, null),
                     '/_profiler/search' => array(array('_route' => '_profiler_search', '_controller' => 'web_profiler.controller.profiler::searchAction'), null, null, null),
                     '/_profiler/search_bar' => array(array('_route' => '_profiler_search_bar', '_controller' => 'web_profiler.controller.profiler::searchBarAction'), null, null, null),
                     '/_profiler/phpinfo' => array(array('_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'), null, null, null),
                     '/_profiler/open' => array(array('_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'), null, null, null),
+                    '/admin/' => array(array('_route' => 'admin_homepage', '_controller' => 'App\\Controller\\AdminController::adminHomepage'), null, null, null),
+                    '/admin/competition' => array(array('_route' => 'admin_competition', '_controller' => 'App\\Controller\\AdminController::managementCompetition'), null, null, null),
+                    '/admin/aboutUs' => array(array('_route' => 'admin_aboutus', '_controller' => 'App\\Controller\\AdminController::managementAboutUs'), null, null, null),
+                    '/admin/regulation' => array(array('_route' => 'admin_regulation', '_controller' => 'App\\Controller\\AdminController::managementRegulation'), null, null, null),
+                    '/admin/gallery' => array(array('_route' => 'admin_gallery', '_controller' => 'App\\Controller\\AdminController::managementGallery'), null, null, null),
+                    '/admin/training' => array(array('_route' => 'admin_training', '_controller' => 'App\\Controller\\AdminController::managementTraining'), null, null, null),
+                    '/lucky/number' => array(array('_route' => 'app_lucky_number', '_controller' => 'App\\Controller\\LuckyController::number'), null, null, null),
+                    '/' => array(array('_route' => 'homepage', '_controller' => 'App\\Controller\\PublicController::homepage'), null, null, null),
+                    '/aboutUs' => array(array('_route' => 'aboutus', '_controller' => 'App\\Controller\\PublicController::aboutUs'), null, null, null),
+                    '/regulation' => array(array('_route' => 'regulation', '_controller' => 'App\\Controller\\PublicController::regulation'), null, null, null),
+                    '/gallery' => array(array('_route' => 'gallery', '_controller' => 'App\\Controller\\PublicController::gallery'), null, null, null),
+                    '/training' => array(array('_route' => 'training', '_controller' => 'App\\Controller\\PublicController::training'), null, null, null),
                 );
 
                 if (!isset($routes[$pathinfo])) {
@@ -110,6 +121,16 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                             .'|(*:159)'
                         .')'
                     .')'
+                    .'|/admin/(?'
+                        .'|quiz(?'
+                            .'|/([^/]++)(*:195)'
+                            .'|_delete/([^/]++)(*:219)'
+                        .')'
+                        .'|gallery_image(?'
+                            .'|/([^/]++)(*:253)'
+                            .'|_delete/([^/]++)(*:277)'
+                        .')'
+                    .')'
                 .')$}sD',
         );
 
@@ -125,6 +146,10 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                             136 => array(array('_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception::showAction'), array('token'), null, null),
                             149 => array(array('_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception::cssAction'), array('token'), null, null),
                             159 => array(array('_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'), array('token'), null, null),
+                            195 => array(array('_route' => 'admin_quiz', '_controller' => 'App\\Controller\\AdminController::showQuiz'), array('id'), null, null),
+                            219 => array(array('_route' => 'admin_quiz_delete', '_controller' => 'App\\Controller\\AdminController::deleteQuiz'), array('id'), null, null),
+                            253 => array(array('_route' => 'admin_gallery_image', '_controller' => 'App\\Controller\\AdminController::showImage'), array('id'), null, null),
+                            277 => array(array('_route' => 'admin_gallery_image_delete', '_controller' => 'App\\Controller\\AdminController::deleteImage'), array('id'), null, null),
                         );
 
                         list($ret, $vars, $requiredMethods, $requiredSchemes) = $routes[$m];
@@ -150,7 +175,7 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                         return $ret;
                 }
 
-                if (159 === $m) {
+                if (277 === $m) {
                     break;
                 }
                 $regex = substr_replace($regex, 'F', $m - $offset, 1 + strlen($m));

@@ -1,0 +1,33 @@
+{% extends 'admin_homepage.html.twig' %}
+
+{% block title %}
+Competition informations management
+{% endblock %}
+
+{% block body %}
+
+{% for flashMessage in app.session.flashbag.get('success') %}
+  <div class="alert alert-success">
+    {{ flashMessage|raw }}
+  </div>
+{% endfor %}
+
+
+<h1> Modify the Competition Informations </h1>
+
+{{form_start(form)}}
+
+<h4> Global Informations </h4>
+{{ form_row(form.inscriptionDate) }}
+{{ form_row(form.competitionStartDate) }}
+{{ form_row(form.competitionEndDate) }}
+
+<h4> Individual Informations </h4>
+
+{{ form_row(form.individualDate) }}
+{{ form_row(form.individualLocation) }}
+
+{{ form_row(form.send)}}
+{{form_end(form)}}
+
+{% endblock %}

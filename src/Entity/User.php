@@ -17,7 +17,7 @@ class User
     private $id;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string", length=255)
      */
     private $login;
 
