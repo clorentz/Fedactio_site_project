@@ -160,6 +160,7 @@ class AdminController extends Controller
         // File uploading part
         $file = $new_img->getImage();
         if ($file != null) {
+          $new_img->setName($file->getClientOriginalName());
           $fileName = $img_uploader->upload($file); // The uploader will hash the name so the file won't be used by third parties
 
           $new_img->setImage($fileName);
@@ -301,15 +302,73 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("/admin/training", name="admin_training")
+    * @Route("admin/training_choice", name="admin_training_choice")
+    */
+    public function choiceTraining(){
+      $manager = $this->getDoctrine()->getManager();
+
+      $quizs = $manager->getRepository(TrainingQuiz::class)->findAll();
+      $primary_quiz = array();
+      $secondary_quiz = array();
+
+      foreach ($quizs as $quiz) {
+        $school_number = $quiz->getSchool();
+          if ($school_number == 1) {
+            $primary_quiz[] = $quiz;
+          }
+          elseif ($school_number == 2) {
+            $secondary_quiz[] = $quiz;
+          }
+      }
+      $difficulty = array("1e/2e", "3e/4e", "5e/6e");
+
+      return $this->render('admin/admin_training_choice.html.twig', [
+        'primary_quiz'   => $primary_quiz,
+        'secondary_quiz' => $secondary_quiz,
+        'difficulty'     => $difficulty,
+      ]);
+
+    }
+
+    /**
+    * @Route("admin/training", name="admin_new_training")
+    */
+    public function createTraining()
+    {
+      $manager = $this->getDoctrine()->getManager();
+      $new_quiz = new TrainingQuiz();
+      $new_quiz->setDifficulty(1);
+      $new_quiz->setSchool(1);
+      $manager->persist($new_quiz);
+      $manager->flush();
+      $this->addFlash("success", "Quiz successfuly added.");
+
+      return $this->redirectToRoute('admin_training', array('id' => $new_quiz->getId()));
+    }
+
+    /**
+    * @Route("admin/training_delete/{id}", name="admin_delete_training")
+    */
+    public function deleteTraining(TrainingQuiz $quiz)
+    {
+      $manager = $this->getDoctrine()->getManager();
+      $manager->remove($quiz);
+      $manager->flush();
+      $this->addFlash("success", "Quiz successfuly deleted.");
+
+      return $this->redirectToRoute('admin_training_choice');
+    }
+
+    /**
+     * @Route("/admin/training/{id}", name="admin_training")
      */
-    public function managementTraining(Request $request, QuestionImageUploader $fileUploader){
+    public function managementTraining(TrainingQuiz $quiz, Request $request, QuestionImageUploader $fileUploader){
       $formFactory = $this->get('form.factory');
       $manager = $this->getDoctrine()->getManager();
-      $questions = $manager->getRepository(TrainingQuestion::class)->findAll();
-      $quiz = $manager->getRepository(TrainingQuiz::class)->findAll()[0];
+      $questions = $quiz->getQuestions();
       $originalQuestions = new ArrayCollection();
       $originalAnswers = new ArrayCollection();
+      $image_locations = array();
 
       foreach ($questions as $question){
         $image_location = basename($question->getImage());
@@ -323,6 +382,8 @@ class AdminController extends Controller
           $question->setImage(
             new File($this->getParameter('question_images_directory').'/'.$image_location)
           );
+
+        $image_locations[] = $image_location;
       }
 
       $form = $formFactory->createBuilder(TrainingQuizType::class, $quiz)->getForm();
@@ -366,8 +427,8 @@ class AdminController extends Controller
         }
       }
 
-      if ($modif){        
-        // $manager->persist($question);
+      if ($modif){
+        $manager->persist($question);
         $manager->flush();
         $this->addFlash("success", "Quiz modified.");
       }
@@ -379,7 +440,7 @@ class AdminController extends Controller
       'form'              => $form->createView(),
       'questions'         => $questions,
       'quiz'              => $quiz,
-      'image_location'    => $image_location,
+      'image_locations'    => $image_locations,
     ]);
   }
 }

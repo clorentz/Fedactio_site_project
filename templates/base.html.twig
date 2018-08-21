@@ -5,21 +5,19 @@
     <title>{% block title %}Bienvenue{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <!-- stylesheets -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="{{ asset('build/app.css') }}" />
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
     {% block stylesheets %}
     {% endblock %}
    <link rel="icon" type="image/x-icon" href="{{ asset('img/favicon.ico') }}" />
   </head>
 
   <body class="d-flex flex-column">
-    <div id="banner"></div>
+    <div id="banner" style="cursor: pointer;" onclick="window.location='{{ path('homepage') }}';"></div>
 
     <!-- body -->
     <div class="container" id="container-main">
       <!-- Menu -->
-      <div class="btn-group btn-group-justified" role="group" aria-label="...">
+      <div class="btn-group d-flex" role="group" aria-label="Top Menu">
         {% block topmenu %}
         {% endblock %}
       </div>
@@ -35,6 +33,24 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4 col-sm-6 col-12 item links">
+            <h3>Contact</h3>
+            <ul>
+              <li>
+                <span>
+                  <i class="fas fa-at"></i>
+                  <a href="mailto:brussel@fedactio.be?Subject=Pangea%20Math%20Quiz" target="_top">brussel@fedactio.be</a>
+                </span>
+              </li>
+              <li>
+                <span>
+                  <i class="fas fa-phone"></i>
+                  <a href="tel:+32-2-212-19-09"> +32 2 212 19 09 </a>
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-4 col-sm-6 col-12 item links">
             <h3>Accès rapide</h3>
             <ul>
       				<li>
@@ -46,36 +62,32 @@
       				<li>
                 <span>
                   <i class="fas fa-chevron-right"></i>
-                  <a href="#">Informations</a>
+                  <a href="{{path("aboutus")}}">Informations</a>
+                </span>
+              </li>
+              <li>
+                <span>
+                  <i class="fas fa-chevron-right"></i>
+                  <a href="{{path("enroll")}}">S'insrire au concours</a>
                 </span>
               </li>
       			</ul>
           </div>
 
-          <div class="col-md-4 col-sm-6 col-12 item">
-            <h3>Développement</h3>
-            <ul>
-              <li>&copy; 2018 Fedactio</li>
-              <li>Tous droits réservés.</li>
-            </ul>
-          </div>
-
           <div class="col-md-4 col-sm-12 col-12 item logo">
             <h3> Organisateurs </h3>
-            <img src="{{ asset('img/Fedactio-transparent.png') }}" alt="Fedactio Logo" />
-            <img src="{{ asset('img/Francolympiades-transparent.png') }}" alt="Logo Francolympiades" />
+            <div class="d-flex" role="group" aria-label="Organisateurs">
+              <img class="w-100 foot-logo" src="{{ asset('img/Logo_white.png') }}" alt="Fedactio Logo" />
+              <img class="w-100 foot-logo" src="{{ asset('img/Francolympiades-transparent.png') }}" alt="Logo Francolympiades" />
+            </div>
           </div>
         </div>
       </div>
     </footer>
 
     <!-- scripts -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.3/js/tether.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script> -->
     <script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    {# <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
-    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script> #}
+    <script src="{{ asset('build/app.js') }}"></script>
     {% block javascripts %}
     {% endblock %}
 

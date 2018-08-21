@@ -19,6 +19,12 @@ class PreviousQuiz
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Range(
+     *      min = 1,
+     *      max = 3,
+     *      minMessage = "You must set the difficulty for at least the {{ limit }}st grade",
+     *      maxMessage = "You must set the difficulty for at most the {{ limit }}rd grade"
+     * )
      */
     private $difficulty;
 
@@ -33,6 +39,17 @@ class PreviousQuiz
      * @Assert\File(mimeTypes={ "application/pdf" })
      */
     private $quiz;
+
+    /**
+     * @ORM\Column(type="smallint")
+     * @Assert\Range(
+     *      min = 1,
+     *      max = 2,
+     *      minMessage = "You must set the school for at least the Primary School",
+     *      maxMessage = "You must set the difficulty for at most the Secondary school"
+     * )
+     */
+    private $school;
 
     public function getId()
     {
@@ -71,6 +88,18 @@ class PreviousQuiz
     public function setQuiz($quiz)
     {
         $this->quiz = $quiz;
+
+        return $this;
+    }
+
+    public function getSchool(): ?int
+    {
+        return $this->school;
+    }
+
+    public function setSchool(int $school): self
+    {
+        $this->school = $school;
 
         return $this;
     }

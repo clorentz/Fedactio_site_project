@@ -16,11 +16,17 @@ class PreviousQuizType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+      $builder->add('school', ChoiceType::class, array(
+        'choices'  => array(
+          'Primaire' => 1,
+          'Secondaire' => 2,
+        )
+      ));
       $builder->add('difficulty', ChoiceType::class, array(
         'choices'  => array(
-          '1st Grade' => 1,
-          '2nd Grade' => 2,
-          '3rd Grade' => 3,
+          '1e/2nd' => 1,
+          '3e/4e' => 2,
+          '5e/6e' => 3,
         )
       ));
       $builder->add('yearOfQuiz', IntegerType::class, array(
@@ -42,7 +48,7 @@ class PreviousQuizType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class'      => PreviousQuiz::class,
-          //  'csrf_protection' => false,
+            'csrf_protection' => false,
         ));
         $resolver->setRequired(array(
           'add',

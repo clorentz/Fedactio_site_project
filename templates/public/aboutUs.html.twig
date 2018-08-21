@@ -6,6 +6,23 @@
 
 {% block body %}
 
-Insert informations here 
+<h1>Informations about the math quiz</h1>
+
+<div id="accordion">
+  {% for info in informations.items %}
+    <div class="card">
+      <a class="card-link" data-toggle="collapse" href="#{{info.id}}">
+        <div class="card-header">
+          {{info.title}}
+        </div>
+      </a>
+      <div id="{{info.id}}" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          {{info.content}}
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
 
 {% endblock %}

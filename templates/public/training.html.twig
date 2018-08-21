@@ -5,8 +5,35 @@
 {% endblock %}
 
 {% block body %}
-<h3> Training section </h3>
+<!-- <h1> Training section </h1> -->
 
 
+{# {% for question in quiz.questions %}
+  <h2> Question n° {{question_cmpt}}: {{question.question}} </h2>
+
+  <div class="d-flex" role="group" aria-label="{{ "Question" ~ question_cmpt}}">
+    {% for answer in question.answers %}
+      <button type="button" class="btn btn-light w-100">{{answer.answer}}</button>
+    {% endfor %}
+  </div>
+{% endfor %} #}
+
+{% set question_cmpt = 0 %}
+
+{{ dump(reponses) }}
+{{ dump(form) }}
+
+
+<h1> Training section </h1>
+
+{{form_start(form)}}
+
+{% for answer in form.client_answers %}
+    <h2> Question n° {{question_cmpt + 1}}: {{quiz.questions[question_cmpt].question}} </h2>
+    {{form_widget(answer)}}
+    {% set question_cmpt = question_cmpt + 1 %}
+{% endfor %}
+
+{{form_end(form)}}
 
 {% endblock %}

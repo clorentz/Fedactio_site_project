@@ -72,7 +72,46 @@ class __TwigTemplate_2e089fb9a7013acd4758e6a5f30a1e2b8b09e2e812d8b7d656c03d7c76c
 
         // line 8
         echo "
-Insert informations here 
+<h1>Informations about the math quiz</h1>
+
+<div id=\"accordion\">
+  ";
+        // line 12
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["informations"]) || array_key_exists("informations", $context) ? $context["informations"] : (function () { throw new Twig_Error_Runtime('Variable "informations" does not exist.', 12, $this->source); })()), "items", array()));
+        foreach ($context['_seq'] as $context["_key"] => $context["info"]) {
+            // line 13
+            echo "    <div class=\"card\">
+      <a class=\"card-link\" data-toggle=\"collapse\" href=\"#";
+            // line 14
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["info"], "id", array()), "html", null, true);
+            echo "\">
+        <div class=\"card-header\">
+          ";
+            // line 16
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["info"], "title", array()), "html", null, true);
+            echo "
+        </div>
+      </a>
+      <div id=\"";
+            // line 19
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["info"], "id", array()), "html", null, true);
+            echo "\" class=\"collapse\" data-parent=\"#accordion\">
+        <div class=\"card-body\">
+          ";
+            // line 21
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["info"], "content", array()), "html", null, true);
+            echo "
+        </div>
+      </div>
+    </div>
+  ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['info'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 26
+        echo "</div>
 
 ";
         
@@ -95,7 +134,7 @@ Insert informations here
 
     public function getDebugInfo()
     {
-        return array (  74 => 8,  65 => 7,  54 => 4,  45 => 3,  15 => 1,);
+        return array (  114 => 26,  103 => 21,  98 => 19,  92 => 16,  87 => 14,  84 => 13,  80 => 12,  74 => 8,  65 => 7,  54 => 4,  45 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -108,7 +147,24 @@ Insert informations here
 
 {% block body %}
 
-Insert informations here 
+<h1>Informations about the math quiz</h1>
+
+<div id=\"accordion\">
+  {% for info in informations.items %}
+    <div class=\"card\">
+      <a class=\"card-link\" data-toggle=\"collapse\" href=\"#{{info.id}}\">
+        <div class=\"card-header\">
+          {{info.title}}
+        </div>
+      </a>
+      <div id=\"{{info.id}}\" class=\"collapse\" data-parent=\"#accordion\">
+        <div class=\"card-body\">
+          {{info.content}}
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
 
 {% endblock %}
 ", "public/aboutUs.html.twig", "/home/clorentz/www/fedactio_pangea/templates/public/aboutUs.html.twig");

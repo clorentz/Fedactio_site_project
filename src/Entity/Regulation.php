@@ -23,6 +23,11 @@ class Regulation
      */
     private $items;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $regulationYear;
+
     public function __construct()
     {
         $this->items = new ArrayCollection();
@@ -60,6 +65,18 @@ class Regulation
                 $item->setLink(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getRegulationYear(): ?int
+    {
+        return $this->regulationYear;
+    }
+
+    public function setRegulationYear(int $regulationYear): self
+    {
+        $this->regulationYear = $regulationYear;
 
         return $this;
     }

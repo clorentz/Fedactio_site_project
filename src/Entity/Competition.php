@@ -20,11 +20,21 @@ class Competition
     /**
      * @ORM\Column(type="date")
      * @Assert\Range(
-     *      min = "now",
+     *      min = "now -1 day",
      *      minMessage = "Please enter a date in the future",
      * )
      */
-    private $inscriptionDate;
+    private $inscriptionStartDate;
+
+    /**
+     * @ORM\Column(type="date")
+     * @Assert\Range(
+     *      min = "now",
+     *      minMessage = "Please enter a date in the future",
+     * )
+     * @Assert\GreaterThan(propertyPath="inscriptionStartDate")
+     */
+    private $inscriptionEndDate;
 
     /**
      * @ORM\Column(type="date")
@@ -63,14 +73,26 @@ class Competition
         return $this->id;
     }
 
-    public function getInscriptionDate(): ?\DateTimeInterface
+    public function getInscriptionStartDate(): ?\DateTimeInterface
     {
-        return $this->inscriptionDate;
+      return $this->inscriptionStartDate;
     }
 
-    public function setInscriptionDate(\DateTimeInterface $inscriptionDate): self
+    public function setInscriptionStartDate(\DateTimeInterface $inscriptionStartDate): self
     {
-        $this->inscriptionDate = $inscriptionDate;
+      $this->inscriptionStartDate = $inscriptionStartDate;
+
+      return $this;
+    }
+
+    public function getInscriptionEndDate(): ?\DateTimeInterface
+    {
+        return $this->inscriptionEndDate;
+    }
+
+    public function setInscriptionEndDate(\DateTimeInterface $inscriptionEndDate): self
+    {
+        $this->inscriptionEndDate = $inscriptionEndDate;
 
         return $this;
     }

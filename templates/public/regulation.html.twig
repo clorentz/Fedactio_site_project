@@ -6,6 +6,12 @@
 
 {% block body %}
 
-Insert informations here
+<h1> Règlement de l'année {{regulation.regulationYear}}</h1>
+
+<ul>
+  {% for item in regulation.items %}
+      <li> {{item.regulation}} </li>
+  {% endfor %}
+</ul>
 
 {% endblock %}

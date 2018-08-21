@@ -1,0 +1,35 @@
+{% extends 'admin_homepage.html.twig' %}
+
+{% block title %}
+  Page de choix du formulaire d'entrainement
+{% endblock %}
+
+{% block body %}
+
+{% for flashMessage in app.session.flashbag.get('success') %}
+  <div class="alert alert-success">
+    {{ flashMessage|raw }}
+  </div>
+{% endfor %}
+
+<h1>Choice of the training quiz to modify</h1>
+
+<h3>Primary School</h3>
+<div class="d-flex" role="group" aria-label="Primary Traning Choice">
+  {% for quiz in primary_quiz %}
+      <a href={{ path('admin_training', {'id': quiz.id}) }} class="btn btn-secondary w-100">Modifier l'entrainement du niveau {{ difficulty[quiz.difficulty-1] }}</a>
+  {% endfor %}
+</div>
+
+<h3>Secondary School</h3>
+<div class="d-flex" role="group" aria-label="Secondary Traning Choice">
+  {% for quiz in secondary_quiz %}
+      <a href={{ path('admin_training', {'id': quiz.id}) }} class="btn btn-secondary w-100">Modifier l'entrainement du niveau {{ difficulty[quiz.difficulty-1] }}</a>
+  {% endfor %}
+</div>
+
+<h1> Add a new Quiz </h1>
+
+<a href={{ path('admin_new_training') }} class="btn btn-success">Add a new quiz</a>
+
+{% endblock %}

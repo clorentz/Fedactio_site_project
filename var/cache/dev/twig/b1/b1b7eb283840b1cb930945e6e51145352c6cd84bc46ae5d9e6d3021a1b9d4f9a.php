@@ -41,38 +41,39 @@ class __TwigTemplate_9edfb61a4a9bb6da4760fee86314b109145ea93eff96a84fec7b6c8361d
         echo "</title>
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\" />
     <!-- stylesheets -->
-    <!-- <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css\" integrity=\"sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ\" crossorigin=\"anonymous\"> -->
     <link rel=\"stylesheet\" href=\"";
-        // line 9
+        // line 8
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("build/app.css"), "html", null, true);
         echo "\" />
-    <script src=\"https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js\"></script>
     ";
-        // line 11
+        // line 9
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 13
+        // line 11
         echo "   <link rel=\"icon\" type=\"image/x-icon\" href=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/favicon.ico"), "html", null, true);
         echo "\" />
   </head>
 
   <body class=\"d-flex flex-column\">
-    <div id=\"banner\"></div>
+    <div id=\"banner\" style=\"cursor: pointer;\" onclick=\"window.location='";
+        // line 15
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("homepage");
+        echo "';\"></div>
 
     <!-- body -->
     <div class=\"container\" id=\"container-main\">
       <!-- Menu -->
-      <div class=\"btn-group btn-group-justified\" role=\"group\" aria-label=\"...\">
+      <div class=\"btn-group d-flex\" role=\"group\" aria-label=\"Top Menu\">
         ";
-        // line 23
+        // line 21
         $this->displayBlock('topmenu', $context, $blocks);
-        // line 25
+        // line 23
         echo "      </div>
 
         ";
-        // line 27
+        // line 25
         $this->displayBlock('body', $context, $blocks);
-        // line 29
+        // line 27
         echo "
     </div>
 
@@ -82,13 +83,31 @@ class __TwigTemplate_9edfb61a4a9bb6da4760fee86314b109145ea93eff96a84fec7b6c8361d
       <div class=\"container\">
         <div class=\"row\">
           <div class=\"col-md-4 col-sm-6 col-12 item links\">
+            <h3>Contact</h3>
+            <ul>
+              <li>
+                <span>
+                  <i class=\"fas fa-at\"></i>
+                  <a href=\"mailto:brussel@fedactio.be?Subject=Pangea%20Math%20Quiz\" target=\"_top\">brussel@fedactio.be</a>
+                </span>
+              </li>
+              <li>
+                <span>
+                  <i class=\"fas fa-phone\"></i>
+                  <a href=\"tel:+32-2-212-19-09\"> +32 2 212 19 09 </a>
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          <div class=\"col-md-4 col-sm-6 col-12 item links\">
             <h3>Accès rapide</h3>
             <ul>
       \t\t\t\t<li>
                 <span>
                   <i class=\"fas fa-chevron-right\"></i>
                   <a href=";
-        // line 43
+        // line 59
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("homepage");
         echo ">Retour à l'accueil</a>
                 </span>
@@ -96,45 +115,51 @@ class __TwigTemplate_9edfb61a4a9bb6da4760fee86314b109145ea93eff96a84fec7b6c8361d
       \t\t\t\t<li>
                 <span>
                   <i class=\"fas fa-chevron-right\"></i>
-                  <a href=\"#\">Informations</a>
+                  <a href=\"";
+        // line 65
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("aboutus");
+        echo "\">Informations</a>
+                </span>
+              </li>
+              <li>
+                <span>
+                  <i class=\"fas fa-chevron-right\"></i>
+                  <a href=\"";
+        // line 71
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("enroll");
+        echo "\">S'insrire au concours</a>
                 </span>
               </li>
       \t\t\t</ul>
           </div>
 
-          <div class=\"col-md-4 col-sm-6 col-12 item\">
-            <h3>Développement</h3>
-            <ul>
-              <li>&copy; 2018 Fedactio</li>
-              <li>Tous droits réservés.</li>
-            </ul>
-          </div>
-
           <div class=\"col-md-4 col-sm-12 col-12 item logo\">
             <h3> Organisateurs </h3>
-            <img src=\"";
-        // line 65
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/Fedactio-transparent.png"), "html", null, true);
+            <div class=\"d-flex\" role=\"group\" aria-label=\"Organisateurs\">
+              <img class=\"w-100 foot-logo\" src=\"";
+        // line 80
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/Logo_white.png"), "html", null, true);
         echo "\" alt=\"Fedactio Logo\" />
-            <img src=\"";
-        // line 66
+              <img class=\"w-100 foot-logo\" src=\"";
+        // line 81
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/Francolympiades-transparent.png"), "html", null, true);
         echo "\" alt=\"Logo Francolympiades\" />
+            </div>
           </div>
         </div>
       </div>
     </footer>
 
     <!-- scripts -->
-    <!-- <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>
-    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.3/js/tether.js\"></script>
-    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js\" integrity=\"sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn\" crossorigin=\"anonymous\"></script> -->
     <script src=\"https://use.fontawesome.com/releases/v5.0.6/js/all.js\"></script>
+    <script src=\"";
+        // line 90
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("build/app.js"), "html", null, true);
+        echo "\"></script>
     ";
-        // line 79
-        echo "    ";
+        // line 91
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 81
+        // line 93
         echo "
   </body>
 </html>
@@ -165,7 +190,7 @@ class __TwigTemplate_9edfb61a4a9bb6da4760fee86314b109145ea93eff96a84fec7b6c8361d
 
     }
 
-    // line 11
+    // line 9
     public function block_stylesheets($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -174,7 +199,7 @@ class __TwigTemplate_9edfb61a4a9bb6da4760fee86314b109145ea93eff96a84fec7b6c8361d
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 12
+        // line 10
         echo "    ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -184,7 +209,7 @@ class __TwigTemplate_9edfb61a4a9bb6da4760fee86314b109145ea93eff96a84fec7b6c8361d
 
     }
 
-    // line 23
+    // line 21
     public function block_topmenu($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -193,7 +218,7 @@ class __TwigTemplate_9edfb61a4a9bb6da4760fee86314b109145ea93eff96a84fec7b6c8361d
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "topmenu"));
 
-        // line 24
+        // line 22
         echo "        ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -203,7 +228,7 @@ class __TwigTemplate_9edfb61a4a9bb6da4760fee86314b109145ea93eff96a84fec7b6c8361d
 
     }
 
-    // line 27
+    // line 25
     public function block_body($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -212,7 +237,7 @@ class __TwigTemplate_9edfb61a4a9bb6da4760fee86314b109145ea93eff96a84fec7b6c8361d
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        // line 28
+        // line 26
         echo "        ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -222,7 +247,7 @@ class __TwigTemplate_9edfb61a4a9bb6da4760fee86314b109145ea93eff96a84fec7b6c8361d
 
     }
 
-    // line 79
+    // line 91
     public function block_javascripts($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -231,7 +256,7 @@ class __TwigTemplate_9edfb61a4a9bb6da4760fee86314b109145ea93eff96a84fec7b6c8361d
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 80
+        // line 92
         echo "    ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -253,7 +278,7 @@ class __TwigTemplate_9edfb61a4a9bb6da4760fee86314b109145ea93eff96a84fec7b6c8361d
 
     public function getDebugInfo()
     {
-        return array (  235 => 80,  226 => 79,  216 => 28,  207 => 27,  197 => 24,  188 => 23,  178 => 12,  169 => 11,  151 => 5,  138 => 81,  135 => 79,  121 => 66,  117 => 65,  92 => 43,  76 => 29,  74 => 27,  70 => 25,  68 => 23,  54 => 13,  52 => 11,  47 => 9,  40 => 5,  34 => 1,);
+        return array (  260 => 92,  251 => 91,  241 => 26,  232 => 25,  222 => 22,  213 => 21,  203 => 10,  194 => 9,  176 => 5,  163 => 93,  161 => 91,  157 => 90,  145 => 81,  141 => 80,  129 => 71,  120 => 65,  111 => 59,  77 => 27,  75 => 25,  71 => 23,  69 => 21,  60 => 15,  52 => 11,  50 => 9,  46 => 8,  40 => 5,  34 => 1,);
     }
 
     public function getSourceContext()
@@ -265,21 +290,19 @@ class __TwigTemplate_9edfb61a4a9bb6da4760fee86314b109145ea93eff96a84fec7b6c8361d
     <title>{% block title %}Bienvenue{% endblock %}</title>
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\" />
     <!-- stylesheets -->
-    <!-- <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css\" integrity=\"sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ\" crossorigin=\"anonymous\"> -->
     <link rel=\"stylesheet\" href=\"{{ asset('build/app.css') }}\" />
-    <script src=\"https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js\"></script>
     {% block stylesheets %}
     {% endblock %}
    <link rel=\"icon\" type=\"image/x-icon\" href=\"{{ asset('img/favicon.ico') }}\" />
   </head>
 
   <body class=\"d-flex flex-column\">
-    <div id=\"banner\"></div>
+    <div id=\"banner\" style=\"cursor: pointer;\" onclick=\"window.location='{{ path('homepage') }}';\"></div>
 
     <!-- body -->
     <div class=\"container\" id=\"container-main\">
       <!-- Menu -->
-      <div class=\"btn-group btn-group-justified\" role=\"group\" aria-label=\"...\">
+      <div class=\"btn-group d-flex\" role=\"group\" aria-label=\"Top Menu\">
         {% block topmenu %}
         {% endblock %}
       </div>
@@ -295,6 +318,24 @@ class __TwigTemplate_9edfb61a4a9bb6da4760fee86314b109145ea93eff96a84fec7b6c8361d
       <div class=\"container\">
         <div class=\"row\">
           <div class=\"col-md-4 col-sm-6 col-12 item links\">
+            <h3>Contact</h3>
+            <ul>
+              <li>
+                <span>
+                  <i class=\"fas fa-at\"></i>
+                  <a href=\"mailto:brussel@fedactio.be?Subject=Pangea%20Math%20Quiz\" target=\"_top\">brussel@fedactio.be</a>
+                </span>
+              </li>
+              <li>
+                <span>
+                  <i class=\"fas fa-phone\"></i>
+                  <a href=\"tel:+32-2-212-19-09\"> +32 2 212 19 09 </a>
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          <div class=\"col-md-4 col-sm-6 col-12 item links\">
             <h3>Accès rapide</h3>
             <ul>
       \t\t\t\t<li>
@@ -306,36 +347,32 @@ class __TwigTemplate_9edfb61a4a9bb6da4760fee86314b109145ea93eff96a84fec7b6c8361d
       \t\t\t\t<li>
                 <span>
                   <i class=\"fas fa-chevron-right\"></i>
-                  <a href=\"#\">Informations</a>
+                  <a href=\"{{path(\"aboutus\")}}\">Informations</a>
+                </span>
+              </li>
+              <li>
+                <span>
+                  <i class=\"fas fa-chevron-right\"></i>
+                  <a href=\"{{path(\"enroll\")}}\">S'insrire au concours</a>
                 </span>
               </li>
       \t\t\t</ul>
           </div>
 
-          <div class=\"col-md-4 col-sm-6 col-12 item\">
-            <h3>Développement</h3>
-            <ul>
-              <li>&copy; 2018 Fedactio</li>
-              <li>Tous droits réservés.</li>
-            </ul>
-          </div>
-
           <div class=\"col-md-4 col-sm-12 col-12 item logo\">
             <h3> Organisateurs </h3>
-            <img src=\"{{ asset('img/Fedactio-transparent.png') }}\" alt=\"Fedactio Logo\" />
-            <img src=\"{{ asset('img/Francolympiades-transparent.png') }}\" alt=\"Logo Francolympiades\" />
+            <div class=\"d-flex\" role=\"group\" aria-label=\"Organisateurs\">
+              <img class=\"w-100 foot-logo\" src=\"{{ asset('img/Logo_white.png') }}\" alt=\"Fedactio Logo\" />
+              <img class=\"w-100 foot-logo\" src=\"{{ asset('img/Francolympiades-transparent.png') }}\" alt=\"Logo Francolympiades\" />
+            </div>
           </div>
         </div>
       </div>
     </footer>
 
     <!-- scripts -->
-    <!-- <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>
-    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.3/js/tether.js\"></script>
-    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js\" integrity=\"sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn\" crossorigin=\"anonymous\"></script> -->
     <script src=\"https://use.fontawesome.com/releases/v5.0.6/js/all.js\"></script>
-    {# <script src=\"{{ asset('bundles/fosjsrouting/js/router.min.js') }}\"></script>
-    <script src=\"{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}\"></script> #}
+    <script src=\"{{ asset('build/app.js') }}\"></script>
     {% block javascripts %}
     {% endblock %}
 

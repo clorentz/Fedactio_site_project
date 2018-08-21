@@ -5,7 +5,8 @@ FONTS
 /*******************************************
 BOOTSTRAP
 *******************************************/
-@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import "~bootstrap/scss/bootstrap";
+//@import '~bootstrap-sass/assets/stylesheets/bootstrap';
 /*******************************************
 BODY
 *******************************************/
@@ -91,8 +92,10 @@ body {
 footer {
     background-image: url('../img/footer_bg.png');
 }
-footer h3, ul, li, img {
+footer{  
+  h3, ul, li, img {
     margin-left: 20px;
+  }
 }
 footer .item {
     margin-top: 10px;
@@ -131,6 +134,10 @@ footer .item.logo img {
     width: 40%;
     height: 40%;
     margin-top: -25px;
+}
+
+.w-100.foot-logo {
+    padding-top: 25px;
 }
 
 /*******************************************

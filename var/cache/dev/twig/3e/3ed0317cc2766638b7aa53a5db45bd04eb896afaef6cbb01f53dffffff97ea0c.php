@@ -104,7 +104,7 @@ class __TwigTemplate_e71b1e256347a46db3556055444cb0242359d68b105daf6e449587c6451
             echo "    <li> <a href=\"";
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_gallery_image", array("id" => twig_get_attribute($this->env, $this->source, $context["image"], "id", array()))), "html", null, true);
             echo "\"> ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["image"], "image", array()), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["image"], "name", array()), "html", null, true);
             echo " </a> </li>
   ";
         }
@@ -209,24 +209,28 @@ class __TwigTemplate_e71b1e256347a46db3556055444cb0242359d68b105daf6e449587c6451
 
 ";
         // line 63
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["quiz_form"]) || array_key_exists("quiz_form", $context) ? $context["quiz_form"] : (function () { throw new Twig_Error_Runtime('Variable "quiz_form" does not exist.', 63, $this->source); })()), "difficulty", array()), 'row');
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["quiz_form"]) || array_key_exists("quiz_form", $context) ? $context["quiz_form"] : (function () { throw new Twig_Error_Runtime('Variable "quiz_form" does not exist.', 63, $this->source); })()), "school", array()), 'row');
         echo "
 ";
         // line 64
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["quiz_form"]) || array_key_exists("quiz_form", $context) ? $context["quiz_form"] : (function () { throw new Twig_Error_Runtime('Variable "quiz_form" does not exist.', 64, $this->source); })()), "yearOfQuiz", array()), 'row');
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["quiz_form"]) || array_key_exists("quiz_form", $context) ? $context["quiz_form"] : (function () { throw new Twig_Error_Runtime('Variable "quiz_form" does not exist.', 64, $this->source); })()), "difficulty", array()), 'row');
         echo "
 ";
         // line 65
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["quiz_form"]) || array_key_exists("quiz_form", $context) ? $context["quiz_form"] : (function () { throw new Twig_Error_Runtime('Variable "quiz_form" does not exist.', 65, $this->source); })()), "quiz", array()), 'row');
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["quiz_form"]) || array_key_exists("quiz_form", $context) ? $context["quiz_form"] : (function () { throw new Twig_Error_Runtime('Variable "quiz_form" does not exist.', 65, $this->source); })()), "yearOfQuiz", array()), 'row');
         echo "
 ";
         // line 66
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["quiz_form"]) || array_key_exists("quiz_form", $context) ? $context["quiz_form"] : (function () { throw new Twig_Error_Runtime('Variable "quiz_form" does not exist.', 66, $this->source); })()), "send", array()), 'row');
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["quiz_form"]) || array_key_exists("quiz_form", $context) ? $context["quiz_form"] : (function () { throw new Twig_Error_Runtime('Variable "quiz_form" does not exist.', 66, $this->source); })()), "quiz", array()), 'row');
+        echo "
+";
+        // line 67
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["quiz_form"]) || array_key_exists("quiz_form", $context) ? $context["quiz_form"] : (function () { throw new Twig_Error_Runtime('Variable "quiz_form" does not exist.', 67, $this->source); })()), "send", array()), 'row');
         echo "
 
 ";
-        // line 68
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["img_form"]) || array_key_exists("img_form", $context) ? $context["img_form"] : (function () { throw new Twig_Error_Runtime('Variable "img_form" does not exist.', 68, $this->source); })()), 'form_end');
+        // line 69
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["img_form"]) || array_key_exists("img_form", $context) ? $context["img_form"] : (function () { throw new Twig_Error_Runtime('Variable "img_form" does not exist.', 69, $this->source); })()), 'form_end');
         echo "
 
 
@@ -251,7 +255,7 @@ class __TwigTemplate_e71b1e256347a46db3556055444cb0242359d68b105daf6e449587c6451
 
     public function getDebugInfo()
     {
-        return array (  229 => 68,  224 => 66,  220 => 65,  216 => 64,  212 => 63,  207 => 61,  199 => 55,  186 => 52,  183 => 51,  180 => 50,  177 => 49,  174 => 48,  171 => 47,  168 => 46,  165 => 45,  162 => 44,  159 => 43,  155 => 42,  142 => 32,  137 => 30,  133 => 29,  129 => 28,  125 => 27,  120 => 25,  115 => 22,  104 => 20,  100 => 19,  93 => 14,  84 => 11,  81 => 10,  77 => 9,  74 => 8,  65 => 7,  54 => 4,  45 => 3,  15 => 1,);
+        return array (  233 => 69,  228 => 67,  224 => 66,  220 => 65,  216 => 64,  212 => 63,  207 => 61,  199 => 55,  186 => 52,  183 => 51,  180 => 50,  177 => 49,  174 => 48,  171 => 47,  168 => 46,  165 => 45,  162 => 44,  159 => 43,  155 => 42,  142 => 32,  137 => 30,  133 => 29,  129 => 28,  125 => 27,  120 => 25,  115 => 22,  104 => 20,  100 => 19,  93 => 14,  84 => 11,  81 => 10,  77 => 9,  74 => 8,  65 => 7,  54 => 4,  45 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -275,7 +279,7 @@ class __TwigTemplate_e71b1e256347a46db3556055444cb0242359d68b105daf6e449587c6451
 
 <ul>
   {% for image in images %}
-    <li> <a href=\"{{ path('admin_gallery_image', {'id': image.id}) }}\"> {{image.image}} </a> </li>
+    <li> <a href=\"{{ path('admin_gallery_image', {'id': image.id}) }}\"> {{image.name}} </a> </li>
   {% endfor %}
 </ul>
 
@@ -318,6 +322,7 @@ class __TwigTemplate_e71b1e256347a46db3556055444cb0242359d68b105daf6e449587c6451
 
 {{ form_start(quiz_form) }}
 
+{{ form_row(quiz_form.school) }}
 {{ form_row(quiz_form.difficulty) }}
 {{ form_row(quiz_form.yearOfQuiz) }}
 {{ form_row(quiz_form.quiz) }}

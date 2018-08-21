@@ -108,7 +108,7 @@ class __TwigTemplate_cedb156eb3b0a7e2c1c83721529788ba937ae13d6e98466f7ef3d2b6b8b
         if (("admin_competition" == (isset($context["route"]) || array_key_exists("route", $context) ? $context["route"] : (function () { throw new Twig_Error_Runtime('Variable "route" does not exist.', 17, $this->source); })()))) {
             echo " active ";
         }
-        echo "\">Gestion Competition</a>
+        echo " w-100\">Gestion Competition</a>
   <a href=";
         // line 18
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_aboutus");
@@ -116,7 +116,7 @@ class __TwigTemplate_cedb156eb3b0a7e2c1c83721529788ba937ae13d6e98466f7ef3d2b6b8b
         if (("admin_aboutus" == (isset($context["route"]) || array_key_exists("route", $context) ? $context["route"] : (function () { throw new Twig_Error_Runtime('Variable "route" does not exist.', 18, $this->source); })()))) {
             echo " active ";
         }
-        echo "\">Gestion informations</a>
+        echo " w-100\">Gestion informations</a>
   <a href=";
         // line 19
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_regulation");
@@ -124,7 +124,7 @@ class __TwigTemplate_cedb156eb3b0a7e2c1c83721529788ba937ae13d6e98466f7ef3d2b6b8b
         if (("admin_regulation" == (isset($context["route"]) || array_key_exists("route", $context) ? $context["route"] : (function () { throw new Twig_Error_Runtime('Variable "route" does not exist.', 19, $this->source); })()))) {
             echo " active ";
         }
-        echo "\">Gestion règlement</a>
+        echo " w-100\">Gestion règlement</a>
   <a href=";
         // line 20
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_gallery");
@@ -132,15 +132,15 @@ class __TwigTemplate_cedb156eb3b0a7e2c1c83721529788ba937ae13d6e98466f7ef3d2b6b8b
         if (("admin_gallery" == (isset($context["route"]) || array_key_exists("route", $context) ? $context["route"] : (function () { throw new Twig_Error_Runtime('Variable "route" does not exist.', 20, $this->source); })()))) {
             echo " active ";
         }
-        echo "\">Gestion gallerie</a>
+        echo " w-100\">Gestion gallerie</a>
   <a href=";
         // line 21
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_training");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_training_choice");
         echo " class=\"btn btn-primary ";
-        if (("admin_training" == (isset($context["route"]) || array_key_exists("route", $context) ? $context["route"] : (function () { throw new Twig_Error_Runtime('Variable "route" does not exist.', 21, $this->source); })()))) {
+        if ((("admin_training_choice" == (isset($context["route"]) || array_key_exists("route", $context) ? $context["route"] : (function () { throw new Twig_Error_Runtime('Variable "route" does not exist.', 21, $this->source); })())) || ("admin_training" == (isset($context["route"]) || array_key_exists("route", $context) ? $context["route"] : (function () { throw new Twig_Error_Runtime('Variable "route" does not exist.', 21, $this->source); })())))) {
             echo " active ";
         }
-        echo "\">Gestion entraînement</a>
+        echo " w-100\">Gestion entraînement</a>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -269,11 +269,11 @@ class __TwigTemplate_cedb156eb3b0a7e2c1c83721529788ba937ae13d6e98466f7ef3d2b6b8b
 {% block topmenu %}
 <!-- Top menu for the public -->
 <!-- Test if the page is active to set the button correclty -->
-  <a href={{ path('admin_competition') }} class=\"btn btn-primary {% if 'admin_competition' == route %} active {% endif %}\">Gestion Competition</a>
-  <a href={{ path('admin_aboutus') }} class=\"btn btn-primary {% if 'admin_aboutus' == route %} active {% endif %}\">Gestion informations</a>
-  <a href={{ path('admin_regulation') }} class=\"btn btn-primary {% if 'admin_regulation' == route %} active {% endif %}\">Gestion règlement</a>
-  <a href={{ path('admin_gallery') }} class=\"btn btn-primary {% if 'admin_gallery' == route %} active {% endif %}\">Gestion gallerie</a>
-  <a href={{ path('admin_training') }} class=\"btn btn-primary {% if 'admin_training' == route %} active {% endif %}\">Gestion entraînement</a>
+  <a href={{ path('admin_competition') }} class=\"btn btn-primary {% if 'admin_competition' == route %} active {% endif %} w-100\">Gestion Competition</a>
+  <a href={{ path('admin_aboutus') }} class=\"btn btn-primary {% if 'admin_aboutus' == route %} active {% endif %} w-100\">Gestion informations</a>
+  <a href={{ path('admin_regulation') }} class=\"btn btn-primary {% if 'admin_regulation' == route %} active {% endif %} w-100\">Gestion règlement</a>
+  <a href={{ path('admin_gallery') }} class=\"btn btn-primary {% if 'admin_gallery' == route %} active {% endif %} w-100\">Gestion gallerie</a>
+  <a href={{ path('admin_training_choice') }} class=\"btn btn-primary {% if ('admin_training_choice' == route) or ('admin_training' == route) %} active {% endif %} w-100\">Gestion entraînement</a>
 {% endblock %}
 
 {% block body %}

@@ -72,7 +72,28 @@ class __TwigTemplate_deec183c5787a275df31a46396213f7365f850a0bc657deaff56ffb5b18
 
         // line 8
         echo "
-Insert informations here
+<h1> Règlement de l'année ";
+        // line 9
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["regulation"]) || array_key_exists("regulation", $context) ? $context["regulation"] : (function () { throw new Twig_Error_Runtime('Variable "regulation" does not exist.', 9, $this->source); })()), "regulationYear", array()), "html", null, true);
+        echo "</h1>
+
+<ul>
+  ";
+        // line 12
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["regulation"]) || array_key_exists("regulation", $context) ? $context["regulation"] : (function () { throw new Twig_Error_Runtime('Variable "regulation" does not exist.', 12, $this->source); })()), "items", array()));
+        foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
+            // line 13
+            echo "      <li> ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["item"], "regulation", array()), "html", null, true);
+            echo " </li>
+  ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 15
+        echo "</ul>
 
 ";
         
@@ -95,7 +116,7 @@ Insert informations here
 
     public function getDebugInfo()
     {
-        return array (  74 => 8,  65 => 7,  54 => 4,  45 => 3,  15 => 1,);
+        return array (  96 => 15,  87 => 13,  83 => 12,  77 => 9,  74 => 8,  65 => 7,  54 => 4,  45 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -108,7 +129,13 @@ Insert informations here
 
 {% block body %}
 
-Insert informations here
+<h1> Règlement de l'année {{regulation.regulationYear}}</h1>
+
+<ul>
+  {% for item in regulation.items %}
+      <li> {{item.regulation}} </li>
+  {% endfor %}
+</ul>
 
 {% endblock %}
 ", "public/regulation.html.twig", "/home/clorentz/www/fedactio_pangea/templates/public/regulation.html.twig");

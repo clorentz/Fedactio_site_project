@@ -18,10 +18,16 @@ class TrainingQuizType extends AbstractType
 
       $builder->add('difficulty', ChoiceType::class, array(
         'choices'  => array(
-          '1st Grade' => 1,
-          '2nd Grade' => 2,
-          '3rd Grade' => 3,
+          '1e/2nd' => 1,
+          '3e/4e' => 2,
+          '5e/6e' => 3,
         )
+      ));
+      $builder->add('school', ChoiceType::class, array(
+          'choices' => array(
+            'Primaire'   => 1,
+            'Secondaire' => 2,
+          )
       ));
       $builder->add('questions', CollectionType::class, array(
         'entry_type'   => TrainingQuestionType::class,

@@ -17,7 +17,7 @@
 
 <ul>
   {% for image in images %}
-    <li> <a href="{{ path('admin_gallery_image', {'id': image.id}) }}"> {{image.image}} </a> </li>
+    <li> <a href="{{ path('admin_gallery_image', {'id': image.id}) }}"> {{image.name}} </a> </li>
   {% endfor %}
 </ul>
 
@@ -60,6 +60,7 @@
 
 {{ form_start(quiz_form) }}
 
+{{ form_row(quiz_form.school) }}
 {{ form_row(quiz_form.difficulty) }}
 {{ form_row(quiz_form.yearOfQuiz) }}
 {{ form_row(quiz_form.quiz) }}

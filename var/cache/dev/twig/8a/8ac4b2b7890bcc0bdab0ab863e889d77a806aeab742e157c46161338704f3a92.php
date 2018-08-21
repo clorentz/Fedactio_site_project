@@ -90,8 +90,8 @@ class __TwigTemplate_385c89483b4f69c3c6e36147f178c7a8a86045394daf67100d3d5db3f55
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flashMessage'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 14
-        echo "
-Here you can modify the informations printed in the section \"About Us\".
+        echo "<h1>Modification of the about us section</h1>
+
 
 ";
         // line 17
@@ -114,7 +114,7 @@ Here you can modify the informations printed in the section \"About Us\".
         $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 23, $this->source); })()), "items", array()));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
             // line 24
-            echo "     <div class=\" row js-informations-items-item\">
+            echo "     <div class=\"row js-informations-items-item\">
        <div class=\"col-md-11\">
          ";
             // line 26
@@ -187,8 +187,8 @@ Here you can modify the informations printed in the section \"About Us\".
     {{ flashMessage|raw }}
   </div>
 {% endfor %}
+<h1>Modification of the about us section</h1>
 
-Here you can modify the informations printed in the section \"About Us\".
 
 {{ form_start(form) }}
 
@@ -197,7 +197,7 @@ Here you can modify the informations printed in the section \"About Us\".
     data-index=\"{{ form.items|length }}\">
 
    {% for item in form.items %}
-     <div class=\" row js-informations-items-item\">
+     <div class=\"row js-informations-items-item\">
        <div class=\"col-md-11\">
          {{ form_row(item.title) }}
          {{ form_row(item.content) }}

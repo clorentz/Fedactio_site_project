@@ -9,11 +9,15 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
 class RegulationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+      $builder->add('regulationYear', IntegerType::class, array(
+        'label'  =>  'Regulation Year'
+      ));
       $builder->add('items', CollectionType::class, array(
         'entry_type'   => RegulationItemType::class,
         'entry_options'=> array( 'label' => false, ),

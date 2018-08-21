@@ -35,6 +35,17 @@ class TrainingQuiz
      */
     private $questions;
 
+    /**
+     * @ORM\Column(type="smallint")
+     * @Assert\Range(
+     *      min = 1,
+     *      max = 2,
+     *      minMessage = "You must set the school for at least the Primary School",
+     *      maxMessage = "You must set the difficulty for at most the Secondary school"
+     * )
+     */
+    private $school;
+
     public function __construct()
     {
         $this->questions = new ArrayCollection();
@@ -84,6 +95,18 @@ class TrainingQuiz
                 $question->setTrainingQuiz(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSchool(): ?int
+    {
+        return $this->school;
+    }
+
+    public function setSchool(int $school): self
+    {
+        $this->school = $school;
 
         return $this;
     }

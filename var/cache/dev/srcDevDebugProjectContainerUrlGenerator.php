@@ -41,13 +41,21 @@ class srcDevDebugProjectContainerUrlGenerator extends Symfony\Component\Routing\
         'admin_quiz_delete' => array(array('id'), array('_controller' => 'App\\Controller\\AdminController::deleteQuiz'), array(), array(array('variable', '/', '[^/]++', 'id'), array('text', '/admin/quiz_delete')), array(), array()),
         'admin_gallery_image' => array(array('id'), array('_controller' => 'App\\Controller\\AdminController::showImage'), array(), array(array('variable', '/', '[^/]++', 'id'), array('text', '/admin/gallery_image')), array(), array()),
         'admin_gallery_image_delete' => array(array('id'), array('_controller' => 'App\\Controller\\AdminController::deleteImage'), array(), array(array('variable', '/', '[^/]++', 'id'), array('text', '/admin/gallery_image_delete')), array(), array()),
-        'admin_training' => array(array(), array('_controller' => 'App\\Controller\\AdminController::managementTraining'), array(), array(array('text', '/admin/training')), array(), array()),
+        'admin_training_choice' => array(array(), array('_controller' => 'App\\Controller\\AdminController::choiceTraining'), array(), array(array('text', '/admin/training_choice')), array(), array()),
+        'admin_new_training' => array(array(), array('_controller' => 'App\\Controller\\AdminController::createTraining'), array(), array(array('text', '/admin/training')), array(), array()),
+        'admin_delete_training' => array(array('id'), array('_controller' => 'App\\Controller\\AdminController::deleteTraining'), array(), array(array('variable', '/', '[^/]++', 'id'), array('text', '/admin/training_delete')), array(), array()),
+        'admin_training' => array(array('id'), array('_controller' => 'App\\Controller\\AdminController::managementTraining'), array(), array(array('variable', '/', '[^/]++', 'id'), array('text', '/admin/training')), array(), array()),
         'app_lucky_number' => array(array(), array('_controller' => 'App\\Controller\\LuckyController::number'), array(), array(array('text', '/lucky/number')), array(), array()),
         'homepage' => array(array(), array('_controller' => 'App\\Controller\\PublicController::homepage'), array(), array(array('text', '/')), array(), array()),
         'aboutus' => array(array(), array('_controller' => 'App\\Controller\\PublicController::aboutUs'), array(), array(array('text', '/aboutUs')), array(), array()),
+        'enroll' => array(array(), array('_controller' => 'App\\Controller\\PublicController::enroll'), array(), array(array('text', '/enroll')), array(), array()),
+        'updated' => array(array(), array('_controller' => 'App\\Controller\\PublicController::keepMeUpdated'), array(), array(array('text', '/keep_me_updated')), array(), array()),
         'regulation' => array(array(), array('_controller' => 'App\\Controller\\PublicController::regulation'), array(), array(array('text', '/regulation')), array(), array()),
         'gallery' => array(array(), array('_controller' => 'App\\Controller\\PublicController::gallery'), array(), array(array('text', '/gallery')), array(), array()),
-        'training' => array(array(), array('_controller' => 'App\\Controller\\PublicController::training'), array(), array(array('text', '/training')), array(), array()),
+        'img_gallery' => array(array(), array('_controller' => 'App\\Controller\\PublicController::img_gallery'), array(), array(array('text', '/img_gallery')), array(), array()),
+        'quiz_gallery' => array(array(), array('_controller' => 'App\\Controller\\PublicController::quiz_gallery'), array(), array(array('text', '/quiz_gallery')), array(), array()),
+        'training_choice' => array(array(), array('_controller' => 'App\\Controller\\PublicController::trainingChoice'), array(), array(array('text', '/training')), array(), array()),
+        'training' => array(array('id'), array('_controller' => 'App\\Controller\\PublicController::training'), array(), array(array('variable', '/', '[^/]++', 'id'), array('text', '/training')), array(), array()),
     );
         }
     }

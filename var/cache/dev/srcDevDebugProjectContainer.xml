@@ -454,6 +454,9 @@
     <service id="App\Form\TrainingAnswerType" class="App\Form\TrainingAnswerType" public="false" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\TrainingClientAnswerType" class="App\Form\TrainingClientAnswerType" public="false" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\TrainingQuestionType" class="App\Form\TrainingQuestionType" public="false" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -489,6 +492,10 @@
       <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\TrainingAnswerRepository" class="App\Repository\TrainingAnswerRepository" public="false" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\TrainingClientAnswerRepository" class="App\Repository\TrainingClientAnswerRepository" public="false" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -763,6 +770,7 @@
         <argument>App\Form\RegulationItemType</argument>
         <argument>App\Form\RegulationType</argument>
         <argument>App\Form\TrainingAnswerType</argument>
+        <argument>App\Form\TrainingClientAnswerType</argument>
         <argument>App\Form\TrainingQuestionType</argument>
         <argument>App\Form\TrainingQuizType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
@@ -991,7 +999,7 @@
       <argument type="service" id="form.resolved_type_factory"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.lK4HWto"/>
+      <argument type="service" id=".service_locator.reP6J2U"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.http_foundation"/>
@@ -3661,7 +3669,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.vfGNtF8"/>
+      <argument type="service" id=".service_locator.mXwG_IG"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -4332,6 +4340,8 @@
     <service id=".abstract.instanceof.App\Form\RegulationType" class="App\Form\RegulationType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\TrainingAnswerType" class="App\Form\TrainingAnswerType" public="false" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\TrainingAnswerType" class="App\Form\TrainingAnswerType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\TrainingClientAnswerType" class="App\Form\TrainingClientAnswerType" public="false" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\TrainingClientAnswerType" class="App\Form\TrainingClientAnswerType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\TrainingQuestionType" class="App\Form\TrainingQuestionType" public="false" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\TrainingQuestionType" class="App\Form\TrainingQuestionType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\TrainingQuizType" class="App\Form\TrainingQuizType" public="false" autowire="true" abstract="true"/>
@@ -4352,6 +4362,8 @@
     <service id=".abstract.instanceof.App\Repository\RegulationRepository" class="App\Repository\RegulationRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\TrainingAnswerRepository" class="App\Repository\TrainingAnswerRepository" public="false" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\TrainingAnswerRepository" class="App\Repository\TrainingAnswerRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\TrainingClientAnswerRepository" class="App\Repository\TrainingClientAnswerRepository" public="false" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\TrainingClientAnswerRepository" class="App\Repository\TrainingClientAnswerRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\TrainingQuestionRepository" class="App\Repository\TrainingQuestionRepository" public="false" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\TrainingQuestionRepository" class="App\Repository\TrainingQuestionRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\TrainingQuizRepository" class="App\Repository\TrainingQuizRepository" public="false" autowire="true" abstract="true"/>
@@ -4512,27 +4524,38 @@
         <argument key="image" type="service" id=".errored..service_locator.Ks9o1Ek.App\Entity\GalleryImage"/>
       </argument>
     </service>
-    <service id=".service_locator.bzxzFR5" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.spgHdID" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="quiz" type="service" id=".errored..service_locator.spgHdID.App\Entity\TrainingQuiz"/>
+      </argument>
+    </service>
+    <service id=".service_locator.qYGCuoQ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="fileUploader" type="service" id="App\Service\QuestionImageUploader"/>
+        <argument key="quiz" type="service" id=".errored..service_locator.qYGCuoQ.App\Entity\TrainingQuiz"/>
       </argument>
     </service>
-    <service id=".service_locator.pA2rK7_" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.0Vi3B2W" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AdminController::deleteImage" type="service" id=".service_locator.Ks9o1Ek"/>
         <argument key="App\Controller\AdminController::deleteQuiz" type="service" id=".service_locator.J1QHskN"/>
+        <argument key="App\Controller\AdminController::deleteTraining" type="service" id=".service_locator.spgHdID"/>
         <argument key="App\Controller\AdminController::managementGallery" type="service" id=".service_locator.RQ2iiYW"/>
-        <argument key="App\Controller\AdminController::managementTraining" type="service" id=".service_locator.bzxzFR5"/>
+        <argument key="App\Controller\AdminController::managementTraining" type="service" id=".service_locator.qYGCuoQ"/>
         <argument key="App\Controller\AdminController::showImage" type="service" id=".service_locator.Ks9o1Ek"/>
         <argument key="App\Controller\AdminController::showQuiz" type="service" id=".service_locator.J1QHskN"/>
+        <argument key="App\Controller\PublicController::training" type="service" id=".service_locator.spgHdID"/>
         <argument key="App\Controller\AdminController:deleteImage" type="service" id=".service_locator.Ks9o1Ek"/>
         <argument key="App\Controller\AdminController:deleteQuiz" type="service" id=".service_locator.J1QHskN"/>
+        <argument key="App\Controller\AdminController:deleteTraining" type="service" id=".service_locator.spgHdID"/>
         <argument key="App\Controller\AdminController:managementGallery" type="service" id=".service_locator.RQ2iiYW"/>
-        <argument key="App\Controller\AdminController:managementTraining" type="service" id=".service_locator.bzxzFR5"/>
+        <argument key="App\Controller\AdminController:managementTraining" type="service" id=".service_locator.qYGCuoQ"/>
         <argument key="App\Controller\AdminController:showImage" type="service" id=".service_locator.Ks9o1Ek"/>
         <argument key="App\Controller\AdminController:showQuiz" type="service" id=".service_locator.J1QHskN"/>
+        <argument key="App\Controller\PublicController:training" type="service" id=".service_locator.spgHdID"/>
       </argument>
     </service>
     <service id=".service_locator.yQVjGlt" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -4592,7 +4615,7 @@
       <argument type="service" id="debug.argument_resolver.variadic.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.lK4HWto" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.reP6J2U" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\CompetitionType" type="service" id="App\Form\CompetitionType"/>
@@ -4603,6 +4626,7 @@
         <argument key="App\Form\RegulationItemType" type="service" id="App\Form\RegulationItemType"/>
         <argument key="App\Form\RegulationType" type="service" id="App\Form\RegulationType"/>
         <argument key="App\Form\TrainingAnswerType" type="service" id="App\Form\TrainingAnswerType"/>
+        <argument key="App\Form\TrainingClientAnswerType" type="service" id="App\Form\TrainingClientAnswerType"/>
         <argument key="App\Form\TrainingQuestionType" type="service" id="App\Form\TrainingQuestionType"/>
         <argument key="App\Form\TrainingQuizType" type="service" id="App\Form\TrainingQuizType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
@@ -4613,7 +4637,7 @@
     <service id="security.logout.handler.csrf_token_clearing" class="Symfony\Component\Security\Http\Logout\CsrfTokenClearingLogoutHandler" public="false">
       <argument type="service" id="security.csrf.token_storage"/>
     </service>
-    <service id=".service_locator.vfGNtF8" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.mXwG_IG" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\CompetitionRepository" type="service" id="App\Repository\CompetitionRepository"/>
@@ -4624,6 +4648,7 @@
         <argument key="App\Repository\RegulationItemRepository" type="service" id="App\Repository\RegulationItemRepository"/>
         <argument key="App\Repository\RegulationRepository" type="service" id="App\Repository\RegulationRepository"/>
         <argument key="App\Repository\TrainingAnswerRepository" type="service" id="App\Repository\TrainingAnswerRepository"/>
+        <argument key="App\Repository\TrainingClientAnswerRepository" type="service" id="App\Repository\TrainingClientAnswerRepository"/>
         <argument key="App\Repository\TrainingQuestionRepository" type="service" id="App\Repository\TrainingQuestionRepository"/>
         <argument key="App\Repository\TrainingQuizRepository" type="service" id="App\Repository\TrainingQuizRepository"/>
         <argument key="App\Repository\UserRepository" type="service" id="App\Repository\UserRepository"/>
@@ -4791,7 +4816,7 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.pA2rK7_"/>
+      <argument type="service" id=".service_locator.0Vi3B2W"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
@@ -4846,6 +4871,8 @@
     </service>
     <service id=".errored..service_locator.J1QHskN.App\Entity\PreviousQuiz" class="App\Entity\PreviousQuiz"/>
     <service id=".errored..service_locator.Ks9o1Ek.App\Entity\GalleryImage" class="App\Entity\GalleryImage"/>
+    <service id=".errored..service_locator.spgHdID.App\Entity\TrainingQuiz" class="App\Entity\TrainingQuiz"/>
+    <service id=".errored..service_locator.qYGCuoQ.App\Entity\TrainingQuiz" class="App\Entity\TrainingQuiz"/>
     <service id=".service_locator.HKoUR8q" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5169,7 +5196,7 @@
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
     <service id="sensio_framework_extra.converter.doctrine.orm.expression_language" alias="sensio_framework_extra.converter.doctrine.orm.expression_language.default" public="false"/>
     <service id="sensio_framework_extra.security.expression_language" alias="sensio_framework_extra.security.expression_language.default" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.pA2rK7_"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.0Vi3B2W"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id=".service_locator.AoifO_3" alias=".2_ServiceLocator~j2qc8Ux" public="false"/>

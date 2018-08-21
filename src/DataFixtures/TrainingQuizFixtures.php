@@ -16,12 +16,28 @@ class TrainingQuizFixtures extends Fixture
             $questions = $questionRepo->findAll();
 
             $trainingQuiz = new TrainingQuiz();
-            $trainingQuiz->setDifficulty(1);
+            $trainingQuiz->setDifficulty(2);
+            $trainingQuiz->setSchool(1);
 
             foreach ($questions as $question) {
                 $trainingQuiz->addQuestion($question);
               }
 
+            $manager->persist($trainingQuiz);
+
+            $trainingQuiz = new TrainingQuiz();
+            $trainingQuiz->setDifficulty(2);
+            $trainingQuiz->setSchool(2);
+            $manager->persist($trainingQuiz);
+
+            $trainingQuiz = new TrainingQuiz();
+            $trainingQuiz->setDifficulty(3);
+            $trainingQuiz->setSchool(1);
+            $manager->persist($trainingQuiz);
+
+            $trainingQuiz = new TrainingQuiz();
+            $trainingQuiz->setDifficulty(1);
+            $trainingQuiz->setSchool(2);
             $manager->persist($trainingQuiz);
 
         $manager->flush();

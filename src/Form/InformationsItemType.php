@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class InformationsItemType extends AbstractType
 {
@@ -17,7 +18,7 @@ class InformationsItemType extends AbstractType
         'required' => true,
         'label'    => 'Title',
       ));
-      $builder->add('content',  TextType::class, array(
+      $builder->add('content',  TextareaType::class, array(
         'label'    => 'Content',
         'required' => true,
       ));

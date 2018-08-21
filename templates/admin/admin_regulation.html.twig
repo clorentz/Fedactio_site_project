@@ -18,12 +18,16 @@
 
 {{ form_start(form) }}
 
+{{form_row(form.regulationYear)}}
+
+<h2>Items</h2>
+
  <div class="js-regulation-items-wrapper"
     data-prototype=" {{ form_widget(form.items.vars.prototype)|e('html_attr') }}"
     data-index="{{ form.items|length }}">
 
    {% for item in form.items %}
-     <div class=" row js-regulation-items-item">
+     <div class="row js-regulation-items-item">
        <div class="col-md-11">
          {{ form_row(item.regulation) }}
        </div>

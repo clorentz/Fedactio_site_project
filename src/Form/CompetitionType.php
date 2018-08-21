@@ -15,7 +15,10 @@ class CompetitionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
-      $builder->add('inscriptionDate', DateType::class, array(
+      $builder->add('inscriptionStartDate', DateType::class, array(
+        'widget'       => 'choice',
+      ));
+      $builder->add('inscriptionEndDate', DateType::class, array(
         'widget'       => 'choice',
       ));
       $builder->add('individualDate', DateType::class, array(

@@ -4,30 +4,60 @@
   Page d'accueil
 {% endblock %}
 
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ asset('build/public.css') }}" />
+{% endblock %}
+
 {% block topmenu %}
 <!-- Top menu for the public -->
 <!-- Test if the page is active to set the button correclty -->
   {% set route = app.request.attributes.get("_route") %}
-  <a href={{ path('homepage') }} class="btn btn-primary {% if 'homepage' == route %} active {% endif %}"> <i class="fas fa-home"></i> Accueil</a>
-  <a href={{ path('aboutus') }} class="btn btn-primary {% if 'aboutus' == route %} active {% endif %}">À propos</a>
-  <a href={{ path('regulation') }} class="btn btn-primary {% if 'regulation' == route %} active {% endif %}">Règlement</a>
-  <a href={{ path('gallery') }} class="btn btn-primary {% if 'gallery' == route %} active {% endif %}">Gallerie</a>
-  <a href={{ path('training') }} class="btn btn-primary {% if 'training' == route %} active {% endif %}">S'entraîner</a>
+  <a href={{ path('homepage') }} class="btn btn-primary {% if 'homepage' == route %} active {% endif %} w-100"> <i class="fas fa-home"></i> Accueil</a>
+  <a href={{ path('aboutus') }} class="btn btn-primary {% if 'aboutus' == route %} active {% endif %} w-100">À propos</a>
+  <a href={{ path('regulation') }} class="btn btn-primary {% if 'regulation' == route %} active {% endif %} w-100">Règlement</a>
+  <!-- <div class="btn-group"> -->
+    <button type="button" class="btn btn-primary dropdown-toggle {% if 'gallery' == route %} active {% endif %} w-100" data-toggle="dropdown">
+       Gallery
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href={{ path('img_gallery') }}>Image Gallery</a>
+      <a class="dropdown-item" href={{ path('quiz_gallery') }}>Previous Quizs</a>
+    </div>
+  <!-- </div> -->
+  <a href={{ path('training_choice') }} class="btn btn-primary {% if 'training_choice' == route %} active {% endif %} w-100">S'entraîner</a>
 {% endblock %}
 
 {% block body %}
-<h3> Concours de mathématiques Pangea </h3>
+<img class="d-block w-100" src="{{ asset("img/banner_homepage.png") }}" alt="Homepage Banner" />
 
-Informations du concours:
-
-<ul>
-  <li> Inscription date: {{ inscriptionD }} </li>
-  <li> Individual date: {{ indivD }} </li>
-  <li> Individual location: {{ competition.individualLocation }} </li>
-  <li> Competition Start Date: {{ competSD }} </li>
-  <li> Competition End Date: {{ competED }} </li>
-</ul>
+<h3> Les dates importantes </h3>
+<div class="row">
+  <div class="col">
+    <ul>
+      <li> Inscription date: from the {{ inscriptionEndDate }} until the {{ inscriptionEndDate }} </li>
+      <li> Individual date: {{ indivD }} </li>
+      <li> Individual location: {{ competition.individualLocation }} </li>
+      <!-- <li> Competition Start Date: {{ competSD }} </li>
+      <li> Competition End Date: {{ competED }} </li> -->
+    </ul>
+  </div>
+  <div class="col">
+    {% if (date(competition.inscriptionStartDate) <= date()) and (date() <= date(competition.inscriptionEndDate)) %}
+      <a href=" {{ path("enroll") }} " class="btn btn-secondary"> S'inscrire (jusqu'au {{inscriptionEndDate}} )</a>
+    {% else %}
+        Les inscriptions ne sont pas ouvertes pour le moment. </br>
+        <a href=" {{ path("updated") }} " class="btn btn-secondary"> Me tenir au courant</a>
+    {% endif %}
+  </div>
+</div>
 
 
 Informations to display
+
+{% block javascripts %}
+
+<script src=" {{ asset('build/public.js') }}"></script>
+
+{% endblock %}
+
 {% endblock %}

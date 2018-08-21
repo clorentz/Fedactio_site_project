@@ -74,13 +74,18 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                     '/admin/aboutUs' => array(array('_route' => 'admin_aboutus', '_controller' => 'App\\Controller\\AdminController::managementAboutUs'), null, null, null),
                     '/admin/regulation' => array(array('_route' => 'admin_regulation', '_controller' => 'App\\Controller\\AdminController::managementRegulation'), null, null, null),
                     '/admin/gallery' => array(array('_route' => 'admin_gallery', '_controller' => 'App\\Controller\\AdminController::managementGallery'), null, null, null),
-                    '/admin/training' => array(array('_route' => 'admin_training', '_controller' => 'App\\Controller\\AdminController::managementTraining'), null, null, null),
+                    '/admin/training_choice' => array(array('_route' => 'admin_training_choice', '_controller' => 'App\\Controller\\AdminController::choiceTraining'), null, null, null),
+                    '/admin/training' => array(array('_route' => 'admin_new_training', '_controller' => 'App\\Controller\\AdminController::createTraining'), null, null, null),
                     '/lucky/number' => array(array('_route' => 'app_lucky_number', '_controller' => 'App\\Controller\\LuckyController::number'), null, null, null),
                     '/' => array(array('_route' => 'homepage', '_controller' => 'App\\Controller\\PublicController::homepage'), null, null, null),
                     '/aboutUs' => array(array('_route' => 'aboutus', '_controller' => 'App\\Controller\\PublicController::aboutUs'), null, null, null),
+                    '/enroll' => array(array('_route' => 'enroll', '_controller' => 'App\\Controller\\PublicController::enroll'), null, null, null),
+                    '/keep_me_updated' => array(array('_route' => 'updated', '_controller' => 'App\\Controller\\PublicController::keepMeUpdated'), null, null, null),
                     '/regulation' => array(array('_route' => 'regulation', '_controller' => 'App\\Controller\\PublicController::regulation'), null, null, null),
                     '/gallery' => array(array('_route' => 'gallery', '_controller' => 'App\\Controller\\PublicController::gallery'), null, null, null),
-                    '/training' => array(array('_route' => 'training', '_controller' => 'App\\Controller\\PublicController::training'), null, null, null),
+                    '/img_gallery' => array(array('_route' => 'img_gallery', '_controller' => 'App\\Controller\\PublicController::img_gallery'), null, null, null),
+                    '/quiz_gallery' => array(array('_route' => 'quiz_gallery', '_controller' => 'App\\Controller\\PublicController::quiz_gallery'), null, null, null),
+                    '/training' => array(array('_route' => 'training_choice', '_controller' => 'App\\Controller\\PublicController::trainingChoice'), null, null, null),
                 );
 
                 if (!isset($routes[$pathinfo])) {
@@ -130,7 +135,12 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                             .'|/([^/]++)(*:253)'
                             .'|_delete/([^/]++)(*:277)'
                         .')'
+                        .'|training(?'
+                            .'|_delete/([^/]++)(*:313)'
+                            .'|/([^/]++)(*:330)'
+                        .')'
                     .')'
+                    .'|/training/([^/]++)(*:358)'
                 .')$}sD',
         );
 
@@ -150,6 +160,9 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                             219 => array(array('_route' => 'admin_quiz_delete', '_controller' => 'App\\Controller\\AdminController::deleteQuiz'), array('id'), null, null),
                             253 => array(array('_route' => 'admin_gallery_image', '_controller' => 'App\\Controller\\AdminController::showImage'), array('id'), null, null),
                             277 => array(array('_route' => 'admin_gallery_image_delete', '_controller' => 'App\\Controller\\AdminController::deleteImage'), array('id'), null, null),
+                            313 => array(array('_route' => 'admin_delete_training', '_controller' => 'App\\Controller\\AdminController::deleteTraining'), array('id'), null, null),
+                            330 => array(array('_route' => 'admin_training', '_controller' => 'App\\Controller\\AdminController::managementTraining'), array('id'), null, null),
+                            358 => array(array('_route' => 'training', '_controller' => 'App\\Controller\\PublicController::training'), array('id'), null, null),
                         );
 
                         list($ret, $vars, $requiredMethods, $requiredSchemes) = $routes[$m];
@@ -175,7 +188,7 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                         return $ret;
                 }
 
-                if (277 === $m) {
+                if (358 === $m) {
                     break;
                 }
                 $regex = substr_replace($regex, 'F', $m - $offset, 1 + strlen($m));

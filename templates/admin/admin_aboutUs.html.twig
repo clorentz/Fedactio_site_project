@@ -11,8 +11,8 @@
     {{ flashMessage|raw }}
   </div>
 {% endfor %}
+<h1>Modification of the about us section</h1>
 
-Here you can modify the informations printed in the section "About Us".
 
 {{ form_start(form) }}
 
@@ -21,7 +21,7 @@ Here you can modify the informations printed in the section "About Us".
     data-index="{{ form.items|length }}">
 
    {% for item in form.items %}
-     <div class=" row js-informations-items-item">
+     <div class="row js-informations-items-item">
        <div class="col-md-11">
          {{ form_row(item.title) }}
          {{ form_row(item.content) }}

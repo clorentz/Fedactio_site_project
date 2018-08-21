@@ -16,6 +16,7 @@ class RegulationFixtures extends Fixture implements DependentFixtureInterface
       $items = $manager->getRepository(RegulationItem::class)->findAll();
 
       $regulation = new Regulation();
+      $regulation->setRegulationYear(2018);
 
       foreach ($items as $item) {
         $regulation->addItem($item);

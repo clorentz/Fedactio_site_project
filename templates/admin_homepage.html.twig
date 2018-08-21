@@ -14,11 +14,11 @@
 {% block topmenu %}
 <!-- Top menu for the public -->
 <!-- Test if the page is active to set the button correclty -->
-  <a href={{ path('admin_competition') }} class="btn btn-primary {% if 'admin_competition' == route %} active {% endif %}">Gestion Competition</a>
-  <a href={{ path('admin_aboutus') }} class="btn btn-primary {% if 'admin_aboutus' == route %} active {% endif %}">Gestion informations</a>
-  <a href={{ path('admin_regulation') }} class="btn btn-primary {% if 'admin_regulation' == route %} active {% endif %}">Gestion règlement</a>
-  <a href={{ path('admin_gallery') }} class="btn btn-primary {% if 'admin_gallery' == route %} active {% endif %}">Gestion gallerie</a>
-  <a href={{ path('admin_training') }} class="btn btn-primary {% if 'admin_training' == route %} active {% endif %}">Gestion entraînement</a>
+  <a href={{ path('admin_competition') }} class="btn btn-primary {% if 'admin_competition' == route %} active {% endif %} w-100">Gestion Competition</a>
+  <a href={{ path('admin_aboutus') }} class="btn btn-primary {% if 'admin_aboutus' == route %} active {% endif %} w-100">Gestion informations</a>
+  <a href={{ path('admin_regulation') }} class="btn btn-primary {% if 'admin_regulation' == route %} active {% endif %} w-100">Gestion règlement</a>
+  <a href={{ path('admin_gallery') }} class="btn btn-primary {% if 'admin_gallery' == route %} active {% endif %} w-100">Gestion gallerie</a>
+  <a href={{ path('admin_training_choice') }} class="btn btn-primary {% if ('admin_training_choice' == route) or ('admin_training' == route) %} active {% endif %} w-100">Gestion entraînement</a>
 {% endblock %}
 
 {% block body %}

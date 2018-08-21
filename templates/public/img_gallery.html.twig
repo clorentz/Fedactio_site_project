@@ -1,0 +1,52 @@
+{% extends 'homepage.html.twig' %}
+
+{% block title %}
+  Page de gallerie
+{% endblock %}
+
+
+{% block body %}
+{% for i in 0..max_index %}
+  <h1> Photos archivées de l'année {{years[i]}} </h1>
+  {% if i == 0 %}
+    <div class="row">
+      {% for image in images_array[i] %}
+        <div class="col-lg-4 col-6 "><img class="img-thumbnail img-fluid" src="{{asset("uploads/gallery_images/") ~ image.image}}" alt=""></div>
+      {% endfor %}
+      </div>
+
+  {% else %}
+ <div id="{{"ImageGallery" ~ years[i] }}" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      {% set cmpt = 0 %}
+      {% for image in images_array[i] %}
+        <li data-target="#{{"ImageGallery" ~ years[i] }}" data-slide-to="{{cmpt}}" class="active"></li>
+        {% set cmpt = cmpt + 1 %}
+      {% endfor %}
+    </ol>
+    <div class="carousel-inner">
+      {% set cmpt = 0 %}
+      {% for image in images_array[i] %}
+      <div class="carousel-item {% if cmpt == 0 %} active {% endif %}">
+        <img class="d-block w-100" src="{{asset("uploads/gallery_images/") ~ image.image}}" alt="Slide">
+      </div>
+      {% set cmpt = cmpt + 1 %}
+      {% endfor %}
+    </div>
+    <a class="carousel-control-prev" href="#{{"ImageGallery" ~ years[i] }}" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#{{"ImageGallery" ~ years[i] }}" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  {% endif %}
+{% endfor %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
