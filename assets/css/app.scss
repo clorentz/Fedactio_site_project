@@ -22,7 +22,7 @@ BANNER
 *******************************************/
 #banner {
     width: 100%;
-    background-image: url("../img/banner.png");
+    background-image: url("../img/banner_fr.jpg");
     background-position: center top;
     background-repeat: no-repeat;
     height: 220px;
@@ -70,7 +70,8 @@ BANNER
 /*Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {
     #banner {
-        background-image: linear-gradient(to right, white 20%, white 20%, transparent 20%, transparent 80%, transparent 80%, white 80%, white 100%), url("../img/banner.png");
+        background-image: linear-gradient(to right, white 0%, transparent 15%, transparent 80%, transparent 85%, white 100%), url("../img/banner_fr.jpg");
+        //background-image: linear-gradient(to right, white 20%, white 20%, transparent 20%, transparent 80%, transparent 80%, white 80%, white 100%), url("../img/banner_fr.jpg");
         background-size: 1140px 65px, auto;
         background-position: bottom center, bottom center;
     }
@@ -92,7 +93,10 @@ body {
 footer {
     background-image: url('../img/footer_bg.png');
 }
-footer{  
+footer{
+  h3 {
+    font-size: 1.6rem;
+  }
   h3, ul, li, img {
     margin-left: 20px;
   }
@@ -116,7 +120,7 @@ footer ul {
     list-style-type: none;
 }
 footer ul li{
-  font-size: initial;
+  font-size: 1.2em;
 }
 footer .links a, a:hover {
     color: inherit;
@@ -152,32 +156,6 @@ span.left-menu {
     font-size: small;
     font-weight: bold;
 }
-
-/*
-.liste-admin{
-    width: 100%;
-}
-
-.liste-modules > a, .liste-admin > a {
-    text-align: left;
-    white-space: normal;
-    min-height: 50px;
-    padding: 15px;
-}
-
-.liste-modules-text {
-    width: 70%;
-    display: inline-block;
-}
-
-.liste-modules-chart {
-    float: right;
-    width: 35px;
-    height: 35px;
-    display: block;
-    border-radius: 50%;
-}
-*/
 
 .btn-light {
     color :black;
@@ -216,6 +194,11 @@ span.left-menu {
     line-height: 20px;
 }
 
+// Affects all the alerts to separate them properly from the menu
+.alert {
+    margin-top: 10px;
+}
+
 /*******************************************
 BUTTON
 *******************************************/
@@ -241,17 +224,6 @@ BUTTON
     transform: translateY(2px) translateX(2px);
 }
 
-
-/*
-.btn-add-enquete{
-    background-color: #97be0d;
-    float:left;
-}
-
-.btn-add-enquete:hover, .btn-add-enquete:focus, .btn-add-enquete:not([disabled]):not(.disabled):active{
-    background-color: #728f0a;
-}
-*/
 
 /*******************************************
 CONFIRM BUTTON
@@ -325,28 +297,6 @@ TEXT AROUND FORM
 .form-label {
     font-weight: bold;
 }
-/*
-.enquete-title {
-    margin-left: 15%;
-    font-weight: bold;
-    margin-bottom: 50px;
-}
-
-.orange {
-    background-color: #f29400;
-    font-size: 3px;
-    color: #f29400;
-}
-
-.module {
-    font-weight: bold;
-}
-
-.info-user {
-    font-size: small;
-    font-weight: bold;
-}
-*/
 
 /*******************************************
 TABLE STYLE
@@ -380,14 +330,6 @@ SEARCH BAR
     border-radius: .25rem;
 }
 
-/*
-.search-bar-admin{
-    padding: .5rem .75rem;
-    border: 1px solid rgba(0,0,0,.15);
-    border-radius: .25rem;
-}
-*/
-
 .search-list{
     list-style-type: none;
     float: left;
@@ -408,4 +350,12 @@ SEARCH BAR
 #match a:hover{
     color : #39A9DC;
     font-weight: bold;
+}
+/**************************************
+TRAINING CHOICE BUTTON
+**************************************/
+
+.training-choice-btn {
+    padding: 10px 10px;
+    margin: 10px;
 }

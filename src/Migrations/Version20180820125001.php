@@ -15,7 +15,7 @@ final class Version20180820125001 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE competition ADD inscription_end_date DATE NOT NULL, CHANGE inscription_date inscription_start_date DATE NOT NULL');
+    //    $this->addSql('ALTER TABLE competition ADD inscription_end_date DATE NOT NULL, CHANGE inscription_date inscription_start_date DATE NOT NULL');
     }
 
     public function down(Schema $schema) : void
@@ -23,6 +23,6 @@ final class Version20180820125001 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE competition ADD inscription_date DATE NOT NULL, DROP inscription_start_date, DROP inscription_end_date');
+      //  $this->addSql('ALTER TABLE competition ADD inscription_date DATE NOT NULL, DROP inscription_start_date, DROP inscription_end_date');
     }
 }

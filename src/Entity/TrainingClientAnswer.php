@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -16,11 +18,6 @@ class TrainingClientAnswer
      */
     private $id;
 
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\TrainingAnswer", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $answer;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TrainingQuestion")
@@ -28,21 +25,19 @@ class TrainingClientAnswer
      */
     private $question;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TrainingAnswer", mappedBy="trainingClientAnswer")
+     */
+    private $answers;
+
+    public function __construct()
+    {
+        $this->answers = new ArrayCollection();
+    }
+
     public function getId()
     {
         return $this->id;
-    }
-
-    public function getAnswer(): ?TrainingAnswer
-    {
-        return $this->answer;
-    }
-
-    public function setAnswer(TrainingAnswer $answer): self
-    {
-        $this->answer = $answer;
-
-        return $this;
     }
 
     public function getQuestion(): ?TrainingQuestion
@@ -53,6 +48,37 @@ class TrainingClientAnswer
     public function setQuestion(?TrainingQuestion $question): self
     {
         $this->question = $question;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TrainingAnswer[]
+     */
+    public function getAnswers(): Collection
+    {
+        return $this->answers;
+    }
+
+    public function addAnswer(TrainingAnswer $answer): self
+    {
+        if (!$this->answers->contains($answer)) {
+            $this->answers[] = $answer;
+            $answer->setTrainingClientAnswer($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAnswer(TrainingAnswer $answer): self
+    {
+        if ($this->answers->contains($answer)) {
+            $this->answers->removeElement($answer);
+            // set the owning side to null (unless already changed)
+            if ($answer->getTrainingClientAnswer() === $this) {
+                $answer->setTrainingClientAnswer(null);
+            }
+        }
 
         return $this;
     }

@@ -71,7 +71,7 @@ class __TwigTemplate_54ffe62ffffa4d85b8c3bb36aae5689a21ef009b51d375d26bc483e426f
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 8
-        echo "<h3> Training section </h3>
+        echo "<h1> Training section </h1>
 
 <h3>Primary School</h3>
 <div class=\"d-flex\" role=\"group\" aria-label=\"Primary Traning Choice\">
@@ -83,7 +83,7 @@ class __TwigTemplate_54ffe62ffffa4d85b8c3bb36aae5689a21ef009b51d375d26bc483e426f
             // line 13
             echo "      <a href=";
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("training", array("id" => twig_get_attribute($this->env, $this->source, $context["quiz"], "id", array()))), "html", null, true);
-            echo " class=\"btn btn-secondary w-100\">Entrainement de niveau ";
+            echo " class=\"btn btn-secondary w-100 training-choice-btn\">Entrainement de niveau ";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["difficulty"]) || array_key_exists("difficulty", $context) ? $context["difficulty"] : (function () { throw new Twig_Error_Runtime('Variable "difficulty" does not exist.', 13, $this->source); })()), (twig_get_attribute($this->env, $this->source, $context["quiz"], "difficulty", array()) - 1), array(), "array"), "html", null, true);
             echo "</a>
   ";
@@ -104,7 +104,7 @@ class __TwigTemplate_54ffe62ffffa4d85b8c3bb36aae5689a21ef009b51d375d26bc483e426f
             // line 20
             echo "      <a href=";
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("training", array("id" => twig_get_attribute($this->env, $this->source, $context["quiz"], "id", array()))), "html", null, true);
-            echo " class=\"btn btn-secondary w-100\">Entrainement de niveau ";
+            echo " class=\"btn btn-secondary w-100 training-choice-btn\">Entrainement de niveau ";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["difficulty"]) || array_key_exists("difficulty", $context) ? $context["difficulty"] : (function () { throw new Twig_Error_Runtime('Variable "difficulty" does not exist.', 20, $this->source); })()), (twig_get_attribute($this->env, $this->source, $context["quiz"], "difficulty", array()) - 1), array(), "array"), "html", null, true);
             echo "</a>
   ";
@@ -148,19 +148,19 @@ class __TwigTemplate_54ffe62ffffa4d85b8c3bb36aae5689a21ef009b51d375d26bc483e426f
 {% endblock %}
 
 {% block body %}
-<h3> Training section </h3>
+<h1> Training section </h1>
 
 <h3>Primary School</h3>
 <div class=\"d-flex\" role=\"group\" aria-label=\"Primary Traning Choice\">
   {% for quiz in primary_quiz %}
-      <a href={{ path('training', {'id': quiz.id}) }} class=\"btn btn-secondary w-100\">Entrainement de niveau {{ difficulty[quiz.difficulty-1] }}</a>
+      <a href={{ path('training', {'id': quiz.id}) }} class=\"btn btn-secondary w-100 training-choice-btn\">Entrainement de niveau {{ difficulty[quiz.difficulty-1] }}</a>
   {% endfor %}
 </div>
 
 <h3>Secondary School</h3>
 <div class=\"d-flex\" role=\"group\" aria-label=\"Secondary Traning Choice\">
   {% for quiz in secondary_quiz %}
-      <a href={{ path('training', {'id': quiz.id}) }} class=\"btn btn-secondary w-100\">Entrainement de niveau {{ difficulty[quiz.difficulty-1] }}</a>
+      <a href={{ path('training', {'id': quiz.id}) }} class=\"btn btn-secondary w-100 training-choice-btn\">Entrainement de niveau {{ difficulty[quiz.difficulty-1] }}</a>
   {% endfor %}
 </div>
 

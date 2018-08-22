@@ -3,11 +3,13 @@
 namespace App\Form;
 
 use App\Entity\TrainingClientAnswer;
+use App\Entity\TrainingAnswer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 
 class TrainingClientAnswerType extends AbstractType
@@ -25,11 +27,15 @@ class TrainingClientAnswerType extends AbstractType
         }
 
 
-        $builder->add('answer',  ChoiceType::class, array(
-          'required' => true,
-         'choices'  => $choices,
-        //  'multiple' => true,
+        $builder->add('answers',  EntityType::class, array(
+          'class'    => TrainingAnswer::class,
+          'choice_label' => function ($trainingAnswer) {
+            return $trainingAnswer->getAnswer();
+            },
+          'choices'  => $items,
+          'multiple' => true,
           'expanded' => true,
+          'required' => true,
           'label'    => false
         ));
       });

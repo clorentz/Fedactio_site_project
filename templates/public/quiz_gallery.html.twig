@@ -9,16 +9,24 @@
 Voici les fichiers recensant les quizs des années précédentes ainsi que les réponses de ceux-ci:
 
   <h1> Quizs de l'école primaire </h1>
-  <ul>
-    {% for quiz in primary_quizs %}
+  {% if primary_quizs|length > 0 %}
+    <ul>
+      {% for quiz in primary_quizs %}
       <li> <a href=" {{ asset("uploads/previous_quiz/" ~ quiz.quiz) }}" class="quiz_link">Quiz de {{quiz.yearOfQuiz}} pour les {{ difficulty[quiz.difficulty-1] }} </a> </li>
-    {% endfor %}
-  </ul>
+      {% endfor %}
+    </ul>
+  {% else %}
+      Il n'y a aucun quiz disponible pour ce niveau.
+  {% endif %}
 
   <h1> Quizs de l'école secondaire </h1>
-  <ul>
-    {% for quiz in secondary_quizs %}
-    <li> <a href=" {{ asset("uploads/previous_quiz/" ~ quiz.quiz) }}" class="quiz_link">Quiz de {{quiz.yearOfQuiz}} pour les {{ difficulty[quiz.difficulty-1] }} </a> </li>
-    {% endfor %}
-  </ul>
+  {% if secondary_quizs|length > 0 %}
+    <ul>
+      {% for quiz in secondary_quizs %}
+      <li> <a href=" {{ asset("uploads/previous_quiz/" ~ quiz.quiz) }}" class="quiz_link">Quiz de {{quiz.yearOfQuiz}} pour les {{ difficulty[quiz.difficulty-1] }} </a> </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    Il n'y a aucun quiz disponible pour ce niveau.
+  {% endif %}
 {% endblock %}

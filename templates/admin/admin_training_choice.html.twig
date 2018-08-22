@@ -17,14 +17,14 @@
 <h3>Primary School</h3>
 <div class="d-flex" role="group" aria-label="Primary Traning Choice">
   {% for quiz in primary_quiz %}
-      <a href={{ path('admin_training', {'id': quiz.id}) }} class="btn btn-secondary w-100">Modifier l'entrainement du niveau {{ difficulty[quiz.difficulty-1] }}</a>
+      <a href={{ path('admin_training', {'id': quiz.id}) }} class="btn btn-secondary w-100 training-choice-btn">Modifier l'entrainement du niveau {{ difficulty[quiz.difficulty-1] }}</a>
   {% endfor %}
 </div>
 
 <h3>Secondary School</h3>
 <div class="d-flex" role="group" aria-label="Secondary Traning Choice">
   {% for quiz in secondary_quiz %}
-      <a href={{ path('admin_training', {'id': quiz.id}) }} class="btn btn-secondary w-100">Modifier l'entrainement du niveau {{ difficulty[quiz.difficulty-1] }}</a>
+      <a href={{ path('admin_training', {'id': quiz.id}) }} class="btn btn-secondary w-100 training-choice-btn">Modifier l'entrainement du niveau {{ difficulty[quiz.difficulty-1] }}</a>
   {% endfor %}
 </div>
 

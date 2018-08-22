@@ -50,12 +50,14 @@ class srcDevDebugProjectContainerUrlGenerator extends Symfony\Component\Routing\
         'aboutus' => array(array(), array('_controller' => 'App\\Controller\\PublicController::aboutUs'), array(), array(array('text', '/aboutUs')), array(), array()),
         'enroll' => array(array(), array('_controller' => 'App\\Controller\\PublicController::enroll'), array(), array(array('text', '/enroll')), array(), array()),
         'updated' => array(array(), array('_controller' => 'App\\Controller\\PublicController::keepMeUpdated'), array(), array(array('text', '/keep_me_updated')), array(), array()),
+        'usage_conditions' => array(array(), array('_controller' => 'App\\Controller\\PublicController::usageConditions'), array(), array(array('text', '/CGU')), array(), array()),
         'regulation' => array(array(), array('_controller' => 'App\\Controller\\PublicController::regulation'), array(), array(array('text', '/regulation')), array(), array()),
         'gallery' => array(array(), array('_controller' => 'App\\Controller\\PublicController::gallery'), array(), array(array('text', '/gallery')), array(), array()),
         'img_gallery' => array(array(), array('_controller' => 'App\\Controller\\PublicController::img_gallery'), array(), array(array('text', '/img_gallery')), array(), array()),
         'quiz_gallery' => array(array(), array('_controller' => 'App\\Controller\\PublicController::quiz_gallery'), array(), array(array('text', '/quiz_gallery')), array(), array()),
         'training_choice' => array(array(), array('_controller' => 'App\\Controller\\PublicController::trainingChoice'), array(), array(array('text', '/training')), array(), array()),
         'training' => array(array('id'), array('_controller' => 'App\\Controller\\PublicController::training'), array(), array(array('variable', '/', '[^/]++', 'id'), array('text', '/training')), array(), array()),
+        'correction' => array(array('id'), array('_controller' => 'App\\Controller\\PublicController::trainingCorrection'), array(), array(array('variable', '/', '[^/]++', 'id'), array('text', '/correction')), array(), array()),
     );
         }
     }

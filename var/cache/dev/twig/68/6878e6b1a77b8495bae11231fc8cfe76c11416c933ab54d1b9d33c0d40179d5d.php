@@ -51,7 +51,7 @@ class __TwigTemplate_6f03a7d44ae640df2fdf833bb9c2c17cef92dd15bb8b8649421983360f5
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         // line 5
-        echo "  Page d'inscription au concours
+        echo "  Page d'inscription aux informations
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -72,7 +72,56 @@ class __TwigTemplate_6f03a7d44ae640df2fdf833bb9c2c17cef92dd15bb8b8649421983360f5
 
         // line 9
         echo "
-Insert informations here
+";
+        // line 10
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 10, $this->source); })()), "session", array()), "flashbag", array()), "get", array(0 => "success"), "method"));
+        foreach ($context['_seq'] as $context["_key"] => $context["flashMessage"]) {
+            // line 11
+            echo "  <div class=\"alert alert-success\">
+    ";
+            // line 12
+            echo $context["flashMessage"];
+            echo "
+  </div>
+";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flashMessage'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 15
+        echo "
+<h1>Être tenu au courant</h1>
+";
+        // line 17
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 17, $this->source); })()), 'form_start');
+        echo "
+
+";
+        // line 19
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 19, $this->source); })()), "surname", array()), 'row');
+        echo "
+";
+        // line 20
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 20, $this->source); })()), "name", array()), 'row');
+        echo "
+";
+        // line 21
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 21, $this->source); })()), "email", array()), 'row');
+        echo "
+Veuillez accepter les <a href=";
+        // line 22
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("usage_conditions");
+        echo ">CGU</a> pour être tenu au courant.
+";
+        // line 23
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 23, $this->source); })()), "termsAccepted", array()), 'row');
+        echo "
+
+";
+        // line 25
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 25, $this->source); })()), 'form_end');
+        echo "
 
 ";
         
@@ -95,7 +144,7 @@ Insert informations here
 
     public function getDebugInfo()
     {
-        return array (  74 => 9,  65 => 8,  54 => 5,  45 => 4,  15 => 2,);
+        return array (  123 => 25,  118 => 23,  114 => 22,  110 => 21,  106 => 20,  102 => 19,  97 => 17,  93 => 15,  84 => 12,  81 => 11,  77 => 10,  74 => 9,  65 => 8,  54 => 5,  45 => 4,  15 => 2,);
     }
 
     public function getSourceContext()
@@ -104,12 +153,27 @@ Insert informations here
 {% extends 'homepage.html.twig' %}
 
 {% block title %}
-  Page d'inscription au concours
+  Page d'inscription aux informations
 {% endblock %}
 
 {% block body %}
 
-Insert informations here
+{% for flashMessage in app.session.flashbag.get('success') %}
+  <div class=\"alert alert-success\">
+    {{ flashMessage|raw }}
+  </div>
+{% endfor %}
+
+<h1>Être tenu au courant</h1>
+{{form_start(form)}}
+
+{{form_row(form.surname)}}
+{{form_row(form.name)}}
+{{form_row(form.email)}}
+Veuillez accepter les <a href={{ path('usage_conditions') }}>CGU</a> pour être tenu au courant.
+{{form_row(form.termsAccepted)}}
+
+{{form_end(form)}}
 
 {% endblock %}
 ", "public/updated.html.twig", "/home/clorentz/www/fedactio_pangea/templates/public/updated.html.twig");

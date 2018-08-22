@@ -17,11 +17,11 @@
   <a href={{ path('regulation') }} class="btn btn-primary {% if 'regulation' == route %} active {% endif %} w-100">Règlement</a>
   <!-- <div class="btn-group"> -->
     <button type="button" class="btn btn-primary dropdown-toggle {% if 'gallery' == route %} active {% endif %} w-100" data-toggle="dropdown">
-       Gallery
+       Galleries
     </button>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href={{ path('img_gallery') }}>Image Gallery</a>
-      <a class="dropdown-item" href={{ path('quiz_gallery') }}>Previous Quizs</a>
+      <a class="dropdown-item" href={{ path('img_gallery') }}>Gallerie d'images</a>
+      <a class="dropdown-item" href={{ path('quiz_gallery') }}>Quizs précédents</a>
     </div>
   <!-- </div> -->
   <a href={{ path('training_choice') }} class="btn btn-primary {% if 'training_choice' == route %} active {% endif %} w-100">S'entraîner</a>
@@ -34,11 +34,9 @@
 <div class="row">
   <div class="col">
     <ul>
-      <li> Inscription date: from the {{ inscriptionEndDate }} until the {{ inscriptionEndDate }} </li>
-      <li> Individual date: {{ indivD }} </li>
-      <li> Individual location: {{ competition.individualLocation }} </li>
-      <!-- <li> Competition Start Date: {{ competSD }} </li>
-      <li> Competition End Date: {{ competED }} </li> -->
+      <li> Inscription: du {{ inscriptionStartDate }} au {{ inscriptionEndDate }} </li>
+      <li> Date de la compétition individuelle: {{ indivD }} </li>
+      <li> Emplacement de la compétition individuelle: {{ competition.individualLocation }} </li>
     </ul>
   </div>
   <div class="col">
@@ -51,11 +49,7 @@
   </div>
 </div>
 
-
-Informations to display
-
 {% block javascripts %}
-
 <script src=" {{ asset('build/public.js') }}"></script>
 
 {% endblock %}

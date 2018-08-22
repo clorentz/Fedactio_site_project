@@ -24,7 +24,11 @@ return $this->privates['debug.argument_resolver.service'] = new \Symfony\Compone
     return ($this->privates['.service_locator.Ks9o1Ek'] ?? $this->load('get_ServiceLocator_Ks9o1EkService.php'));
 }, 'App\\Controller\\AdminController::showQuiz' => function () {
     return ($this->privates['.service_locator.J1QHskN'] ?? $this->load('get_ServiceLocator_J1QHskNService.php'));
+}, 'App\\Controller\\PublicController::keepMeUpdated' => function () {
+    return ($this->privates['.service_locator.3FFBWiy'] ?? $this->load('get_ServiceLocator_3FFBWiyService.php'));
 }, 'App\\Controller\\PublicController::training' => function () {
+    return ($this->privates['.service_locator.spgHdID'] ?? $this->load('get_ServiceLocator_SpgHdIDService.php'));
+}, 'App\\Controller\\PublicController::trainingCorrection' => function () {
     return ($this->privates['.service_locator.spgHdID'] ?? $this->load('get_ServiceLocator_SpgHdIDService.php'));
 }, 'App\\Controller\\AdminController:deleteImage' => function () {
     return ($this->privates['.service_locator.Ks9o1Ek'] ?? $this->load('get_ServiceLocator_Ks9o1EkService.php'));
@@ -40,6 +44,10 @@ return $this->privates['debug.argument_resolver.service'] = new \Symfony\Compone
     return ($this->privates['.service_locator.Ks9o1Ek'] ?? $this->load('get_ServiceLocator_Ks9o1EkService.php'));
 }, 'App\\Controller\\AdminController:showQuiz' => function () {
     return ($this->privates['.service_locator.J1QHskN'] ?? $this->load('get_ServiceLocator_J1QHskNService.php'));
+}, 'App\\Controller\\PublicController:keepMeUpdated' => function () {
+    return ($this->privates['.service_locator.3FFBWiy'] ?? $this->load('get_ServiceLocator_3FFBWiyService.php'));
 }, 'App\\Controller\\PublicController:training' => function () {
+    return ($this->privates['.service_locator.spgHdID'] ?? $this->load('get_ServiceLocator_SpgHdIDService.php'));
+}, 'App\\Controller\\PublicController:trainingCorrection' => function () {
     return ($this->privates['.service_locator.spgHdID'] ?? $this->load('get_ServiceLocator_SpgHdIDService.php'));
 }))), ($this->privates['debug.stopwatch'] ?? $this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true)));

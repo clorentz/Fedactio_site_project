@@ -12,6 +12,7 @@ Encore
     .addEntry('app', './assets/js/app.js')
     .addEntry('admin', './assets/js/admin.js')
     .addEntry('public', './assets/js/public.js')
+    .addEntry('button-toggle', './assets/js/button-toggle.js')
     //.addEntry('accordion', './assets/js/accordion.js')
 
     // allow legacy applications to use $/jQuery as a global variable

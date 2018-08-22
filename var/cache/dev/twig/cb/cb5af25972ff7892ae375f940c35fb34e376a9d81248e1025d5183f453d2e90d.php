@@ -103,7 +103,7 @@ class __TwigTemplate_905b0572fb1c1c3650bcf8264eb064e18bf7699c4305262bdb5c2a88660
             // line 20
             echo "      <a href=";
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_training", array("id" => twig_get_attribute($this->env, $this->source, $context["quiz"], "id", array()))), "html", null, true);
-            echo " class=\"btn btn-secondary w-100\">Modifier l'entrainement du niveau ";
+            echo " class=\"btn btn-secondary w-100 training-choice-btn\">Modifier l'entrainement du niveau ";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["difficulty"]) || array_key_exists("difficulty", $context) ? $context["difficulty"] : (function () { throw new Twig_Error_Runtime('Variable "difficulty" does not exist.', 20, $this->source); })()), (twig_get_attribute($this->env, $this->source, $context["quiz"], "difficulty", array()) - 1), array(), "array"), "html", null, true);
             echo "</a>
   ";
@@ -124,7 +124,7 @@ class __TwigTemplate_905b0572fb1c1c3650bcf8264eb064e18bf7699c4305262bdb5c2a88660
             // line 27
             echo "      <a href=";
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_training", array("id" => twig_get_attribute($this->env, $this->source, $context["quiz"], "id", array()))), "html", null, true);
-            echo " class=\"btn btn-secondary w-100\">Modifier l'entrainement du niveau ";
+            echo " class=\"btn btn-secondary w-100 training-choice-btn\">Modifier l'entrainement du niveau ";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["difficulty"]) || array_key_exists("difficulty", $context) ? $context["difficulty"] : (function () { throw new Twig_Error_Runtime('Variable "difficulty" does not exist.', 27, $this->source); })()), (twig_get_attribute($this->env, $this->source, $context["quiz"], "difficulty", array()) - 1), array(), "array"), "html", null, true);
             echo "</a>
   ";
@@ -187,14 +187,14 @@ class __TwigTemplate_905b0572fb1c1c3650bcf8264eb064e18bf7699c4305262bdb5c2a88660
 <h3>Primary School</h3>
 <div class=\"d-flex\" role=\"group\" aria-label=\"Primary Traning Choice\">
   {% for quiz in primary_quiz %}
-      <a href={{ path('admin_training', {'id': quiz.id}) }} class=\"btn btn-secondary w-100\">Modifier l'entrainement du niveau {{ difficulty[quiz.difficulty-1] }}</a>
+      <a href={{ path('admin_training', {'id': quiz.id}) }} class=\"btn btn-secondary w-100 training-choice-btn\">Modifier l'entrainement du niveau {{ difficulty[quiz.difficulty-1] }}</a>
   {% endfor %}
 </div>
 
 <h3>Secondary School</h3>
 <div class=\"d-flex\" role=\"group\" aria-label=\"Secondary Traning Choice\">
   {% for quiz in secondary_quiz %}
-      <a href={{ path('admin_training', {'id': quiz.id}) }} class=\"btn btn-secondary w-100\">Modifier l'entrainement du niveau {{ difficulty[quiz.difficulty-1] }}</a>
+      <a href={{ path('admin_training', {'id': quiz.id}) }} class=\"btn btn-secondary w-100 training-choice-btn\">Modifier l'entrainement du niveau {{ difficulty[quiz.difficulty-1] }}</a>
   {% endfor %}
 </div>
 

@@ -140,11 +140,15 @@
     <parameter key="swiftmailer.spool.default.memory.path">/home/clorentz/www/fedactio_pangea/var/cache/dev/swiftmailer/spool/default</parameter>
     <parameter key="swiftmailer.mailer.default.spool.enabled">true</parameter>
     <parameter key="swiftmailer.mailer.default.plugin.impersonate">null</parameter>
-    <parameter key="swiftmailer.mailer.default.single_address">null</parameter>
+    <parameter key="swiftmailer.mailer.default.single_address">pangea.website2018@gmail.com</parameter>
+    <parameter key="swiftmailer.mailer.default.delivery_addresses" type="collection">
+      <parameter>pangea.website2018@gmail.com</parameter>
+    </parameter>
+    <parameter key="swiftmailer.mailer.default.delivery_whitelist" type="collection"/>
     <parameter key="swiftmailer.mailer.default.delivery.enabled">true</parameter>
     <parameter key="swiftmailer.spool.enabled">true</parameter>
     <parameter key="swiftmailer.delivery.enabled">true</parameter>
-    <parameter key="swiftmailer.single_address">null</parameter>
+    <parameter key="swiftmailer.single_address">pangea.website2018@gmail.com</parameter>
     <parameter key="swiftmailer.mailers" type="collection">
       <parameter key="default">swiftmailer.mailer.default</parameter>
     </parameter>
@@ -2948,8 +2952,16 @@
       <argument type="service" id="swiftmailer.mailer.default.transport.eventdispatcher"/>
       <argument type="service" id="swiftmailer.mailer.default.spool.memory"/>
       <call method="registerPlugin">
+        <argument type="service" id="swiftmailer.mailer.default.plugin.redirecting"/>
+      </call>
+      <call method="registerPlugin">
         <argument type="service" id="swiftmailer.mailer.default.plugin.messagelogger"/>
       </call>
+    </service>
+    <service id="swiftmailer.mailer.default.plugin.redirecting" class="Swift_Plugins_RedirectingPlugin" public="false">
+      <tag name="swiftmailer.default.plugin"/>
+      <argument>%swiftmailer.mailer.default.delivery_addresses%</argument>
+      <argument type="collection"/>
     </service>
     <service id="swiftmailer.mailer.default.plugin.messagelogger" class="Swift_Plugins_MessageLogger" public="true">
       <tag name="swiftmailer.default.plugin"/>
@@ -4537,7 +4549,13 @@
         <argument key="quiz" type="service" id=".errored..service_locator.qYGCuoQ.App\Entity\TrainingQuiz"/>
       </argument>
     </service>
-    <service id=".service_locator.0Vi3B2W" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.3FFBWiy" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="mailer" type="service" id="swiftmailer.mailer.default"/>
+      </argument>
+    </service>
+    <service id=".service_locator.h0Tb4IZ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AdminController::deleteImage" type="service" id=".service_locator.Ks9o1Ek"/>
@@ -4547,7 +4565,9 @@
         <argument key="App\Controller\AdminController::managementTraining" type="service" id=".service_locator.qYGCuoQ"/>
         <argument key="App\Controller\AdminController::showImage" type="service" id=".service_locator.Ks9o1Ek"/>
         <argument key="App\Controller\AdminController::showQuiz" type="service" id=".service_locator.J1QHskN"/>
+        <argument key="App\Controller\PublicController::keepMeUpdated" type="service" id=".service_locator.3FFBWiy"/>
         <argument key="App\Controller\PublicController::training" type="service" id=".service_locator.spgHdID"/>
+        <argument key="App\Controller\PublicController::trainingCorrection" type="service" id=".service_locator.spgHdID"/>
         <argument key="App\Controller\AdminController:deleteImage" type="service" id=".service_locator.Ks9o1Ek"/>
         <argument key="App\Controller\AdminController:deleteQuiz" type="service" id=".service_locator.J1QHskN"/>
         <argument key="App\Controller\AdminController:deleteTraining" type="service" id=".service_locator.spgHdID"/>
@@ -4555,7 +4575,9 @@
         <argument key="App\Controller\AdminController:managementTraining" type="service" id=".service_locator.qYGCuoQ"/>
         <argument key="App\Controller\AdminController:showImage" type="service" id=".service_locator.Ks9o1Ek"/>
         <argument key="App\Controller\AdminController:showQuiz" type="service" id=".service_locator.J1QHskN"/>
+        <argument key="App\Controller\PublicController:keepMeUpdated" type="service" id=".service_locator.3FFBWiy"/>
         <argument key="App\Controller\PublicController:training" type="service" id=".service_locator.spgHdID"/>
+        <argument key="App\Controller\PublicController:trainingCorrection" type="service" id=".service_locator.spgHdID"/>
       </argument>
     </service>
     <service id=".service_locator.yQVjGlt" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -4816,7 +4838,7 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.0Vi3B2W"/>
+      <argument type="service" id=".service_locator.h0Tb4IZ"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
@@ -5152,6 +5174,7 @@
     <service id="swiftmailer.spool" alias="swiftmailer.mailer.default.spool.memory"/>
     <service id="swiftmailer.transport.real" alias="swiftmailer.mailer.default.transport.dynamic"/>
     <service id="Swift_Spool" alias="swiftmailer.mailer.default.spool.memory" public="false"/>
+    <service id="swiftmailer.plugin.redirecting" alias="swiftmailer.mailer.default.plugin.redirecting"/>
     <service id="swiftmailer.plugin.messagelogger" alias="swiftmailer.mailer.default.plugin.messagelogger"/>
     <service id="swiftmailer.mailer" alias="swiftmailer.mailer.default"/>
     <service id="swiftmailer.transport" alias="swiftmailer.mailer.default.transport.spool"/>
@@ -5196,7 +5219,7 @@
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
     <service id="sensio_framework_extra.converter.doctrine.orm.expression_language" alias="sensio_framework_extra.converter.doctrine.orm.expression_language.default" public="false"/>
     <service id="sensio_framework_extra.security.expression_language" alias="sensio_framework_extra.security.expression_language.default" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.0Vi3B2W"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.h0Tb4IZ"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id=".service_locator.AoifO_3" alias=".2_ServiceLocator~j2qc8Ux" public="false"/>

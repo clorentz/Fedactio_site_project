@@ -1,0 +1,22 @@
+
+{% extends 'homepage.html.twig' %}
+
+{% block title %}
+  Page d'inscription au concours
+{% endblock %}
+
+{% block body %}
+
+{% set question_cmpt = 0 %}
+
+{% for question in quiz.questions %}
+ <h2> Question n°{{question_cmpt + 1}}: {{quiz.questions[question_cmpt].question}}</h2>
+
+ <div class="btn-group d-flex" role="group" aria-label="{{ question_cmpt + 1}}">
+   {% for answer in question.answers %}
+     <button type="button" class="btn {% if answer.isTrue %} btn-success {% else %} btn-light {% endif %} w-100" disabled>{{answer.answer}}</button>
+   {% endfor %}
+ </div>
+ {% set question_cmpt = question_cmpt + 1 %}
+{% endfor %}
+{% endblock %}

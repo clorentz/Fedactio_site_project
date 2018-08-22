@@ -5,19 +5,19 @@
 {% endblock %}
 
 {% block body %}
-<h3> Training section </h3>
+<h1> Training section </h1>
 
 <h3>Primary School</h3>
 <div class="d-flex" role="group" aria-label="Primary Traning Choice">
   {% for quiz in primary_quiz %}
-      <a href={{ path('training', {'id': quiz.id}) }} class="btn btn-secondary w-100">Entrainement de niveau {{ difficulty[quiz.difficulty-1] }}</a>
+      <a href={{ path('training', {'id': quiz.id}) }} class="btn btn-secondary w-100 training-choice-btn">Entrainement de niveau {{ difficulty[quiz.difficulty-1] }}</a>
   {% endfor %}
 </div>
 
 <h3>Secondary School</h3>
 <div class="d-flex" role="group" aria-label="Secondary Traning Choice">
   {% for quiz in secondary_quiz %}
-      <a href={{ path('training', {'id': quiz.id}) }} class="btn btn-secondary w-100">Entrainement de niveau {{ difficulty[quiz.difficulty-1] }}</a>
+      <a href={{ path('training', {'id': quiz.id}) }} class="btn btn-secondary w-100 training-choice-btn">Entrainement de niveau {{ difficulty[quiz.difficulty-1] }}</a>
   {% endfor %}
 </div>
 

@@ -18,6 +18,10 @@ use App\Form\TrainingClientAnswerType;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Validator\Constraints\IsTrue;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class PublicController extends Controller
 {
@@ -74,9 +78,83 @@ class PublicController extends Controller
     /**
     * @Route("/keep_me_updated", name="updated")
     */
-    public function keepMeUpdated() {
+    public function keepMeUpdated(Request $request, \Swift_Mailer $mailer) {
+      $formFactory = $this->get('form.factory');
+      $new_update = array(
+        'surname' => 'Nom',
+        'name' => 'Prénom',
+        'email'  =>'example@example.com'
+      );
+
+      $form = $formFactory
+        ->createBuilder(FormType::class, $new_update)
+        ->add('surname', TextType::class, array(
+          'required' => true,
+          'label'    => 'Nom',
+        ))
+        ->add('name', TextType::class, array(
+          'required' => true,
+          'label'    => 'Prénom',
+        ))
+        ->add('email', EmailType::class, array(
+          'required' => true,
+        ))
+        ->add('termsAccepted', CheckboxType::class, array(
+               'mapped' => false,
+               'required' => true,
+               'constraints' => new IsTrue(),
+               'label'   => "J'accepte"
+           ))
+        ->add('send', SubmitType::class, array(
+          'label' => "Envoyer",
+          'attr' => array('class' => 'btn-base btn-confirm')
+        ))
+        ->getForm();
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()){
+          $admin_message = (new \Swift_Message('New subscriber'))
+          ->setFrom('pangea.website@gmail.com')
+          ->setTo('info@fedactio.be')
+          ->setBody(
+              $this->renderView(
+                  // templates/emails/keep_me_updated.html.twig
+                  'emails/keep_me_updated_admin.html.twig',
+                  array('new_update' => $new_update)
+              ),
+              'text/html'
+          );
+
+          $new_update_message = (new \Swift_Message('Pangea Mathquiz'))
+          ->setFrom('pangea.website@gmail.com')
+          ->setTo($new_update['email'])
+          ->setBody(
+              $this->renderView(
+                  // templates/emails/keep_me_updated.html.twig
+                  'emails/keep_me_updated.html.twig',
+                  array('new_update' => $new_update)
+              ),
+              'text/html'
+          );
+
+          $mailer->send($admin_message);
+          $mailer->send($new_update_message);
+
+          $this->addFlash("success", "Coordonnées enregistrées. Vous devriez avoir reçu un mail sur l'addresse indiquée.");
+
+        }
 
       return $this->render('public/updated.html.twig', [
+        'form' => $form->createView(),
+      ]);
+    }
+
+    /**
+    * @Route("/CGU", name="usage_conditions")
+    */
+    public function usageConditions(){
+
+      return $this->render('public/usage_conditions.html.twig', [
 
       ]);
     }
@@ -227,15 +305,51 @@ class PublicController extends Controller
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-
+          $form_answers = array();
+          for ($i = 0; $i < count($questions); $i++) {
+            $form_answers[$i] = true;
+            $correctAnswers = $this->getQuestionCorrectAnswers($questions[$i]);
+            foreach ($reponses['client_answers'][$i]->getAnswers() as $answer) {
+              if (! $correctAnswers->removeElement($answer))
+              {
+                $form_answers[$i] = false;
+                $this->addFlash("error", "Vous avez fait une erreur à la question " . ($i + 1));
+                break;
+              }
+            }
+          if ((! $correctAnswers->isEmpty()) && $form_answers[$i])
+          {
+            $form_answers[$i] = false;
+            $this->addFlash("error", "Vous avez fait une erreur à la question " . ($i + 1));
+          }
         }
+      }
 
+      ///$reponses[] = $form_answers;
       return $this->render('public/training.html.twig', [
         'quiz'  => $quiz,
         'form'  => $form->createView(),
-        'client_answers' => $clientAnswers,
+        'questions' => $questions,
         'reponses' => $reponses,
       ]);
     }
 
+    /**
+     * @Route("/correction/{id}", name="correction")
+     */
+    public function trainingCorrection(TrainingQuiz $quiz){
+
+      return $this->render('public/correction.html.twig', [
+        'quiz' => $quiz,
+      ]);
+    }
+
+    private function getQuestionCorrectAnswers(TrainingQuestion $question){
+      $correctAnswers = new ArrayCollection();
+      foreach ($question->getAnswers() as $answer) {
+        if ($answer->getIsTrue())
+          $correctAnswers->add($answer);
+      }
+      return $correctAnswers;
+    }
 }

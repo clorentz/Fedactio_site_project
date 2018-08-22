@@ -31,6 +31,11 @@ class TrainingAnswer
      */
     private $question;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TrainingClientAnswer", inversedBy="answers")
+     */
+    private $trainingClientAnswer;
+
     public function getId()
     {
         return $this->id;
@@ -68,6 +73,18 @@ class TrainingAnswer
     public function setQuestion(?TrainingQuestion $question): self
     {
         $this->question = $question;
+
+        return $this;
+    }
+
+    public function getTrainingClientAnswer(): ?TrainingClientAnswer
+    {
+        return $this->trainingClientAnswer;
+    }
+
+    public function setTrainingClientAnswer(?TrainingClientAnswer $trainingClientAnswer): self
+    {
+        $this->trainingClientAnswer = $trainingClientAnswer;
 
         return $this;
     }

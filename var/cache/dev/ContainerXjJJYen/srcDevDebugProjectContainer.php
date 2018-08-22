@@ -1,6 +1,6 @@
 <?php
 
-namespace Container16Fswp3;
+namespace ContainerXjJJYen;
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -1553,11 +1553,17 @@ class srcDevDebugProjectContainer extends Container
             'swiftmailer.mailer.default.transport.name' => 'dynamic',
             'swiftmailer.mailer.default.spool.enabled' => true,
             'swiftmailer.mailer.default.plugin.impersonate' => NULL,
-            'swiftmailer.mailer.default.single_address' => NULL,
+            'swiftmailer.mailer.default.single_address' => 'pangea.website2018@gmail.com',
+            'swiftmailer.mailer.default.delivery_addresses' => array(
+                0 => 'pangea.website2018@gmail.com',
+            ),
+            'swiftmailer.mailer.default.delivery_whitelist' => array(
+
+            ),
             'swiftmailer.mailer.default.delivery.enabled' => true,
             'swiftmailer.spool.enabled' => true,
             'swiftmailer.delivery.enabled' => true,
-            'swiftmailer.single_address' => NULL,
+            'swiftmailer.single_address' => 'pangea.website2018@gmail.com',
             'swiftmailer.mailers' => array(
                 'default' => 'swiftmailer.mailer.default',
             ),

@@ -6,22 +6,25 @@
 
 
 {% block body %}
-{% for i in 0..max_index %}
+
+{% if max_index > 0 %}
+
+  {% for i in 0..max_index %}
   <h1> Photos archivées de l'année {{years[i]}} </h1>
   {% if i == 0 %}
-    <div class="row">
-      {% for image in images_array[i] %}
-        <div class="col-lg-4 col-6 "><img class="img-thumbnail img-fluid" src="{{asset("uploads/gallery_images/") ~ image.image}}" alt=""></div>
-      {% endfor %}
-      </div>
+  <div class="row">
+    {% for image in images_array[i] %}
+    <div class="col-lg-4 col-6 "><img class="img-thumbnail img-fluid" src="{{asset("uploads/gallery_images/") ~ image.image}}" alt=""></div>
+    {% endfor %}
+  </div>
 
   {% else %}
- <div id="{{"ImageGallery" ~ years[i] }}" class="carousel slide" data-ride="carousel">
+  <div id="{{"ImageGallery" ~ years[i] }}" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       {% set cmpt = 0 %}
       {% for image in images_array[i] %}
-        <li data-target="#{{"ImageGallery" ~ years[i] }}" data-slide-to="{{cmpt}}" class="active"></li>
-        {% set cmpt = cmpt + 1 %}
+      <li data-target="#{{"ImageGallery" ~ years[i] }}" data-slide-to="{{cmpt}}" class="active"></li>
+      {% set cmpt = cmpt + 1 %}
       {% endfor %}
     </ol>
     <div class="carousel-inner">
@@ -43,7 +46,12 @@
     </a>
   </div>
   {% endif %}
-{% endfor %}
+  {% endfor %}
+{% else %}
+  <h3> No Photos found </h3>
+
+We don't have any photos available at the moment, please come back to check another time.
+{% endif %}
 
 {% endblock %}
 

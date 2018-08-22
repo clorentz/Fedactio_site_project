@@ -2,11 +2,26 @@
 {% extends 'homepage.html.twig' %}
 
 {% block title %}
-  Page d'inscription au concours
+  Page d'inscription aux informations
 {% endblock %}
 
 {% block body %}
 
-Insert informations here
+{% for flashMessage in app.session.flashbag.get('success') %}
+  <div class="alert alert-success">
+    {{ flashMessage|raw }}
+  </div>
+{% endfor %}
+
+<h1>Être tenu au courant</h1>
+{{form_start(form)}}
+
+{{form_row(form.surname)}}
+{{form_row(form.name)}}
+{{form_row(form.email)}}
+Veuillez accepter les <a href={{ path('usage_conditions') }}>CGU</a> pour être tenu au courant.
+{{form_row(form.termsAccepted)}}
+
+{{form_end(form)}}
 
 {% endblock %}

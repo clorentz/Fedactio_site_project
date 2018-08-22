@@ -81,6 +81,7 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                     '/aboutUs' => array(array('_route' => 'aboutus', '_controller' => 'App\\Controller\\PublicController::aboutUs'), null, null, null),
                     '/enroll' => array(array('_route' => 'enroll', '_controller' => 'App\\Controller\\PublicController::enroll'), null, null, null),
                     '/keep_me_updated' => array(array('_route' => 'updated', '_controller' => 'App\\Controller\\PublicController::keepMeUpdated'), null, null, null),
+                    '/CGU' => array(array('_route' => 'usage_conditions', '_controller' => 'App\\Controller\\PublicController::usageConditions'), null, null, null),
                     '/regulation' => array(array('_route' => 'regulation', '_controller' => 'App\\Controller\\PublicController::regulation'), null, null, null),
                     '/gallery' => array(array('_route' => 'gallery', '_controller' => 'App\\Controller\\PublicController::gallery'), null, null, null),
                     '/img_gallery' => array(array('_route' => 'img_gallery', '_controller' => 'App\\Controller\\PublicController::img_gallery'), null, null, null),
@@ -141,6 +142,7 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                         .')'
                     .')'
                     .'|/training/([^/]++)(*:358)'
+                    .'|/correction/([^/]++)(*:386)'
                 .')$}sD',
         );
 
@@ -163,6 +165,7 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                             313 => array(array('_route' => 'admin_delete_training', '_controller' => 'App\\Controller\\AdminController::deleteTraining'), array('id'), null, null),
                             330 => array(array('_route' => 'admin_training', '_controller' => 'App\\Controller\\AdminController::managementTraining'), array('id'), null, null),
                             358 => array(array('_route' => 'training', '_controller' => 'App\\Controller\\PublicController::training'), array('id'), null, null),
+                            386 => array(array('_route' => 'correction', '_controller' => 'App\\Controller\\PublicController::trainingCorrection'), array('id'), null, null),
                         );
 
                         list($ret, $vars, $requiredMethods, $requiredSchemes) = $routes[$m];
@@ -188,7 +191,7 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                         return $ret;
                 }
 
-                if (358 === $m) {
+                if (386 === $m) {
                     break;
                 }
                 $regex = substr_replace($regex, 'F', $m - $offset, 1 + strlen($m));

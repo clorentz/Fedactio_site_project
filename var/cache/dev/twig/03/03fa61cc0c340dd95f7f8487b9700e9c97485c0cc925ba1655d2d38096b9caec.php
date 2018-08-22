@@ -182,7 +182,7 @@ class __TwigTemplate_3cf964dad1c41ee5c4b80a336ffe5a87e3556bb6afad9b71b0f0b22bd6d
 
     ";
             // line 55
-            if (( !twig_test_empty((isset($context["image_locations"]) || array_key_exists("image_locations", $context) ? $context["image_locations"] : (function () { throw new Twig_Error_Runtime('Variable "image_locations" does not exist.', 55, $this->source); })())) &&  !twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["image_locations"]) || array_key_exists("image_locations", $context) ? $context["image_locations"] : (function () { throw new Twig_Error_Runtime('Variable "image_locations" does not exist.', 55, $this->source); })()), (isset($context["question_index"]) || array_key_exists("question_index", $context) ? $context["question_index"] : (function () { throw new Twig_Error_Runtime('Variable "question_index" does not exist.', 55, $this->source); })()), array(), "array")))) {
+            if ((( !twig_test_empty((isset($context["image_locations"]) || array_key_exists("image_locations", $context) ? $context["image_locations"] : (function () { throw new Twig_Error_Runtime('Variable "image_locations" does not exist.', 55, $this->source); })())) && (twig_length_filter($this->env, (isset($context["image_locations"]) || array_key_exists("image_locations", $context) ? $context["image_locations"] : (function () { throw new Twig_Error_Runtime('Variable "image_locations" does not exist.', 55, $this->source); })())) >= (isset($context["question_cmpt"]) || array_key_exists("question_cmpt", $context) ? $context["question_cmpt"] : (function () { throw new Twig_Error_Runtime('Variable "question_cmpt" does not exist.', 55, $this->source); })()))) &&  !twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["image_locations"]) || array_key_exists("image_locations", $context) ? $context["image_locations"] : (function () { throw new Twig_Error_Runtime('Variable "image_locations" does not exist.', 55, $this->source); })()), (isset($context["question_index"]) || array_key_exists("question_index", $context) ? $context["question_index"] : (function () { throw new Twig_Error_Runtime('Variable "question_index" does not exist.', 55, $this->source); })()), array(), "array")))) {
                 // line 56
                 echo "      <div class='question_image'>
         current image:
@@ -365,7 +365,7 @@ class __TwigTemplate_3cf964dad1c41ee5c4b80a336ffe5a87e3556bb6afad9b71b0f0b22bd6d
   {{ form_row(question.difficulty) }}
   {{ form_row(question.image) }}
 
-    {% if (image_locations is not empty) and (image_locations[question_index] is not empty) %}
+    {% if (image_locations is not empty) and (image_locations|length >= question_cmpt) and (image_locations[question_index] is not empty) %}
       <div class='question_image'>
         current image:
           <img src=\" {{ asset('uploads/question_images/' ~ image_locations[question_index]) }} \" alt=\"current image\">

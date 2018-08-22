@@ -52,7 +52,7 @@
   {{ form_row(question.difficulty) }}
   {{ form_row(question.image) }}
 
-    {% if (image_locations is not empty) and (image_locations[question_index] is not empty) %}
+    {% if (image_locations is not empty) and (image_locations|length >= question_cmpt) and (image_locations[question_index] is not empty) %}
       <div class='question_image'>
         current image:
           <img src=" {{ asset('uploads/question_images/' ~ image_locations[question_index]) }} " alt="current image">
