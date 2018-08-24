@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TrainingAnswerRepository")
@@ -35,6 +36,14 @@ class TrainingAnswer
      * @ORM\ManyToOne(targetEntity="App\Entity\TrainingClientAnswer", inversedBy="answers")
      */
     private $trainingClientAnswer;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     *
+     * @Assert\NotBlank(message="Please, upload the image as a PNG file.")
+     * @Assert\File(mimeTypes={ "image/png" })
+     */
+    private $image;
 
     public function getId()
     {
@@ -85,6 +94,18 @@ class TrainingAnswer
     public function setTrainingClientAnswer(?TrainingClientAnswer $trainingClientAnswer): self
     {
         $this->trainingClientAnswer = $trainingClientAnswer;
+
+        return $this;
+    }
+
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    public function setImage($image): self
+    {
+        $this->image = $image;
 
         return $this;
     }

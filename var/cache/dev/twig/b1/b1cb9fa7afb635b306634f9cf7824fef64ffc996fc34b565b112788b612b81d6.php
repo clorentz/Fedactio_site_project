@@ -71,49 +71,64 @@ class __TwigTemplate_54ffe62ffffa4d85b8c3bb36aae5689a21ef009b51d375d26bc483e426f
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 8
-        echo "<h1> Training section </h1>
+        echo "
+<h1> Training section </h1>
 
 <h3>Primary School</h3>
 <div class=\"d-flex\" role=\"group\" aria-label=\"Primary Traning Choice\">
   ";
-        // line 12
+        // line 13
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["primary_quiz"]) || array_key_exists("primary_quiz", $context) ? $context["primary_quiz"] : (function () { throw new Twig_Error_Runtime('Variable "primary_quiz" does not exist.', 12, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["primary_quiz"]) || array_key_exists("primary_quiz", $context) ? $context["primary_quiz"] : (function () { throw new Twig_Error_Runtime('Variable "primary_quiz" does not exist.', 13, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["quiz"]) {
-            // line 13
+            // line 14
             echo "      <a href=";
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("training", array("id" => twig_get_attribute($this->env, $this->source, $context["quiz"], "id", array()))), "html", null, true);
             echo " class=\"btn btn-secondary w-100 training-choice-btn\">Entrainement de niveau ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["difficulty"]) || array_key_exists("difficulty", $context) ? $context["difficulty"] : (function () { throw new Twig_Error_Runtime('Variable "difficulty" does not exist.', 13, $this->source); })()), (twig_get_attribute($this->env, $this->source, $context["quiz"], "difficulty", array()) - 1), array(), "array"), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["difficulty"]) || array_key_exists("difficulty", $context) ? $context["difficulty"] : (function () { throw new Twig_Error_Runtime('Variable "difficulty" does not exist.', 14, $this->source); })()), (twig_get_attribute($this->env, $this->source, $context["quiz"], "difficulty", array()) - 1), array(), "array"), "html", null, true);
             echo "</a>
   ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['quiz'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 15
+        // line 16
         echo "</div>
 
 <h3>Secondary School</h3>
 <div class=\"d-flex\" role=\"group\" aria-label=\"Secondary Traning Choice\">
   ";
-        // line 19
+        // line 20
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["secondary_quiz"]) || array_key_exists("secondary_quiz", $context) ? $context["secondary_quiz"] : (function () { throw new Twig_Error_Runtime('Variable "secondary_quiz" does not exist.', 19, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["secondary_quiz"]) || array_key_exists("secondary_quiz", $context) ? $context["secondary_quiz"] : (function () { throw new Twig_Error_Runtime('Variable "secondary_quiz" does not exist.', 20, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["quiz"]) {
-            // line 20
+            // line 21
             echo "      <a href=";
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("training", array("id" => twig_get_attribute($this->env, $this->source, $context["quiz"], "id", array()))), "html", null, true);
             echo " class=\"btn btn-secondary w-100 training-choice-btn\">Entrainement de niveau ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["difficulty"]) || array_key_exists("difficulty", $context) ? $context["difficulty"] : (function () { throw new Twig_Error_Runtime('Variable "difficulty" does not exist.', 20, $this->source); })()), (twig_get_attribute($this->env, $this->source, $context["quiz"], "difficulty", array()) - 1), array(), "array"), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["difficulty"]) || array_key_exists("difficulty", $context) ? $context["difficulty"] : (function () { throw new Twig_Error_Runtime('Variable "difficulty" does not exist.', 21, $this->source); })()), (twig_get_attribute($this->env, $this->source, $context["quiz"], "difficulty", array()) - 1), array(), "array"), "html", null, true);
             echo "</a>
   ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['quiz'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 22
+        // line 23
         echo "</div>
+
+<script>
+\$(document).ready(function() {
+\tif (\$(window).width() < 550) {
+ \t   var noMobile = document.querySelectorAll('.training-choice-btn'),
+    \ti = 0,
+    \tl = noMobile.length;
+
+  \t\tfor (i; i < l; i++) {
+        \t  \$('.mobile-menu-row').append(noMobile[i]);
+  \t\t}
+    }
+});
+</script>
 
 ";
         
@@ -136,7 +151,7 @@ class __TwigTemplate_54ffe62ffffa4d85b8c3bb36aae5689a21ef009b51d375d26bc483e426f
 
     public function getDebugInfo()
     {
-        return array (  116 => 22,  105 => 20,  101 => 19,  95 => 15,  84 => 13,  80 => 12,  74 => 8,  65 => 7,  54 => 4,  45 => 3,  15 => 1,);
+        return array (  117 => 23,  106 => 21,  102 => 20,  96 => 16,  85 => 14,  81 => 13,  74 => 8,  65 => 7,  54 => 4,  45 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -148,6 +163,7 @@ class __TwigTemplate_54ffe62ffffa4d85b8c3bb36aae5689a21ef009b51d375d26bc483e426f
 {% endblock %}
 
 {% block body %}
+
 <h1> Training section </h1>
 
 <h3>Primary School</h3>
@@ -163,6 +179,20 @@ class __TwigTemplate_54ffe62ffffa4d85b8c3bb36aae5689a21ef009b51d375d26bc483e426f
       <a href={{ path('training', {'id': quiz.id}) }} class=\"btn btn-secondary w-100 training-choice-btn\">Entrainement de niveau {{ difficulty[quiz.difficulty-1] }}</a>
   {% endfor %}
 </div>
+
+<script>
+\$(document).ready(function() {
+\tif (\$(window).width() < 550) {
+ \t   var noMobile = document.querySelectorAll('.training-choice-btn'),
+    \ti = 0,
+    \tl = noMobile.length;
+
+  \t\tfor (i; i < l; i++) {
+        \t  \$('.mobile-menu-row').append(noMobile[i]);
+  \t\t}
+    }
+});
+</script>
 
 {% endblock %}
 ", "public/training_choice.html.twig", "/home/clorentz/www/fedactio_pangea/templates/public/training_choice.html.twig");

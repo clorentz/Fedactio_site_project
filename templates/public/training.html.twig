@@ -11,7 +11,7 @@
 {% spaceless %}
 <label class="btn btn-light w-100 form-check-label">
   <input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} class="form-check-input"/>
-  {% if label is defined %} {{ label }} {% endif %}
+  {% if label is defined %} {{ label|raw }} {% endif %}
 </label>
 {% endspaceless %}
 {% endblock checkbox_widget %}
@@ -29,20 +29,14 @@
 </div>
 {% endfor %}
 
-<!-- <h1> Training section </h1> -->
-
-
-{#
- {% for question in quiz.questions %}
-  <h2> Question n° </h2>
-
-  <div class="d-flex" role="group" aria-label="{{ "Question x"}}">
-    {% for answer in question.answers %}
-      <button type="button" class="btn btn-light w-100">{{answer.answer}}</button>
-    {% endfor %}
+{% for flashMessage in app.session.flashbag.get('success') %}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ flashMessage|raw }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
 {% endfor %}
-#}
 
 {% set question_cmpt = 0 %}
 
@@ -57,6 +51,9 @@
         <i class="fas fa-star"></i>
       {% endfor %}
     </div>
+    {% if quiz.questions[question_cmpt].image is not null %}
+      <img src=" {{ asset('uploads/question_images/' ~ quiz.questions[question_cmpt].image) }} " alt="Question Image">
+    {% endif %}
 
     <div class="btn-group btn-group-toggle d-flex answers" data-toggle="buttons">
     {% for answer in client_answer.answers %}

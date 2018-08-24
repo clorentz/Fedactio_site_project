@@ -296,7 +296,8 @@ class PublicController extends Controller
         ->createBuilder(FormType::class, $reponses)
         ->add('client_answers', CollectionType::class, array(
           'label'      => false,
-          'entry_type' => TrainingClientAnswerType::class))
+          'entry_type' => TrainingClientAnswerType::class,
+          ))
         ->add('send', SubmitType::class, array(
           'label' => "Envoyer",
           'attr' => array('class' => 'btn-base btn-confirm')
@@ -305,6 +306,7 @@ class PublicController extends Controller
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+          $all_correct = true;
           $form_answers = array();
           for ($i = 0; $i < count($questions); $i++) {
             $form_answers[$i] = true;
@@ -314,6 +316,7 @@ class PublicController extends Controller
               {
                 $form_answers[$i] = false;
                 $this->addFlash("error", "Vous avez fait une erreur à la question " . ($i + 1));
+                $all_correct = false;
                 break;
               }
             }
@@ -321,7 +324,11 @@ class PublicController extends Controller
           {
             $form_answers[$i] = false;
             $this->addFlash("error", "Vous avez fait une erreur à la question " . ($i + 1));
+            $all_correct = false;
           }
+        }
+        if ($all_correct) {
+          $this->addFlash("success", "Bravo, vous avez eu toutes les bonnes réponses.");
         }
       }
 

@@ -17,6 +17,8 @@
   </div>
 {% endfor %}
 
+
+
 <h3>
   Quiz modification :
 {#  {% if quiz.difficulty == 1 %}
@@ -54,11 +56,11 @@
 
     {% if (image_locations is not empty) and (image_locations|length >= question_cmpt) and (image_locations[question_index] is not empty) %}
       <div class='question_image'>
-        current image:
-          <img src=" {{ asset('uploads/question_images/' ~ image_locations[question_index]) }} " alt="current image">
+        Image actuelle:
+          <img src=" {{ asset('uploads/question_images/' ~ image_locations[question_index]) }} " alt="Question Image">
       </div>
     {% else %}
-      No current image found
+      Il n'y a pas d'image actuellement
     {% endif %}
 
     <h5> Answers </h5>

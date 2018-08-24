@@ -22,6 +22,7 @@ use App\Form\PreviousQuizType;
 use App\Form\RegulationType;
 use App\Form\InformationsType;
 use App\Service\QuestionImageUploader;
+use App\Service\AnswerImageUploader;
 use App\Service\GalleryImageUploader;
 use App\Service\PreviousQuizUploader;
 
@@ -362,7 +363,7 @@ class AdminController extends Controller
     /**
      * @Route("/admin/training/{id}", name="admin_training")
      */
-    public function managementTraining(TrainingQuiz $quiz, Request $request, QuestionImageUploader $fileUploader){
+    public function managementTraining(TrainingQuiz $quiz, Request $request, QuestionImageUploader $questionUploader, AnswerImageUploader $answerUploader){
       $formFactory = $this->get('form.factory');
       $manager = $this->getDoctrine()->getManager();
       $questions = $quiz->getQuestions();
@@ -373,8 +374,16 @@ class AdminController extends Controller
       foreach ($questions as $question){
         $image_location = basename($question->getImage());
         $originalQuestions[] = $question;
+
         foreach ($question->getAnswers() as $answer) {
           $originalAnswers[] = $answer;
+
+          if ($answer->getImage() != null){
+            $bname = basename($answer->getImage());
+            $answer->setImage(
+              new File($this->getParameter('answer_images_directory').'/'.$bname)
+            );
+          }
         }
 
         // So the form will understand that the image is already there if it is the case
@@ -421,9 +430,18 @@ class AdminController extends Controller
           // File uploading part
           $file = $question->getImage();
           if ($file != null) {
-            $fileName = $fileUploader->upload($file); // The uploader will hash the name so the file won't be used by third parties
+            $fileName = $questionUploader->upload($file); // The uploader will hash the name so the file won't be used by third parties
 
             $question->setImage($fileName);
+        }
+        foreach ($question->getAnswers() as $answer) {
+          // File uploading part
+          $file = $answer->getImage();
+
+          if ($file != null) {
+            $fileName = $answerUploader->upload($file); // The uploader will hash the name so the file won't be used by third parties
+            $answer->setImage($fileName);
+          }
         }
       }
 

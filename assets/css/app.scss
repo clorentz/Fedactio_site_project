@@ -70,9 +70,10 @@ BANNER
 /*Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {
     #banner {
-        background-image: linear-gradient(to right, white 0%, transparent 15%, transparent 80%, transparent 85%, white 100%), url("../img/banner_fr.jpg");
+        background-image: url("../img/banner_fr.jpg");
+        //background-image: linear-gradient(to right, white 0%, transparent 15%, transparent 80%, transparent 85%, white 100%), url("../img/banner_fr.jpg");
         //background-image: linear-gradient(to right, white 20%, white 20%, transparent 20%, transparent 80%, transparent 80%, white 80%, white 100%), url("../img/banner_fr.jpg");
-        background-size: 1140px 65px, auto;
+        background-size: 1140px 100%, auto;
         background-position: bottom center, bottom center;
     }
 }

@@ -69,11 +69,15 @@ class __TwigTemplate_9edfb61a4a9bb6da4760fee86314b109145ea93eff96a84fec7b6c8361d
         $this->displayBlock('topmenu', $context, $blocks);
         // line 23
         echo "      </div>
+      <div class=\"btn-group d-flex mobile-menu-row\" role=\"group\" aria-label=\"Mobile second row\">
+
+      </div>
+
 
         ";
-        // line 25
+        // line 29
         $this->displayBlock('body', $context, $blocks);
-        // line 27
+        // line 31
         echo "
     </div>
 
@@ -107,7 +111,7 @@ class __TwigTemplate_9edfb61a4a9bb6da4760fee86314b109145ea93eff96a84fec7b6c8361d
                 <span>
                   <i class=\"fas fa-chevron-right\"></i>
                   <a href=";
-        // line 59
+        // line 63
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("homepage");
         echo ">Retour à l'accueil</a>
                 </span>
@@ -116,7 +120,7 @@ class __TwigTemplate_9edfb61a4a9bb6da4760fee86314b109145ea93eff96a84fec7b6c8361d
                 <span>
                   <i class=\"fas fa-chevron-right\"></i>
                   <a href=\"";
-        // line 65
+        // line 69
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("aboutus");
         echo "\">Informations</a>
                 </span>
@@ -125,7 +129,7 @@ class __TwigTemplate_9edfb61a4a9bb6da4760fee86314b109145ea93eff96a84fec7b6c8361d
                 <span>
                   <i class=\"fas fa-chevron-right\"></i>
                   <a href=\"";
-        // line 71
+        // line 75
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("enroll");
         echo "\">S'insrire au concours</a>
                 </span>
@@ -137,11 +141,11 @@ class __TwigTemplate_9edfb61a4a9bb6da4760fee86314b109145ea93eff96a84fec7b6c8361d
             <h3> Organisateurs </h3>
             <div class=\"d-flex\" role=\"group\" aria-label=\"Organisateurs\">
               <img class=\"w-100 foot-logo\" src=\"";
-        // line 80
+        // line 84
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/Logo_white.png"), "html", null, true);
         echo "\" alt=\"Fedactio Logo\" />
               <img class=\"w-100 foot-logo\" src=\"";
-        // line 81
+        // line 85
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/Francolympiades-transparent.png"), "html", null, true);
         echo "\" alt=\"Logo Francolympiades\" />
             </div>
@@ -153,13 +157,13 @@ class __TwigTemplate_9edfb61a4a9bb6da4760fee86314b109145ea93eff96a84fec7b6c8361d
     <!-- scripts -->
     <script src=\"https://use.fontawesome.com/releases/v5.0.6/js/all.js\"></script>
     <script src=\"";
-        // line 90
+        // line 94
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("build/app.js"), "html", null, true);
         echo "\"></script>
     ";
-        // line 91
+        // line 95
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 93
+        // line 97
         echo "
   </body>
 </html>
@@ -228,7 +232,7 @@ class __TwigTemplate_9edfb61a4a9bb6da4760fee86314b109145ea93eff96a84fec7b6c8361d
 
     }
 
-    // line 25
+    // line 29
     public function block_body($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -237,7 +241,7 @@ class __TwigTemplate_9edfb61a4a9bb6da4760fee86314b109145ea93eff96a84fec7b6c8361d
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        // line 26
+        // line 30
         echo "        ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -247,7 +251,7 @@ class __TwigTemplate_9edfb61a4a9bb6da4760fee86314b109145ea93eff96a84fec7b6c8361d
 
     }
 
-    // line 91
+    // line 95
     public function block_javascripts($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -256,7 +260,7 @@ class __TwigTemplate_9edfb61a4a9bb6da4760fee86314b109145ea93eff96a84fec7b6c8361d
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 92
+        // line 96
         echo "    ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -278,7 +282,7 @@ class __TwigTemplate_9edfb61a4a9bb6da4760fee86314b109145ea93eff96a84fec7b6c8361d
 
     public function getDebugInfo()
     {
-        return array (  260 => 92,  251 => 91,  241 => 26,  232 => 25,  222 => 22,  213 => 21,  203 => 10,  194 => 9,  176 => 5,  163 => 93,  161 => 91,  157 => 90,  145 => 81,  141 => 80,  129 => 71,  120 => 65,  111 => 59,  77 => 27,  75 => 25,  71 => 23,  69 => 21,  60 => 15,  52 => 11,  50 => 9,  46 => 8,  40 => 5,  34 => 1,);
+        return array (  264 => 96,  255 => 95,  245 => 30,  236 => 29,  226 => 22,  217 => 21,  207 => 10,  198 => 9,  180 => 5,  167 => 97,  165 => 95,  161 => 94,  149 => 85,  145 => 84,  133 => 75,  124 => 69,  115 => 63,  81 => 31,  79 => 29,  71 => 23,  69 => 21,  60 => 15,  52 => 11,  50 => 9,  46 => 8,  40 => 5,  34 => 1,);
     }
 
     public function getSourceContext()
@@ -306,6 +310,10 @@ class __TwigTemplate_9edfb61a4a9bb6da4760fee86314b109145ea93eff96a84fec7b6c8361d
         {% block topmenu %}
         {% endblock %}
       </div>
+      <div class=\"btn-group d-flex mobile-menu-row\" role=\"group\" aria-label=\"Mobile second row\">
+
+      </div>
+
 
         {% block body %}
         {% endblock %}

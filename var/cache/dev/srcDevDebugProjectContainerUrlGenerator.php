@@ -58,6 +58,8 @@ class srcDevDebugProjectContainerUrlGenerator extends Symfony\Component\Routing\
         'training_choice' => array(array(), array('_controller' => 'App\\Controller\\PublicController::trainingChoice'), array(), array(array('text', '/training')), array(), array()),
         'training' => array(array('id'), array('_controller' => 'App\\Controller\\PublicController::training'), array(), array(array('variable', '/', '[^/]++', 'id'), array('text', '/training')), array(), array()),
         'correction' => array(array('id'), array('_controller' => 'App\\Controller\\PublicController::trainingCorrection'), array(), array(array('variable', '/', '[^/]++', 'id'), array('text', '/correction')), array(), array()),
+        'login' => array(array(), array('_controller' => 'App\\Controller\\SecurityController::login'), array(), array(array('text', '/login')), array(), array()),
+        'logout' => array(array(), array(), array(), array(array('text', '/logout')), array(), array()),
     );
         }
     }

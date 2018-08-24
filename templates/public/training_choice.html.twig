@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block body %}
+
 <h1> Training section </h1>
 
 <h3>Primary School</h3>
@@ -20,5 +21,19 @@
       <a href={{ path('training', {'id': quiz.id}) }} class="btn btn-secondary w-100 training-choice-btn">Entrainement de niveau {{ difficulty[quiz.difficulty-1] }}</a>
   {% endfor %}
 </div>
+
+<script>
+$(document).ready(function() {
+	if ($(window).width() < 550) {
+ 	   var noMobile = document.querySelectorAll('.training-choice-btn'),
+    	i = 0,
+    	l = noMobile.length;
+
+  		for (i; i < l; i++) {
+        	  $('.mobile-menu-row').append(noMobile[i]);
+  		}
+    }
+});
+</script>
 
 {% endblock %}

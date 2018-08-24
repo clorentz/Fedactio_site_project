@@ -3,6 +3,7 @@
 parameters:
     locale: 'en'
     question_images_directory: '%kernel.project_dir%/public/uploads/question_images'
+    answer_images_directory: '%kernel.project_dir%/public/uploads/answer_images'
     gallery_images_directory: '%kernel.project_dir%/public/uploads/gallery_images'
     previous_quiz_directory: '%kernel.project_dir%/public/uploads/previous_quiz'
 
@@ -30,10 +31,15 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
-
+    App\Form\TrainingClientAnswerType:
+      arguments:
+        $imageDirectory: '/fedactio_pangea/public/uploads/answer_images'
     App\Service\QuestionImageUploader:
       arguments:
         $targetDirectory: '%question_images_directory%'
+    App\Service\AnswerImageUploader:
+      arguments:
+        $targetDirectory: '%answer_images_directory%'
     App\Service\GalleryImageUploader:
       arguments:
         $targetDirectory: '%gallery_images_directory%'

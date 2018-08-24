@@ -87,6 +87,8 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                     '/img_gallery' => array(array('_route' => 'img_gallery', '_controller' => 'App\\Controller\\PublicController::img_gallery'), null, null, null),
                     '/quiz_gallery' => array(array('_route' => 'quiz_gallery', '_controller' => 'App\\Controller\\PublicController::quiz_gallery'), null, null, null),
                     '/training' => array(array('_route' => 'training_choice', '_controller' => 'App\\Controller\\PublicController::trainingChoice'), null, null, null),
+                    '/login' => array(array('_route' => 'login', '_controller' => 'App\\Controller\\SecurityController::login'), null, null, null),
+                    '/logout' => array(array('_route' => 'logout'), null, null, null),
                 );
 
                 if (!isset($routes[$pathinfo])) {

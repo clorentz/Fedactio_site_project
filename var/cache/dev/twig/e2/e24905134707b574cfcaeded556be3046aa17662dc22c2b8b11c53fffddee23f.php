@@ -125,34 +125,33 @@ class __TwigTemplate_325af2151fcee78ae79f26661a9462fcf72b6841ca1777089cc5f1f9e49
             echo " active ";
         }
         echo " w-100\">Règlement</a>
-  <!-- <div class=\"btn-group\"> -->
-    <button type=\"button\" class=\"btn btn-primary dropdown-toggle ";
+
+  <button type=\"button\" class=\"btn btn-primary dropdown-toggle ";
         // line 19
         if (("gallery" == (isset($context["route"]) || array_key_exists("route", $context) ? $context["route"] : (function () { throw new Twig_Error_Runtime('Variable "route" does not exist.', 19, $this->source); })()))) {
             echo " active ";
         }
-        echo " w-100\" data-toggle=\"dropdown\">
-       Galleries
-    </button>
-    <div class=\"dropdown-menu\">
-      <a class=\"dropdown-item\" href=";
+        echo " w-100 mobile-menu-change\" data-toggle=\"dropdown\">
+     Galleries
+  </button>
+  <div class=\"dropdown-menu mobile-menu-change\">
+    <a class=\"dropdown-item\" href=";
         // line 23
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("img_gallery");
         echo ">Gallerie d'images</a>
-      <a class=\"dropdown-item\" href=";
+    <a class=\"dropdown-item\" href=";
         // line 24
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("quiz_gallery");
         echo ">Quizs précédents</a>
-    </div>
-  <!-- </div> -->
+  </div>
   <a href=";
-        // line 27
+        // line 26
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("training_choice");
         echo " class=\"btn btn-primary ";
-        if (("training_choice" == (isset($context["route"]) || array_key_exists("route", $context) ? $context["route"] : (function () { throw new Twig_Error_Runtime('Variable "route" does not exist.', 27, $this->source); })()))) {
+        if (("training_choice" == (isset($context["route"]) || array_key_exists("route", $context) ? $context["route"] : (function () { throw new Twig_Error_Runtime('Variable "route" does not exist.', 26, $this->source); })()))) {
             echo " active ";
         }
-        echo " w-100\">S'entraîner</a>
+        echo " w-100 mobile-menu-change\">S'entraîner</a>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -162,7 +161,7 @@ class __TwigTemplate_325af2151fcee78ae79f26661a9462fcf72b6841ca1777089cc5f1f9e49
 
     }
 
-    // line 30
+    // line 29
     public function block_body($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -171,7 +170,7 @@ class __TwigTemplate_325af2151fcee78ae79f26661a9462fcf72b6841ca1777089cc5f1f9e49
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        // line 31
+        // line 30
         echo "<img class=\"d-block w-100\" src=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/banner_homepage.png"), "html", null, true);
         echo "\" alt=\"Homepage Banner\" />
@@ -181,49 +180,49 @@ class __TwigTemplate_325af2151fcee78ae79f26661a9462fcf72b6841ca1777089cc5f1f9e49
   <div class=\"col\">
     <ul>
       <li> Inscription: du ";
-        // line 37
-        echo twig_escape_filter($this->env, (isset($context["inscriptionStartDate"]) || array_key_exists("inscriptionStartDate", $context) ? $context["inscriptionStartDate"] : (function () { throw new Twig_Error_Runtime('Variable "inscriptionStartDate" does not exist.', 37, $this->source); })()), "html", null, true);
+        // line 36
+        echo twig_escape_filter($this->env, (isset($context["inscriptionStartDate"]) || array_key_exists("inscriptionStartDate", $context) ? $context["inscriptionStartDate"] : (function () { throw new Twig_Error_Runtime('Variable "inscriptionStartDate" does not exist.', 36, $this->source); })()), "html", null, true);
         echo " au ";
-        echo twig_escape_filter($this->env, (isset($context["inscriptionEndDate"]) || array_key_exists("inscriptionEndDate", $context) ? $context["inscriptionEndDate"] : (function () { throw new Twig_Error_Runtime('Variable "inscriptionEndDate" does not exist.', 37, $this->source); })()), "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["inscriptionEndDate"]) || array_key_exists("inscriptionEndDate", $context) ? $context["inscriptionEndDate"] : (function () { throw new Twig_Error_Runtime('Variable "inscriptionEndDate" does not exist.', 36, $this->source); })()), "html", null, true);
         echo " </li>
       <li> Date de la compétition individuelle: ";
-        // line 38
-        echo twig_escape_filter($this->env, (isset($context["indivD"]) || array_key_exists("indivD", $context) ? $context["indivD"] : (function () { throw new Twig_Error_Runtime('Variable "indivD" does not exist.', 38, $this->source); })()), "html", null, true);
+        // line 37
+        echo twig_escape_filter($this->env, (isset($context["indivD"]) || array_key_exists("indivD", $context) ? $context["indivD"] : (function () { throw new Twig_Error_Runtime('Variable "indivD" does not exist.', 37, $this->source); })()), "html", null, true);
         echo " </li>
       <li> Emplacement de la compétition individuelle: ";
-        // line 39
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["competition"]) || array_key_exists("competition", $context) ? $context["competition"] : (function () { throw new Twig_Error_Runtime('Variable "competition" does not exist.', 39, $this->source); })()), "individualLocation", array()), "html", null, true);
+        // line 38
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["competition"]) || array_key_exists("competition", $context) ? $context["competition"] : (function () { throw new Twig_Error_Runtime('Variable "competition" does not exist.', 38, $this->source); })()), "individualLocation", array()), "html", null, true);
         echo " </li>
     </ul>
   </div>
   <div class=\"col\">
     ";
-        // line 43
-        if (((twig_date_converter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["competition"]) || array_key_exists("competition", $context) ? $context["competition"] : (function () { throw new Twig_Error_Runtime('Variable "competition" does not exist.', 43, $this->source); })()), "inscriptionStartDate", array())) <= twig_date_converter($this->env)) && (twig_date_converter($this->env) <= twig_date_converter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["competition"]) || array_key_exists("competition", $context) ? $context["competition"] : (function () { throw new Twig_Error_Runtime('Variable "competition" does not exist.', 43, $this->source); })()), "inscriptionEndDate", array()))))) {
-            // line 44
+        // line 42
+        if (((twig_date_converter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["competition"]) || array_key_exists("competition", $context) ? $context["competition"] : (function () { throw new Twig_Error_Runtime('Variable "competition" does not exist.', 42, $this->source); })()), "inscriptionStartDate", array())) <= twig_date_converter($this->env)) && (twig_date_converter($this->env) <= twig_date_converter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["competition"]) || array_key_exists("competition", $context) ? $context["competition"] : (function () { throw new Twig_Error_Runtime('Variable "competition" does not exist.', 42, $this->source); })()), "inscriptionEndDate", array()))))) {
+            // line 43
             echo "      <a href=\" ";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("enroll");
             echo " \" class=\"btn btn-secondary\"> S'inscrire (jusqu'au ";
-            echo twig_escape_filter($this->env, (isset($context["inscriptionEndDate"]) || array_key_exists("inscriptionEndDate", $context) ? $context["inscriptionEndDate"] : (function () { throw new Twig_Error_Runtime('Variable "inscriptionEndDate" does not exist.', 44, $this->source); })()), "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["inscriptionEndDate"]) || array_key_exists("inscriptionEndDate", $context) ? $context["inscriptionEndDate"] : (function () { throw new Twig_Error_Runtime('Variable "inscriptionEndDate" does not exist.', 43, $this->source); })()), "html", null, true);
             echo " )</a>
     ";
         } else {
-            // line 46
+            // line 45
             echo "        Les inscriptions ne sont pas ouvertes pour le moment. </br>
         <a href=\" ";
-            // line 47
+            // line 46
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("updated");
             echo " \" class=\"btn btn-secondary\"> Me tenir au courant</a>
     ";
         }
-        // line 49
+        // line 48
         echo "  </div>
 </div>
 
 ";
-        // line 52
+        // line 51
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 56
+        // line 67
         echo "
 ";
         
@@ -234,7 +233,7 @@ class __TwigTemplate_325af2151fcee78ae79f26661a9462fcf72b6841ca1777089cc5f1f9e49
 
     }
 
-    // line 52
+    // line 51
     public function block_javascripts($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -243,11 +242,23 @@ class __TwigTemplate_325af2151fcee78ae79f26661a9462fcf72b6841ca1777089cc5f1f9e49
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 53
+        // line 52
         echo "<script src=\" ";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("build/public.js"), "html", null, true);
         echo "\"></script>
+<script>
+\$(document).ready(function() {
+\tif (\$(window).width() < 550) {
+ \t   var noMobile = document.querySelectorAll('.mobile-menu-change'),
+    \ti = 0,
+    \tl = noMobile.length;
 
+  \t\tfor (i; i < l; i++) {
+        \t  \$('.mobile-menu-row').append(noMobile[i]);
+  \t\t}
+    }
+});
+</script>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -269,7 +280,7 @@ class __TwigTemplate_325af2151fcee78ae79f26661a9462fcf72b6841ca1777089cc5f1f9e49
 
     public function getDebugInfo()
     {
-        return array (  247 => 53,  238 => 52,  227 => 56,  225 => 52,  220 => 49,  215 => 47,  212 => 46,  204 => 44,  202 => 43,  195 => 39,  191 => 38,  185 => 37,  175 => 31,  166 => 30,  150 => 27,  144 => 24,  140 => 23,  131 => 19,  122 => 17,  114 => 16,  105 => 15,  103 => 14,  99 => 12,  90 => 11,  77 => 8,  68 => 7,  57 => 4,  48 => 3,  15 => 1,);
+        return array (  246 => 52,  237 => 51,  226 => 67,  224 => 51,  219 => 48,  214 => 46,  211 => 45,  203 => 43,  201 => 42,  194 => 38,  190 => 37,  184 => 36,  174 => 30,  165 => 29,  149 => 26,  144 => 24,  140 => 23,  131 => 19,  122 => 17,  114 => 16,  105 => 15,  103 => 14,  99 => 12,  90 => 11,  77 => 8,  68 => 7,  57 => 4,  48 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -291,16 +302,15 @@ class __TwigTemplate_325af2151fcee78ae79f26661a9462fcf72b6841ca1777089cc5f1f9e49
   <a href={{ path('homepage') }} class=\"btn btn-primary {% if 'homepage' == route %} active {% endif %} w-100\"> <i class=\"fas fa-home\"></i> Accueil</a>
   <a href={{ path('aboutus') }} class=\"btn btn-primary {% if 'aboutus' == route %} active {% endif %} w-100\">À propos</a>
   <a href={{ path('regulation') }} class=\"btn btn-primary {% if 'regulation' == route %} active {% endif %} w-100\">Règlement</a>
-  <!-- <div class=\"btn-group\"> -->
-    <button type=\"button\" class=\"btn btn-primary dropdown-toggle {% if 'gallery' == route %} active {% endif %} w-100\" data-toggle=\"dropdown\">
-       Galleries
-    </button>
-    <div class=\"dropdown-menu\">
-      <a class=\"dropdown-item\" href={{ path('img_gallery') }}>Gallerie d'images</a>
-      <a class=\"dropdown-item\" href={{ path('quiz_gallery') }}>Quizs précédents</a>
-    </div>
-  <!-- </div> -->
-  <a href={{ path('training_choice') }} class=\"btn btn-primary {% if 'training_choice' == route %} active {% endif %} w-100\">S'entraîner</a>
+
+  <button type=\"button\" class=\"btn btn-primary dropdown-toggle {% if 'gallery' == route %} active {% endif %} w-100 mobile-menu-change\" data-toggle=\"dropdown\">
+     Galleries
+  </button>
+  <div class=\"dropdown-menu mobile-menu-change\">
+    <a class=\"dropdown-item\" href={{ path('img_gallery') }}>Gallerie d'images</a>
+    <a class=\"dropdown-item\" href={{ path('quiz_gallery') }}>Quizs précédents</a>
+  </div>
+  <a href={{ path('training_choice') }} class=\"btn btn-primary {% if 'training_choice' == route %} active {% endif %} w-100 mobile-menu-change\">S'entraîner</a>
 {% endblock %}
 
 {% block body %}
@@ -327,7 +337,19 @@ class __TwigTemplate_325af2151fcee78ae79f26661a9462fcf72b6841ca1777089cc5f1f9e49
 
 {% block javascripts %}
 <script src=\" {{ asset('build/public.js') }}\"></script>
+<script>
+\$(document).ready(function() {
+\tif (\$(window).width() < 550) {
+ \t   var noMobile = document.querySelectorAll('.mobile-menu-change'),
+    \ti = 0,
+    \tl = noMobile.length;
 
+  \t\tfor (i; i < l; i++) {
+        \t  \$('.mobile-menu-row').append(noMobile[i]);
+  \t\t}
+    }
+});
+</script>
 {% endblock %}
 
 {% endblock %}

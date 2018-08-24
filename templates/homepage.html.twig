@@ -15,16 +15,15 @@
   <a href={{ path('homepage') }} class="btn btn-primary {% if 'homepage' == route %} active {% endif %} w-100"> <i class="fas fa-home"></i> Accueil</a>
   <a href={{ path('aboutus') }} class="btn btn-primary {% if 'aboutus' == route %} active {% endif %} w-100">À propos</a>
   <a href={{ path('regulation') }} class="btn btn-primary {% if 'regulation' == route %} active {% endif %} w-100">Règlement</a>
-  <!-- <div class="btn-group"> -->
-    <button type="button" class="btn btn-primary dropdown-toggle {% if 'gallery' == route %} active {% endif %} w-100" data-toggle="dropdown">
-       Galleries
-    </button>
-    <div class="dropdown-menu">
-      <a class="dropdown-item" href={{ path('img_gallery') }}>Gallerie d'images</a>
-      <a class="dropdown-item" href={{ path('quiz_gallery') }}>Quizs précédents</a>
-    </div>
-  <!-- </div> -->
-  <a href={{ path('training_choice') }} class="btn btn-primary {% if 'training_choice' == route %} active {% endif %} w-100">S'entraîner</a>
+
+  <button type="button" class="btn btn-primary dropdown-toggle {% if 'gallery' == route %} active {% endif %} w-100 mobile-menu-change" data-toggle="dropdown">
+     Galleries
+  </button>
+  <div class="dropdown-menu mobile-menu-change">
+    <a class="dropdown-item" href={{ path('img_gallery') }}>Gallerie d'images</a>
+    <a class="dropdown-item" href={{ path('quiz_gallery') }}>Quizs précédents</a>
+  </div>
+  <a href={{ path('training_choice') }} class="btn btn-primary {% if 'training_choice' == route %} active {% endif %} w-100 mobile-menu-change">S'entraîner</a>
 {% endblock %}
 
 {% block body %}
@@ -51,7 +50,19 @@
 
 {% block javascripts %}
 <script src=" {{ asset('build/public.js') }}"></script>
+<script>
+$(document).ready(function() {
+	if ($(window).width() < 550) {
+ 	   var noMobile = document.querySelectorAll('.mobile-menu-change'),
+    	i = 0,
+    	l = noMobile.length;
 
+  		for (i; i < l; i++) {
+        	  $('.mobile-menu-row').append(noMobile[i]);
+  		}
+    }
+});
+</script>
 {% endblock %}
 
 {% endblock %}

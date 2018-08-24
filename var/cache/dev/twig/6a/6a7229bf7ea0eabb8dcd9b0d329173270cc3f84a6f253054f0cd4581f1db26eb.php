@@ -141,6 +141,10 @@ class __TwigTemplate_cedb156eb3b0a7e2c1c83721529788ba937ae13d6e98466f7ef3d2b6b8b
             echo " active ";
         }
         echo " w-100\">Gestion entraînement</a>
+  <a href=";
+        // line 22
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
+        echo " class=\"btn btn-danger w-100\"> Log out </a> 
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -150,7 +154,7 @@ class __TwigTemplate_cedb156eb3b0a7e2c1c83721529788ba937ae13d6e98466f7ef3d2b6b8b
 
     }
 
-    // line 24
+    // line 25
     public function block_body($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -159,17 +163,17 @@ class __TwigTemplate_cedb156eb3b0a7e2c1c83721529788ba937ae13d6e98466f7ef3d2b6b8b
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        // line 25
+        // line 26
         echo "
 ";
-        // line 26
+        // line 27
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 26, $this->source); })()), "session", array()), "flashbag", array()), "get", array(0 => "success"), "method"));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 27, $this->source); })()), "session", array()), "flashbag", array()), "get", array(0 => "success"), "method"));
         foreach ($context['_seq'] as $context["_key"] => $context["flashMessage"]) {
-            // line 27
+            // line 28
             echo "  <div class=\"alert alert-success\">
     ";
-            // line 28
+            // line 29
             echo $context["flashMessage"];
             echo "
   </div>
@@ -178,14 +182,14 @@ class __TwigTemplate_cedb156eb3b0a7e2c1c83721529788ba937ae13d6e98466f7ef3d2b6b8b
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flashMessage'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 31
+        // line 32
         echo "
 
 <!-- Only print this message on the homepage -->
 ";
-        // line 34
-        if (("admin_homepage" == (isset($context["route"]) || array_key_exists("route", $context) ? $context["route"] : (function () { throw new Twig_Error_Runtime('Variable "route" does not exist.', 34, $this->source); })()))) {
-            // line 35
+        // line 35
+        if (("admin_homepage" == (isset($context["route"]) || array_key_exists("route", $context) ? $context["route"] : (function () { throw new Twig_Error_Runtime('Variable "route" does not exist.', 35, $this->source); })()))) {
+            // line 36
             echo "<div class='admin_homepage_text'>
   <h1> Website Administrator interface </h1>
   Hello Admin, you can modify the informations of the website by navigating via the menu on the top of this page.
@@ -193,12 +197,12 @@ class __TwigTemplate_cedb156eb3b0a7e2c1c83721529788ba937ae13d6e98466f7ef3d2b6b8b
 
 ";
         }
-        // line 41
+        // line 42
         echo "
 ";
-        // line 42
+        // line 43
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 47
+        // line 48
         echo "
 
 
@@ -211,7 +215,7 @@ class __TwigTemplate_cedb156eb3b0a7e2c1c83721529788ba937ae13d6e98466f7ef3d2b6b8b
 
     }
 
-    // line 42
+    // line 43
     public function block_javascripts($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -220,10 +224,10 @@ class __TwigTemplate_cedb156eb3b0a7e2c1c83721529788ba937ae13d6e98466f7ef3d2b6b8b
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 43
+        // line 44
         echo "
 <script src=\" ";
-        // line 44
+        // line 45
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("build/admin.js"), "html", null, true);
         echo "\"></script>
 
@@ -248,7 +252,7 @@ class __TwigTemplate_cedb156eb3b0a7e2c1c83721529788ba937ae13d6e98466f7ef3d2b6b8b
 
     public function getDebugInfo()
     {
-        return array (  227 => 44,  224 => 43,  215 => 42,  202 => 47,  200 => 42,  197 => 41,  189 => 35,  187 => 34,  182 => 31,  173 => 28,  170 => 27,  166 => 26,  163 => 25,  154 => 24,  138 => 21,  130 => 20,  122 => 19,  114 => 18,  106 => 17,  102 => 15,  93 => 14,  80 => 8,  71 => 7,  60 => 4,  51 => 3,  41 => 1,  39 => 11,  15 => 1,);
+        return array (  231 => 45,  228 => 44,  219 => 43,  206 => 48,  204 => 43,  201 => 42,  193 => 36,  191 => 35,  186 => 32,  177 => 29,  174 => 28,  170 => 27,  167 => 26,  158 => 25,  146 => 22,  138 => 21,  130 => 20,  122 => 19,  114 => 18,  106 => 17,  102 => 15,  93 => 14,  80 => 8,  71 => 7,  60 => 4,  51 => 3,  41 => 1,  39 => 11,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -274,6 +278,7 @@ class __TwigTemplate_cedb156eb3b0a7e2c1c83721529788ba937ae13d6e98466f7ef3d2b6b8b
   <a href={{ path('admin_regulation') }} class=\"btn btn-primary {% if 'admin_regulation' == route %} active {% endif %} w-100\">Gestion règlement</a>
   <a href={{ path('admin_gallery') }} class=\"btn btn-primary {% if 'admin_gallery' == route %} active {% endif %} w-100\">Gestion gallerie</a>
   <a href={{ path('admin_training_choice') }} class=\"btn btn-primary {% if ('admin_training_choice' == route) or ('admin_training' == route) %} active {% endif %} w-100\">Gestion entraînement</a>
+  <a href={{ path('logout') }} class=\"btn btn-danger w-100\"> Log out </a> 
 {% endblock %}
 
 {% block body %}

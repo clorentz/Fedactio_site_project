@@ -8,6 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class TrainingAnswerType extends AbstractType
 {
@@ -21,6 +22,10 @@ class TrainingAnswerType extends AbstractType
       $builder->add('isTrue',  CheckboxType::class, array(
         'label'    => 'Is this question the correct one?',
         'required' => false,
+      ));
+      $builder->add('image', FileType::class, array(
+        'label'     => 'Image (PNG file)',
+        'required'  => false,
       ));
     }
 

@@ -14,6 +14,13 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class TrainingClientAnswerType extends AbstractType
 {
+    private $imageDirectory;
+
+    public function __construct($imageDirectory)
+    {
+        $this->imageDirectory = $imageDirectory;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
       $builder->addEventListener(FormEvents::POST_SET_DATA, function ($event) {
@@ -30,7 +37,11 @@ class TrainingClientAnswerType extends AbstractType
         $builder->add('answers',  EntityType::class, array(
           'class'    => TrainingAnswer::class,
           'choice_label' => function ($trainingAnswer) {
-            return $trainingAnswer->getAnswer();
+            if (is_null($trainingAnswer->getImage()))
+              return $trainingAnswer->getAnswer();
+            else {
+              return "<img src=" . $this->imageDirectory . "/" . $trainingAnswer->getImage() . " alt='Question Image'>";
+            }
             },
           'choices'  => $items,
           'multiple' => true,
@@ -45,6 +56,7 @@ class TrainingClientAnswerType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => TrainingClientAnswer::class,
+            'kernelDir'  => null,
         ));
     }
 }
