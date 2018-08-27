@@ -45,7 +45,6 @@ class srcDevDebugProjectContainerUrlGenerator extends Symfony\Component\Routing\
         'admin_new_training' => array(array(), array('_controller' => 'App\\Controller\\AdminController::createTraining'), array(), array(array('text', '/admin/training')), array(), array()),
         'admin_delete_training' => array(array('id'), array('_controller' => 'App\\Controller\\AdminController::deleteTraining'), array(), array(array('variable', '/', '[^/]++', 'id'), array('text', '/admin/training_delete')), array(), array()),
         'admin_training' => array(array('id'), array('_controller' => 'App\\Controller\\AdminController::managementTraining'), array(), array(array('variable', '/', '[^/]++', 'id'), array('text', '/admin/training')), array(), array()),
-        'app_lucky_number' => array(array(), array('_controller' => 'App\\Controller\\LuckyController::number'), array(), array(array('text', '/lucky/number')), array(), array()),
         'homepage' => array(array(), array('_controller' => 'App\\Controller\\PublicController::homepage'), array(), array(array('text', '/')), array(), array()),
         'aboutus' => array(array(), array('_controller' => 'App\\Controller\\PublicController::aboutUs'), array(), array(array('text', '/aboutUs')), array(), array()),
         'enroll' => array(array(), array('_controller' => 'App\\Controller\\PublicController::enroll'), array(), array(array('text', '/enroll')), array(), array()),

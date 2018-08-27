@@ -76,7 +76,6 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                     '/admin/gallery' => array(array('_route' => 'admin_gallery', '_controller' => 'App\\Controller\\AdminController::managementGallery'), null, null, null),
                     '/admin/training_choice' => array(array('_route' => 'admin_training_choice', '_controller' => 'App\\Controller\\AdminController::choiceTraining'), null, null, null),
                     '/admin/training' => array(array('_route' => 'admin_new_training', '_controller' => 'App\\Controller\\AdminController::createTraining'), null, null, null),
-                    '/lucky/number' => array(array('_route' => 'app_lucky_number', '_controller' => 'App\\Controller\\LuckyController::number'), null, null, null),
                     '/' => array(array('_route' => 'homepage', '_controller' => 'App\\Controller\\PublicController::homepage'), null, null, null),
                     '/aboutUs' => array(array('_route' => 'aboutus', '_controller' => 'App\\Controller\\PublicController::aboutUs'), null, null, null),
                     '/enroll' => array(array('_route' => 'enroll', '_controller' => 'App\\Controller\\PublicController::enroll'), null, null, null),
