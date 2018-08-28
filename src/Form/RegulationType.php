@@ -16,7 +16,7 @@ class RegulationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
       $builder->add('regulationYear', IntegerType::class, array(
-        'label'  =>  'Regulation Year'
+        'label'  =>  'Année de règlement'
       ));
       $builder->add('items', CollectionType::class, array(
         'entry_type'   => RegulationItemType::class,
@@ -27,7 +27,7 @@ class RegulationType extends AbstractType
         'by_reference' => false,
       ));
       $builder->add('send', SubmitType::class, array(
-        'label' => "Validate",
+        'label' => "Enregistrer",
         'attr'  => array('class' => 'btn-base btn-confirm')
       ));
     }

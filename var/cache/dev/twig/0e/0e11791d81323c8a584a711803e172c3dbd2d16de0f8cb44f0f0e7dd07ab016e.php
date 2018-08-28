@@ -72,18 +72,20 @@ class __TwigTemplate_015e47418e86bb932e1dff15fe4530761a9dfeacc89f6be3f17350e4077
 
         // line 8
         echo "
+
+<!-- Display of the regulations for the year as a list -->
 <h1> Règlement de l'année ";
-        // line 9
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["regulation"]) || array_key_exists("regulation", $context) ? $context["regulation"] : (function () { throw new Twig_Error_Runtime('Variable "regulation" does not exist.', 9, $this->source); })()), "regulationYear", array()), "html", null, true);
+        // line 11
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["regulation"]) || array_key_exists("regulation", $context) ? $context["regulation"] : (function () { throw new Twig_Error_Runtime('Variable "regulation" does not exist.', 11, $this->source); })()), "regulationYear", array()), "html", null, true);
         echo "</h1>
 
 <ul>
   ";
-        // line 12
+        // line 14
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["regulation"]) || array_key_exists("regulation", $context) ? $context["regulation"] : (function () { throw new Twig_Error_Runtime('Variable "regulation" does not exist.', 12, $this->source); })()), "items", array()));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["regulation"]) || array_key_exists("regulation", $context) ? $context["regulation"] : (function () { throw new Twig_Error_Runtime('Variable "regulation" does not exist.', 14, $this->source); })()), "items", array()));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 13
+            // line 15
             echo "      <li> ";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["item"], "regulation", array()), "html", null, true);
             echo " </li>
@@ -92,7 +94,7 @@ class __TwigTemplate_015e47418e86bb932e1dff15fe4530761a9dfeacc89f6be3f17350e4077
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 15
+        // line 17
         echo "</ul>
 
 ";
@@ -116,7 +118,7 @@ class __TwigTemplate_015e47418e86bb932e1dff15fe4530761a9dfeacc89f6be3f17350e4077
 
     public function getDebugInfo()
     {
-        return array (  96 => 15,  87 => 13,  83 => 12,  77 => 9,  74 => 8,  65 => 7,  54 => 4,  45 => 3,  15 => 1,);
+        return array (  98 => 17,  89 => 15,  85 => 14,  79 => 11,  74 => 8,  65 => 7,  54 => 4,  45 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -129,6 +131,8 @@ class __TwigTemplate_015e47418e86bb932e1dff15fe4530761a9dfeacc89f6be3f17350e4077
 
 {% block body %}
 
+
+<!-- Display of the regulations for the year as a list -->
 <h1> Règlement de l'année {{regulation.regulationYear}}</h1>
 
 <ul>

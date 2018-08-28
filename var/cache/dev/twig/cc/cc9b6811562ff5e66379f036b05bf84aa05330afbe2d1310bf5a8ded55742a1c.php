@@ -51,7 +51,7 @@ class __TwigTemplate_607402a6191cc35535f8951adb6a5e37bbf1708c5a48f9bef56cc296abe
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         // line 5
-        echo "  Page d'inscription au concours
+        echo "  Page de correction de quiz
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -77,29 +77,33 @@ class __TwigTemplate_607402a6191cc35535f8951adb6a5e37bbf1708c5a48f9bef56cc296abe
         $context["question_cmpt"] = 0;
         // line 11
         echo "
+<!-- Print out the correction to the math quiz selected -->
 ";
-        // line 12
+        // line 13
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["quiz"]) || array_key_exists("quiz", $context) ? $context["quiz"] : (function () { throw new Twig_Error_Runtime('Variable "quiz" does not exist.', 12, $this->source); })()), "questions", array()));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["quiz"]) || array_key_exists("quiz", $context) ? $context["quiz"] : (function () { throw new Twig_Error_Runtime('Variable "quiz" does not exist.', 13, $this->source); })()), "questions", array()));
         foreach ($context['_seq'] as $context["_key"] => $context["question"]) {
-            // line 13
+            // line 14
             echo " <h2> Question n°";
-            echo twig_escape_filter($this->env, ((isset($context["question_cmpt"]) || array_key_exists("question_cmpt", $context) ? $context["question_cmpt"] : (function () { throw new Twig_Error_Runtime('Variable "question_cmpt" does not exist.', 13, $this->source); })()) + 1), "html", null, true);
+            echo twig_escape_filter($this->env, ((isset($context["question_cmpt"]) || array_key_exists("question_cmpt", $context) ? $context["question_cmpt"] : (function () { throw new Twig_Error_Runtime('Variable "question_cmpt" does not exist.', 14, $this->source); })()) + 1), "html", null, true);
             echo ": ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["quiz"]) || array_key_exists("quiz", $context) ? $context["quiz"] : (function () { throw new Twig_Error_Runtime('Variable "quiz" does not exist.', 13, $this->source); })()), "questions", array()), (isset($context["question_cmpt"]) || array_key_exists("question_cmpt", $context) ? $context["question_cmpt"] : (function () { throw new Twig_Error_Runtime('Variable "question_cmpt" does not exist.', 13, $this->source); })()), array(), "array"), "question", array()), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["quiz"]) || array_key_exists("quiz", $context) ? $context["quiz"] : (function () { throw new Twig_Error_Runtime('Variable "quiz" does not exist.', 14, $this->source); })()), "questions", array()), (isset($context["question_cmpt"]) || array_key_exists("question_cmpt", $context) ? $context["question_cmpt"] : (function () { throw new Twig_Error_Runtime('Variable "question_cmpt" does not exist.', 14, $this->source); })()), array(), "array"), "question", array()), "html", null, true);
             echo "</h2>
 
  <div class=\"btn-group d-flex\" role=\"group\" aria-label=\"";
-            // line 15
-            echo twig_escape_filter($this->env, ((isset($context["question_cmpt"]) || array_key_exists("question_cmpt", $context) ? $context["question_cmpt"] : (function () { throw new Twig_Error_Runtime('Variable "question_cmpt" does not exist.', 15, $this->source); })()) + 1), "html", null, true);
+            // line 16
+            echo twig_escape_filter($this->env, ((isset($context["question_cmpt"]) || array_key_exists("question_cmpt", $context) ? $context["question_cmpt"] : (function () { throw new Twig_Error_Runtime('Variable "question_cmpt" does not exist.', 16, $this->source); })()) + 1), "html", null, true);
             echo "\">
    ";
-            // line 16
+            // line 17
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["question"], "answers", array()));
             foreach ($context['_seq'] as $context["_key"] => $context["answer"]) {
-                // line 17
-                echo "     <button type=\"button\" class=\"btn ";
+                // line 18
+                echo "   <!-- The buttons are disabled so there is no click possible -->
+   <!-- If the answer is one of the correct ones, it is green, otherwise it is gray -->
+     <button type=\"button\" class=\"btn ";
+                // line 20
                 if (twig_get_attribute($this->env, $this->source, $context["answer"], "isTrue", array())) {
                     echo " btn-success ";
                 } else {
@@ -113,11 +117,11 @@ class __TwigTemplate_607402a6191cc35535f8951adb6a5e37bbf1708c5a48f9bef56cc296abe
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['answer'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 19
+            // line 22
             echo " </div>
  ";
-            // line 20
-            $context["question_cmpt"] = ((isset($context["question_cmpt"]) || array_key_exists("question_cmpt", $context) ? $context["question_cmpt"] : (function () { throw new Twig_Error_Runtime('Variable "question_cmpt" does not exist.', 20, $this->source); })()) + 1);
+            // line 23
+            $context["question_cmpt"] = ((isset($context["question_cmpt"]) || array_key_exists("question_cmpt", $context) ? $context["question_cmpt"] : (function () { throw new Twig_Error_Runtime('Variable "question_cmpt" does not exist.', 23, $this->source); })()) + 1);
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['question'], $context['_parent'], $context['loop']);
@@ -142,7 +146,7 @@ class __TwigTemplate_607402a6191cc35535f8951adb6a5e37bbf1708c5a48f9bef56cc296abe
 
     public function getDebugInfo()
     {
-        return array (  120 => 20,  117 => 19,  102 => 17,  98 => 16,  94 => 15,  86 => 13,  82 => 12,  79 => 11,  77 => 10,  74 => 9,  65 => 8,  54 => 5,  45 => 4,  15 => 2,);
+        return array (  124 => 23,  121 => 22,  107 => 20,  103 => 18,  99 => 17,  95 => 16,  87 => 14,  83 => 13,  79 => 11,  77 => 10,  74 => 9,  65 => 8,  54 => 5,  45 => 4,  15 => 2,);
     }
 
     public function getSourceContext()
@@ -151,18 +155,21 @@ class __TwigTemplate_607402a6191cc35535f8951adb6a5e37bbf1708c5a48f9bef56cc296abe
 {% extends 'homepage.html.twig' %}
 
 {% block title %}
-  Page d'inscription au concours
+  Page de correction de quiz
 {% endblock %}
 
 {% block body %}
 
 {% set question_cmpt = 0 %}
 
+<!-- Print out the correction to the math quiz selected -->
 {% for question in quiz.questions %}
  <h2> Question n°{{question_cmpt + 1}}: {{quiz.questions[question_cmpt].question}}</h2>
 
  <div class=\"btn-group d-flex\" role=\"group\" aria-label=\"{{ question_cmpt + 1}}\">
    {% for answer in question.answers %}
+   <!-- The buttons are disabled so there is no click possible -->
+   <!-- If the answer is one of the correct ones, it is green, otherwise it is gray -->
      <button type=\"button\" class=\"btn {% if answer.isTrue %} btn-success {% else %} btn-light {% endif %} w-100\" disabled>{{answer.answer}}</button>
    {% endfor %}
  </div>

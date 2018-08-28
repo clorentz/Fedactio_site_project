@@ -7,21 +7,29 @@
 {% block body %}
 
 {% for flashMessage in app.session.flashbag.get('success') %}
-  <div class="alert alert-success">
-    {{ flashMessage|raw }}
-  </div>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  {{ flashMessage|raw }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 {% endfor %}
 
-<h1> Images: </h1>
-<h2> Current uploaded images: </h2>
 
+<!-- Image part of the template -->
+<h1> Images: </h1>
+<h2> Images actuellement uploadées: </h2>
+
+
+<!-- List of the current puploaded images -->
 <ul>
   {% for image in images %}
     <li> <a href="{{ path('admin_gallery_image', {'id': image.id}) }}"> {{image.name}} </a> </li>
   {% endfor %}
 </ul>
 
-<h2> Add an image: </h2>
+<!-- Form to add an image -->
+<h2> Ajouter une image: </h2>
 {{ form_start(img_form) }}
 
 {{ form_row(img_form.ImageYear) }}
@@ -33,9 +41,9 @@
 
 
 
-<h1> Previous Quiz </h1>
+<h1> Quizs précédents </h1>
 
-<h2> Current uploaded quizs</h2>
+<h2> Quizs uploadés:</h2>
 
 <div class="js-quizs-wrapper">
   <ul>
@@ -56,7 +64,8 @@
 </div>
 
 
-<h2> Add a quiz </h2>
+<!-- Adding form for the quiz -->
+<h2> Ajouter un quiz: </h2>
 
 {{ form_start(quiz_form) }}
 

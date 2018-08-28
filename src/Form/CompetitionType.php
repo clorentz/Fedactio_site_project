@@ -17,25 +17,31 @@ class CompetitionType extends AbstractType
 
       $builder->add('inscriptionStartDate', DateType::class, array(
         'widget'       => 'choice',
+        'label'        => "Date de début d'inscription",
       ));
       $builder->add('inscriptionEndDate', DateType::class, array(
         'widget'       => 'choice',
+        'label'        => "Date de fin d'inscription",
       ));
       $builder->add('individualDate', DateType::class, array(
         'widget'       => 'choice',
+        'label'        => "Date de la compétition individuelle",
       ));
       $builder->add('individualLocation', TextType::class, array(
-        'label'=> 'Individual Location',
-        'attr' => array('class' => 'tinymce'),
+        'label'        => 'Individual Location',
+        'attr'         => array('class' => 'tinymce'),
+        'label'        => "Localisation de la compétition individuelle",
       ));
       $builder->add('competitionStartDate', DateType::class, array(
         'widget'       => 'choice',
+        'label'        => "Date de début de la compétition",
       ));
       $builder->add('competitionEndDate', DateType::class, array(
         'widget'       => 'choice',
+        'label'        => "Date de fin de la compétition",
       ));
       $builder->add('send', SubmitType::class, array(
-        'label' => "Validate",
+        'label' => "Enregistrer",
         'attr'  => array('class' => 'btn-base btn-confirm')
       ));
     }

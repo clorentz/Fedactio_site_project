@@ -48,13 +48,15 @@ class AdminController extends Controller
       $manager = $this->getDoctrine()->getManager();
       $competition = $manager->getRepository(Competition::class)->findAll()[0];
 
+      // Form creation for the Competition
       $form = $formFactory->createBuilder(CompetitionType::class, $competition)->getForm();
 
       $form->handleRequest($request);
       if ($form->isSubmitted() && $form->isValid()) {
 
+        // Persist the changes to the database if the form is valid, and adds a message
         $manager->flush();
-        $this->addFlash("success", "Quiz modified.");
+        $this->addFlash("success", "Quiz modifié.");
       }
 
         return $this->render('admin/admin_competition.html.twig', [
@@ -68,20 +70,23 @@ class AdminController extends Controller
     public function managementAboutUs(Request $request){
       $manager = $this->getDoctrine()->getManager();
       $formFactory = $this->get('form.factory');
-
       $informations = $manager->getRepository(Informations::class)->findAll()[0];
+
+
+      // Save of the items before form validation (for removal purposes)
       $originalInformationsItems = new ArrayCollection();
       foreach ($informations->getItems() as $item) {
         $originalInformationsItems->add($item);
       }
 
-
+      // Form creation for the informations
       $form = $formFactory->createBuilder(InformationsType::class, $informations)->getForm();
 
       $form->handleRequest($request);
       if ($form->isSubmitted() && $form->isValid()){
         $modif = true;
         foreach ($originalInformationsItems as $item) {
+          // Tests an item has been removed by the Javascript and removes it if so, after adding a success message
           if (false === $informations->getItems()->contains($item)){
             $manager->remove($item);
             $this->addFlash("success", "Item successfuly deleted.");
@@ -90,6 +95,7 @@ class AdminController extends Controller
           }
         }
 
+        // If there has been a modification (except from the remove), add a success message
         if ($modif){
           $this->addFlash("success", "Modifications saved.");
           $manager->flush();
@@ -110,16 +116,21 @@ class AdminController extends Controller
       $formFactory = $this->get('form.factory');
 
       $regulation = $manager->getRepository(Regulation::class)->findAll()[0];
+
+      // Save of the original items for deletion purposes
       $originalRegulationItems = new ArrayCollection();
       foreach ($regulation->getItems() as $item) {
         $originalRegulationItems->add($item);
       }
 
+      // Creation of the Regulation form
       $form = $formFactory->createBuilder(RegulationType::class, $regulation)->getForm();
 
       $form->handleRequest($request);
       if ($form->isSubmitted() && $form->isValid()) {
+
         foreach ($originalRegulationItems as $item) {
+          // Tests an item has been removed by the Javascript and removes it if so, after adding a success message
           if (false === $regulation->getItems()->contains($item)){
             $manager->remove($item);
             $this->addFlash("success", "Item successfuly deleted.");
@@ -127,6 +138,7 @@ class AdminController extends Controller
           }
         }
 
+        // If there has been a modification (except from the remove), add a success message
         $this->addFlash("success", "Modifications saved.");
         $manager->flush();
       }
@@ -144,11 +156,13 @@ class AdminController extends Controller
       $formFactory = $this->get('form.factory');
       $manager = $this->getDoctrine()->getManager();
 
+      // Creating a form to add a new image if wanted to
       $new_img = new GalleryImage();
       $img_form = $formFactory->createBuilder(GalleryImageType::class, $new_img, array(
         'add' => true,
       ))->getForm();
 
+      // Creating a form to add a new quiz if wanted to
       $new_quiz = new PreviousQuiz();
       $quiz_form = $formFactory->createBuilder(PreviousQuizType::class, $new_quiz, array(
         'add'    => true,
@@ -207,6 +221,7 @@ class AdminController extends Controller
     * @Route("/admin/quiz/{id}", name="admin_quiz")
     */
     public function showQuiz(PreviousQuiz $quiz, Request $request){
+      // this method will be to modify or delete a quiz
       $formFactory = $this->get('form.factory');
       $manager = $this->getDoctrine()->getManager();
       $bname = $quiz->getQuiz();
@@ -217,23 +232,28 @@ class AdminController extends Controller
           new File($this->getParameter('previous_quiz_directory').'/'.basename($quiz->getQuiz()))
         );
 
-
+      // Creation of the modify form for the quiz
       $quiz_form = $formFactory->createBuilder(PreviousQuizType::class, $quiz, array(
         'add'    => false,
       ))->getForm();
 
-      // Form handling for the past quizs
+      // Form handling
       $quiz_form->handleRequest($request);
       if ($quiz_form->isSubmitted() && $quiz_form->isValid()) {
 
+        // If the form is valid, persist the changes to the database and add a message
         $manager->flush();
         $this->addFlash("success", "Quiz informations modified.");
       }
 
+      // difficulty array to get the correct level of difficulty instead of an integer
+      $difficulty = array("1e/2e", "3e/4e", "5e/6e");
+
       return $this->render('admin/admin_quiz.html.twig', [
-          'quiz'  => $quiz,
-          'form'  => $quiz_form->createView(),
-          'bname' => $bname,
+          'quiz'       => $quiz,
+          'form'       => $quiz_form->createView(),
+          'bname'      => $bname,
+          'difficulty' => $difficulty,
       ]);
     }
 
@@ -272,10 +292,11 @@ class AdminController extends Controller
         'add'    => false,
       ))->getForm();
 
-      // Form handling for the past quizs
+      // Form handling for the image modification
       $image_form->handleRequest($request);
       if ($image_form->isSubmitted() && $image_form->isValid()) {
 
+        // If the form is valid, persist the changes to the database and add a message
         $manager->flush();
         $this->addFlash("success", "Image informations modified.");
       }
@@ -308,10 +329,12 @@ class AdminController extends Controller
     public function choiceTraining(){
       $manager = $this->getDoctrine()->getManager();
 
+      // Selects all the quizs in the database
       $quizs = $manager->getRepository(TrainingQuiz::class)->findAll();
       $primary_quiz = array();
       $secondary_quiz = array();
 
+      // Adds the quiz to an array depending on the school
       foreach ($quizs as $quiz) {
         $school_number = $quiz->getSchool();
           if ($school_number == 1) {
@@ -336,6 +359,7 @@ class AdminController extends Controller
     */
     public function createTraining()
     {
+      // This function will just create a new training with basic values, persist it to the databse then redirect to the quiz modification page
       $manager = $this->getDoctrine()->getManager();
       $new_quiz = new TrainingQuiz();
       $new_quiz->setDifficulty(1);
@@ -352,6 +376,7 @@ class AdminController extends Controller
     */
     public function deleteTraining(TrainingQuiz $quiz)
     {
+      // This function will delete the quiz and redirect to the training choice page
       $manager = $this->getDoctrine()->getManager();
       $manager->remove($quiz);
       $manager->flush();
@@ -372,12 +397,15 @@ class AdminController extends Controller
       $image_locations = array();
 
       foreach ($questions as $question){
-        $image_location = basename($question->getImage());
+        $image_location = basename($question->getImage()); // to make sure to have just the name and no path
+        // Save the questions in case one is deleted by the JS
         $originalQuestions[] = $question;
 
         foreach ($question->getAnswers() as $answer) {
+          // Save the answers in case one is deleted by the JS
           $originalAnswers[] = $answer;
 
+          // So the form will understand that the image is already there if it is the case
           if ($answer->getImage() != null){
             $bname = basename($answer->getImage());
             $answer->setImage(
@@ -395,6 +423,7 @@ class AdminController extends Controller
         $image_locations[] = $image_location;
       }
 
+      // Creation of the quiz form
       $form = $formFactory->createBuilder(TrainingQuizType::class, $quiz)->getForm();
 
 
@@ -402,6 +431,7 @@ class AdminController extends Controller
       if ($form->isSubmitted() && $form->isValid()) {
         $modif = true;
 
+        // Deletion in the databse of the entitities deleted by the user and removed by the JS
         foreach ($originalQuestions as $question) {
           if (false === $quiz->getQuestions()->contains($question)){
             $manager->remove($question);
@@ -445,6 +475,7 @@ class AdminController extends Controller
         }
       }
 
+      // If there was no deletion, the modification message will be printed 
       if ($modif){
         $manager->persist($question);
         $manager->flush();

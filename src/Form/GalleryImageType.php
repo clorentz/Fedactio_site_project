@@ -17,19 +17,19 @@ class GalleryImageType extends AbstractType
     {
       if ($options['add']) {
         $builder->add('image', FileType::class, array(
-          'label'     => 'Image (PNG file)',
+          'label'     => 'Image (format PNG)',
           'required'  => false,
         ));
       }
       $builder->add('ImageYear', IntegerType::class, array(
-        'label'     => 'Year of image publication'
+        'label'     => 'Année de publication'
       ));
       $builder->add('description', TextType::class, array(
         'required' => false,
         'attr'     =>  array('class' => 'tinymce'),
       ));
       $builder->add('send', SubmitType::class, array(
-        'label' => "Validate",
+        'label' => "Enregistrer",
         'attr'  => array('class' => 'btn-base btn-confirm')
       ));
     }

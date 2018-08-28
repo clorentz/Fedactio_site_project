@@ -19,15 +19,18 @@
   <a href={{ path('admin_regulation') }} class="btn btn-primary {% if 'admin_regulation' == route %} active {% endif %} w-100">Gestion règlement</a>
   <a href={{ path('admin_gallery') }} class="btn btn-primary {% if 'admin_gallery' == route %} active {% endif %} w-100">Gestion gallerie</a>
   <a href={{ path('admin_training_choice') }} class="btn btn-primary {% if ('admin_training_choice' == route) or ('admin_training' == route) %} active {% endif %} w-100">Gestion entraînement</a>
-  <a href={{ path('logout') }} class="btn btn-danger w-100"> Log out </a> 
+  <a href={{ path('logout') }} class="btn btn-danger w-100"> Log out </a>
 {% endblock %}
 
 {% block body %}
 
 {% for flashMessage in app.session.flashbag.get('success') %}
-  <div class="alert alert-success">
-    {{ flashMessage|raw }}
-  </div>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  {{ flashMessage|raw }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 {% endfor %}
 
 

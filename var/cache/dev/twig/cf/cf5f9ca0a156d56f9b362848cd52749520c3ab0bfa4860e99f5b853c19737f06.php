@@ -52,7 +52,7 @@ class __TwigTemplate_fab5221084ae7d47e7563c261de57ce30faf54a21ab729cd590a54ba64f
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         // line 4
-        echo "  Page de gallerie
+        echo "  Page de gallerie d'images
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -87,17 +87,19 @@ class __TwigTemplate_fab5221084ae7d47e7563c261de57ce30faf54a21ab729cd590a54ba64f
                 echo "  <h1> Photos archivées de l'année ";
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["years"]) || array_key_exists("years", $context) ? $context["years"] : (function () { throw new Twig_Error_Runtime('Variable "years" does not exist.', 13, $this->source); })()), $context["i"], array(), "array"), "html", null, true);
                 echo " </h1>
+
+  <!-- Thumbnail display for the last year's quiz -->
   ";
-                // line 14
+                // line 16
                 if (($context["i"] == 0)) {
-                    // line 15
+                    // line 17
                     echo "  <div class=\"row\">
     ";
-                    // line 16
+                    // line 18
                     $context['_parent'] = $context;
-                    $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["images_array"]) || array_key_exists("images_array", $context) ? $context["images_array"] : (function () { throw new Twig_Error_Runtime('Variable "images_array" does not exist.', 16, $this->source); })()), $context["i"], array(), "array"));
+                    $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["images_array"]) || array_key_exists("images_array", $context) ? $context["images_array"] : (function () { throw new Twig_Error_Runtime('Variable "images_array" does not exist.', 18, $this->source); })()), $context["i"], array(), "array"));
                     foreach ($context['_seq'] as $context["_key"] => $context["image"]) {
-                        // line 17
+                        // line 19
                         echo "    <div class=\"col-lg-4 col-6 \"><img class=\"img-thumbnail img-fluid\" src=\"";
                         echo twig_escape_filter($this->env, ($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("uploads/gallery_images/") . twig_get_attribute($this->env, $this->source, $context["image"], "image", array())), "html", null, true);
                         echo "\" alt=\"\"></div>
@@ -106,82 +108,83 @@ class __TwigTemplate_fab5221084ae7d47e7563c261de57ce30faf54a21ab729cd590a54ba64f
                     $_parent = $context['_parent'];
                     unset($context['_seq'], $context['_iterated'], $context['_key'], $context['image'], $context['_parent'], $context['loop']);
                     $context = array_intersect_key($context, $_parent) + $_parent;
-                    // line 19
+                    // line 21
                     echo "  </div>
 
+  <!-- Display as image carousel for the other years --> 
   ";
                 } else {
-                    // line 22
+                    // line 25
                     echo "  <div id=\"";
-                    echo twig_escape_filter($this->env, ("ImageGallery" . twig_get_attribute($this->env, $this->source, (isset($context["years"]) || array_key_exists("years", $context) ? $context["years"] : (function () { throw new Twig_Error_Runtime('Variable "years" does not exist.', 22, $this->source); })()), $context["i"], array(), "array")), "html", null, true);
+                    echo twig_escape_filter($this->env, ("ImageGallery" . twig_get_attribute($this->env, $this->source, (isset($context["years"]) || array_key_exists("years", $context) ? $context["years"] : (function () { throw new Twig_Error_Runtime('Variable "years" does not exist.', 25, $this->source); })()), $context["i"], array(), "array")), "html", null, true);
                     echo "\" class=\"carousel slide\" data-ride=\"carousel\">
     <ol class=\"carousel-indicators\">
       ";
-                    // line 24
+                    // line 27
                     $context["cmpt"] = 0;
-                    // line 25
+                    // line 28
                     echo "      ";
                     $context['_parent'] = $context;
-                    $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["images_array"]) || array_key_exists("images_array", $context) ? $context["images_array"] : (function () { throw new Twig_Error_Runtime('Variable "images_array" does not exist.', 25, $this->source); })()), $context["i"], array(), "array"));
+                    $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["images_array"]) || array_key_exists("images_array", $context) ? $context["images_array"] : (function () { throw new Twig_Error_Runtime('Variable "images_array" does not exist.', 28, $this->source); })()), $context["i"], array(), "array"));
                     foreach ($context['_seq'] as $context["_key"] => $context["image"]) {
-                        // line 26
+                        // line 29
                         echo "      <li data-target=\"#";
-                        echo twig_escape_filter($this->env, ("ImageGallery" . twig_get_attribute($this->env, $this->source, (isset($context["years"]) || array_key_exists("years", $context) ? $context["years"] : (function () { throw new Twig_Error_Runtime('Variable "years" does not exist.', 26, $this->source); })()), $context["i"], array(), "array")), "html", null, true);
+                        echo twig_escape_filter($this->env, ("ImageGallery" . twig_get_attribute($this->env, $this->source, (isset($context["years"]) || array_key_exists("years", $context) ? $context["years"] : (function () { throw new Twig_Error_Runtime('Variable "years" does not exist.', 29, $this->source); })()), $context["i"], array(), "array")), "html", null, true);
                         echo "\" data-slide-to=\"";
-                        echo twig_escape_filter($this->env, (isset($context["cmpt"]) || array_key_exists("cmpt", $context) ? $context["cmpt"] : (function () { throw new Twig_Error_Runtime('Variable "cmpt" does not exist.', 26, $this->source); })()), "html", null, true);
+                        echo twig_escape_filter($this->env, (isset($context["cmpt"]) || array_key_exists("cmpt", $context) ? $context["cmpt"] : (function () { throw new Twig_Error_Runtime('Variable "cmpt" does not exist.', 29, $this->source); })()), "html", null, true);
                         echo "\" class=\"active\"></li>
       ";
-                        // line 27
-                        $context["cmpt"] = ((isset($context["cmpt"]) || array_key_exists("cmpt", $context) ? $context["cmpt"] : (function () { throw new Twig_Error_Runtime('Variable "cmpt" does not exist.', 27, $this->source); })()) + 1);
-                        // line 28
+                        // line 30
+                        $context["cmpt"] = ((isset($context["cmpt"]) || array_key_exists("cmpt", $context) ? $context["cmpt"] : (function () { throw new Twig_Error_Runtime('Variable "cmpt" does not exist.', 30, $this->source); })()) + 1);
+                        // line 31
                         echo "      ";
                     }
                     $_parent = $context['_parent'];
                     unset($context['_seq'], $context['_iterated'], $context['_key'], $context['image'], $context['_parent'], $context['loop']);
                     $context = array_intersect_key($context, $_parent) + $_parent;
-                    // line 29
+                    // line 32
                     echo "    </ol>
     <div class=\"carousel-inner\">
       ";
-                    // line 31
+                    // line 34
                     $context["cmpt"] = 0;
-                    // line 32
+                    // line 35
                     echo "      ";
                     $context['_parent'] = $context;
-                    $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["images_array"]) || array_key_exists("images_array", $context) ? $context["images_array"] : (function () { throw new Twig_Error_Runtime('Variable "images_array" does not exist.', 32, $this->source); })()), $context["i"], array(), "array"));
+                    $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["images_array"]) || array_key_exists("images_array", $context) ? $context["images_array"] : (function () { throw new Twig_Error_Runtime('Variable "images_array" does not exist.', 35, $this->source); })()), $context["i"], array(), "array"));
                     foreach ($context['_seq'] as $context["_key"] => $context["image"]) {
-                        // line 33
+                        // line 36
                         echo "      <div class=\"carousel-item ";
-                        if (((isset($context["cmpt"]) || array_key_exists("cmpt", $context) ? $context["cmpt"] : (function () { throw new Twig_Error_Runtime('Variable "cmpt" does not exist.', 33, $this->source); })()) == 0)) {
+                        if (((isset($context["cmpt"]) || array_key_exists("cmpt", $context) ? $context["cmpt"] : (function () { throw new Twig_Error_Runtime('Variable "cmpt" does not exist.', 36, $this->source); })()) == 0)) {
                             echo " active ";
                         }
                         echo "\">
         <img class=\"d-block w-100\" src=\"";
-                        // line 34
+                        // line 37
                         echo twig_escape_filter($this->env, ($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("uploads/gallery_images/") . twig_get_attribute($this->env, $this->source, $context["image"], "image", array())), "html", null, true);
                         echo "\" alt=\"Slide\">
       </div>
       ";
-                        // line 36
-                        $context["cmpt"] = ((isset($context["cmpt"]) || array_key_exists("cmpt", $context) ? $context["cmpt"] : (function () { throw new Twig_Error_Runtime('Variable "cmpt" does not exist.', 36, $this->source); })()) + 1);
-                        // line 37
+                        // line 39
+                        $context["cmpt"] = ((isset($context["cmpt"]) || array_key_exists("cmpt", $context) ? $context["cmpt"] : (function () { throw new Twig_Error_Runtime('Variable "cmpt" does not exist.', 39, $this->source); })()) + 1);
+                        // line 40
                         echo "      ";
                     }
                     $_parent = $context['_parent'];
                     unset($context['_seq'], $context['_iterated'], $context['_key'], $context['image'], $context['_parent'], $context['loop']);
                     $context = array_intersect_key($context, $_parent) + $_parent;
-                    // line 38
+                    // line 41
                     echo "    </div>
     <a class=\"carousel-control-prev\" href=\"#";
-                    // line 39
-                    echo twig_escape_filter($this->env, ("ImageGallery" . twig_get_attribute($this->env, $this->source, (isset($context["years"]) || array_key_exists("years", $context) ? $context["years"] : (function () { throw new Twig_Error_Runtime('Variable "years" does not exist.', 39, $this->source); })()), $context["i"], array(), "array")), "html", null, true);
+                    // line 42
+                    echo twig_escape_filter($this->env, ("ImageGallery" . twig_get_attribute($this->env, $this->source, (isset($context["years"]) || array_key_exists("years", $context) ? $context["years"] : (function () { throw new Twig_Error_Runtime('Variable "years" does not exist.', 42, $this->source); })()), $context["i"], array(), "array")), "html", null, true);
                     echo "\" role=\"button\" data-slide=\"prev\">
       <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>
       <span class=\"sr-only\">Previous</span>
     </a>
     <a class=\"carousel-control-next\" href=\"#";
-                    // line 43
-                    echo twig_escape_filter($this->env, ("ImageGallery" . twig_get_attribute($this->env, $this->source, (isset($context["years"]) || array_key_exists("years", $context) ? $context["years"] : (function () { throw new Twig_Error_Runtime('Variable "years" does not exist.', 43, $this->source); })()), $context["i"], array(), "array")), "html", null, true);
+                    // line 46
+                    echo twig_escape_filter($this->env, ("ImageGallery" . twig_get_attribute($this->env, $this->source, (isset($context["years"]) || array_key_exists("years", $context) ? $context["years"] : (function () { throw new Twig_Error_Runtime('Variable "years" does not exist.', 46, $this->source); })()), $context["i"], array(), "array")), "html", null, true);
                     echo "\" role=\"button\" data-slide=\"next\">
       <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>
       <span class=\"sr-only\">Next</span>
@@ -189,20 +192,20 @@ class __TwigTemplate_fab5221084ae7d47e7563c261de57ce30faf54a21ab729cd590a54ba64f
   </div>
   ";
                 }
-                // line 49
+                // line 52
                 echo "  ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['i'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
         } else {
-            // line 51
+            // line 54
             echo "  <h3> No Photos found </h3>
 
 We don't have any photos available at the moment, please come back to check another time.
 ";
         }
-        // line 55
+        // line 58
         echo "
 ";
         
@@ -213,7 +216,7 @@ We don't have any photos available at the moment, please come back to check anot
 
     }
 
-    // line 58
+    // line 61
     public function block_javascripts($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -222,7 +225,7 @@ We don't have any photos available at the moment, please come back to check anot
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 59
+        // line 62
         echo "
 ";
         
@@ -245,7 +248,7 @@ We don't have any photos available at the moment, please come back to check anot
 
     public function getDebugInfo()
     {
-        return array (  226 => 59,  217 => 58,  206 => 55,  200 => 51,  193 => 49,  184 => 43,  177 => 39,  174 => 38,  168 => 37,  166 => 36,  161 => 34,  154 => 33,  149 => 32,  147 => 31,  143 => 29,  137 => 28,  135 => 27,  128 => 26,  123 => 25,  121 => 24,  115 => 22,  110 => 19,  101 => 17,  97 => 16,  94 => 15,  92 => 14,  87 => 13,  83 => 12,  80 => 11,  78 => 10,  75 => 9,  66 => 8,  55 => 4,  46 => 3,  15 => 1,);
+        return array (  229 => 62,  220 => 61,  209 => 58,  203 => 54,  196 => 52,  187 => 46,  180 => 42,  177 => 41,  171 => 40,  169 => 39,  164 => 37,  157 => 36,  152 => 35,  150 => 34,  146 => 32,  140 => 31,  138 => 30,  131 => 29,  126 => 28,  124 => 27,  118 => 25,  112 => 21,  103 => 19,  99 => 18,  96 => 17,  94 => 16,  87 => 13,  83 => 12,  80 => 11,  78 => 10,  75 => 9,  66 => 8,  55 => 4,  46 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -253,7 +256,7 @@ We don't have any photos available at the moment, please come back to check anot
         return new Twig_Source("{% extends 'homepage.html.twig' %}
 
 {% block title %}
-  Page de gallerie
+  Page de gallerie d'images
 {% endblock %}
 
 
@@ -263,6 +266,8 @@ We don't have any photos available at the moment, please come back to check anot
 
   {% for i in 0..max_index %}
   <h1> Photos archivées de l'année {{years[i]}} </h1>
+
+  <!-- Thumbnail display for the last year's quiz -->
   {% if i == 0 %}
   <div class=\"row\">
     {% for image in images_array[i] %}
@@ -270,6 +275,7 @@ We don't have any photos available at the moment, please come back to check anot
     {% endfor %}
   </div>
 
+  <!-- Display as image carousel for the other years --> 
   {% else %}
   <div id=\"{{\"ImageGallery\" ~ years[i] }}\" class=\"carousel slide\" data-ride=\"carousel\">
     <ol class=\"carousel-indicators\">

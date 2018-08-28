@@ -175,54 +175,57 @@ class __TwigTemplate_b44a18079357b6aa8ce65393e5bda5faf200d26a4c82fbf8dd38dac2769
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/banner_homepage.png"), "html", null, true);
         echo "\" alt=\"Homepage Banner\" />
 
+<!-- Informations about the competition -->
 <h3> Les dates importantes </h3>
 <div class=\"row\">
   <div class=\"col\">
     <ul>
       <li> Inscription: du ";
-        // line 36
-        echo twig_escape_filter($this->env, (isset($context["inscriptionStartDate"]) || array_key_exists("inscriptionStartDate", $context) ? $context["inscriptionStartDate"] : (function () { throw new Twig_Error_Runtime('Variable "inscriptionStartDate" does not exist.', 36, $this->source); })()), "html", null, true);
+        // line 37
+        echo twig_escape_filter($this->env, (isset($context["inscriptionStartDate"]) || array_key_exists("inscriptionStartDate", $context) ? $context["inscriptionStartDate"] : (function () { throw new Twig_Error_Runtime('Variable "inscriptionStartDate" does not exist.', 37, $this->source); })()), "html", null, true);
         echo " au ";
-        echo twig_escape_filter($this->env, (isset($context["inscriptionEndDate"]) || array_key_exists("inscriptionEndDate", $context) ? $context["inscriptionEndDate"] : (function () { throw new Twig_Error_Runtime('Variable "inscriptionEndDate" does not exist.', 36, $this->source); })()), "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["inscriptionEndDate"]) || array_key_exists("inscriptionEndDate", $context) ? $context["inscriptionEndDate"] : (function () { throw new Twig_Error_Runtime('Variable "inscriptionEndDate" does not exist.', 37, $this->source); })()), "html", null, true);
         echo " </li>
       <li> Date de la compétition individuelle: ";
-        // line 37
-        echo twig_escape_filter($this->env, (isset($context["indivD"]) || array_key_exists("indivD", $context) ? $context["indivD"] : (function () { throw new Twig_Error_Runtime('Variable "indivD" does not exist.', 37, $this->source); })()), "html", null, true);
+        // line 38
+        echo twig_escape_filter($this->env, (isset($context["indivD"]) || array_key_exists("indivD", $context) ? $context["indivD"] : (function () { throw new Twig_Error_Runtime('Variable "indivD" does not exist.', 38, $this->source); })()), "html", null, true);
         echo " </li>
       <li> Emplacement de la compétition individuelle: ";
-        // line 38
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["competition"]) || array_key_exists("competition", $context) ? $context["competition"] : (function () { throw new Twig_Error_Runtime('Variable "competition" does not exist.', 38, $this->source); })()), "individualLocation", array()), "html", null, true);
+        // line 39
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["competition"]) || array_key_exists("competition", $context) ? $context["competition"] : (function () { throw new Twig_Error_Runtime('Variable "competition" does not exist.', 39, $this->source); })()), "individualLocation", array()), "html", null, true);
         echo " </li>
     </ul>
   </div>
   <div class=\"col\">
+    <!-- Test if we are between the inscription start and end date -->
     ";
-        // line 42
-        if (((twig_date_converter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["competition"]) || array_key_exists("competition", $context) ? $context["competition"] : (function () { throw new Twig_Error_Runtime('Variable "competition" does not exist.', 42, $this->source); })()), "inscriptionStartDate", array())) <= twig_date_converter($this->env)) && (twig_date_converter($this->env) <= twig_date_converter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["competition"]) || array_key_exists("competition", $context) ? $context["competition"] : (function () { throw new Twig_Error_Runtime('Variable "competition" does not exist.', 42, $this->source); })()), "inscriptionEndDate", array()))))) {
-            // line 43
+        // line 44
+        if (((twig_date_converter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["competition"]) || array_key_exists("competition", $context) ? $context["competition"] : (function () { throw new Twig_Error_Runtime('Variable "competition" does not exist.', 44, $this->source); })()), "inscriptionStartDate", array())) <= twig_date_converter($this->env)) && (twig_date_converter($this->env) <= twig_date_converter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["competition"]) || array_key_exists("competition", $context) ? $context["competition"] : (function () { throw new Twig_Error_Runtime('Variable "competition" does not exist.', 44, $this->source); })()), "inscriptionEndDate", array()))))) {
+            // line 45
             echo "      <a href=\" ";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("enroll");
             echo " \" class=\"btn btn-secondary\"> S'inscrire (jusqu'au ";
-            echo twig_escape_filter($this->env, (isset($context["inscriptionEndDate"]) || array_key_exists("inscriptionEndDate", $context) ? $context["inscriptionEndDate"] : (function () { throw new Twig_Error_Runtime('Variable "inscriptionEndDate" does not exist.', 43, $this->source); })()), "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["inscriptionEndDate"]) || array_key_exists("inscriptionEndDate", $context) ? $context["inscriptionEndDate"] : (function () { throw new Twig_Error_Runtime('Variable "inscriptionEndDate" does not exist.', 45, $this->source); })()), "html", null, true);
             echo " )</a>
     ";
         } else {
-            // line 45
-            echo "        Les inscriptions ne sont pas ouvertes pour le moment. </br>
+            // line 47
+            echo "        <!-- Otherwise displays the \"Keep me updated\" button -->
+        Les inscriptions ne sont pas ouvertes pour le moment. </br>
         <a href=\" ";
-            // line 46
+            // line 49
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("updated");
             echo " \" class=\"btn btn-secondary\"> Me tenir au courant</a>
     ";
         }
-        // line 48
+        // line 51
         echo "  </div>
 </div>
 
 ";
-        // line 51
+        // line 54
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 67
+        // line 70
         echo "
 ";
         
@@ -233,7 +236,7 @@ class __TwigTemplate_b44a18079357b6aa8ce65393e5bda5faf200d26a4c82fbf8dd38dac2769
 
     }
 
-    // line 51
+    // line 54
     public function block_javascripts($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -242,7 +245,7 @@ class __TwigTemplate_b44a18079357b6aa8ce65393e5bda5faf200d26a4c82fbf8dd38dac2769
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 52
+        // line 55
         echo "<script src=\" ";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("build/public.js"), "html", null, true);
         echo "\"></script>
@@ -280,7 +283,7 @@ class __TwigTemplate_b44a18079357b6aa8ce65393e5bda5faf200d26a4c82fbf8dd38dac2769
 
     public function getDebugInfo()
     {
-        return array (  246 => 52,  237 => 51,  226 => 67,  224 => 51,  219 => 48,  214 => 46,  211 => 45,  203 => 43,  201 => 42,  194 => 38,  190 => 37,  184 => 36,  174 => 30,  165 => 29,  149 => 26,  144 => 24,  140 => 23,  131 => 19,  122 => 17,  114 => 16,  105 => 15,  103 => 14,  99 => 12,  90 => 11,  77 => 8,  68 => 7,  57 => 4,  48 => 3,  15 => 1,);
+        return array (  249 => 55,  240 => 54,  229 => 70,  227 => 54,  222 => 51,  217 => 49,  213 => 47,  205 => 45,  203 => 44,  195 => 39,  191 => 38,  185 => 37,  174 => 30,  165 => 29,  149 => 26,  144 => 24,  140 => 23,  131 => 19,  122 => 17,  114 => 16,  105 => 15,  103 => 14,  99 => 12,  90 => 11,  77 => 8,  68 => 7,  57 => 4,  48 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -316,6 +319,7 @@ class __TwigTemplate_b44a18079357b6aa8ce65393e5bda5faf200d26a4c82fbf8dd38dac2769
 {% block body %}
 <img class=\"d-block w-100\" src=\"{{ asset(\"img/banner_homepage.png\") }}\" alt=\"Homepage Banner\" />
 
+<!-- Informations about the competition -->
 <h3> Les dates importantes </h3>
 <div class=\"row\">
   <div class=\"col\">
@@ -326,9 +330,11 @@ class __TwigTemplate_b44a18079357b6aa8ce65393e5bda5faf200d26a4c82fbf8dd38dac2769
     </ul>
   </div>
   <div class=\"col\">
+    <!-- Test if we are between the inscription start and end date -->
     {% if (date(competition.inscriptionStartDate) <= date()) and (date() <= date(competition.inscriptionEndDate)) %}
       <a href=\" {{ path(\"enroll\") }} \" class=\"btn btn-secondary\"> S'inscrire (jusqu'au {{inscriptionEndDate}} )</a>
     {% else %}
+        <!-- Otherwise displays the \"Keep me updated\" button -->
         Les inscriptions ne sont pas ouvertes pour le moment. </br>
         <a href=\" {{ path(\"updated\") }} \" class=\"btn btn-secondary\"> Me tenir au courant</a>
     {% endif %}

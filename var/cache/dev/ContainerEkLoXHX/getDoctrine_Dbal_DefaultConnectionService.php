@@ -30,6 +30,8 @@ $c->setSQLLogger($b);
 $d = new \Symfony\Bridge\Doctrine\ContainerAwareEventManager($this);
 $d->addEventListener(array(0 => 'preRemove'), 'App\\EventListener\\GalleryImageListener');
 $d->addEventListener(array(0 => 'preRemove'), 'App\\EventListener\\PreviousQuizListener');
+$d->addEventListener(array(0 => 'preRemove'), 'App\\EventListener\\TrainingAnswerListener');
+$d->addEventListener(array(0 => 'preRemove'), 'App\\EventListener\\TrainingQuestionListener');
 $d->addEventListener(array(0 => 'loadClassMetadata'), new \Doctrine\ORM\Tools\AttachEntityListenersListener());
 
 return $this->services['doctrine.dbal.default_connection'] = (new \Doctrine\Bundle\DoctrineBundle\ConnectionFactory(array()))->createConnection(array('driver' => 'pdo_mysql', 'charset' => 'utf8mb4', 'url' => $this->getEnv('resolve:DATABASE_URL'), 'host' => 'localhost', 'port' => NULL, 'user' => 'root', 'password' => NULL, 'driverOptions' => array(), 'serverVersion' => '5.7', 'defaultTableOptions' => array('charset' => 'utf8mb4', 'collate' => 'utf8mb4_unicode_ci')), $c, $d, array());

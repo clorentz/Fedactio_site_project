@@ -20,26 +20,28 @@ class PreviousQuizType extends AbstractType
         'choices'  => array(
           'Primaire' => 1,
           'Secondaire' => 2,
-        )
+        ),
+        'label'    => 'École',
       ));
       $builder->add('difficulty', ChoiceType::class, array(
         'choices'  => array(
           '1e/2nd' => 1,
-          '3e/4e' => 2,
-          '5e/6e' => 3,
-        )
+          '3e/4e'  => 2,
+          '5e/6e'  => 3,
+        ),
+        'label'    => 'Difficulté',
       ));
       $builder->add('yearOfQuiz', IntegerType::class, array(
-        'label'     => 'Year of Quiz publication'
+        'label'     => 'Année de publicationdu quiz'
       ));
       if ($options['add']) {
         $builder->add('quiz', FileType::class, array(
-          'label'     => 'Quiz file (PDF file)',
+          'label'     => 'Fichier du quiz (fichier PDF)',
           'required'  => false,
         ));
       }
       $builder->add('send', SubmitType::class, array(
-        'label' => "Validate",
+        'label' => "Enregistrer",
         'attr'  => array('class' => 'btn-base btn-confirm')
       ));
     }

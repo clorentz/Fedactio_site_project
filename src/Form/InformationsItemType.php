@@ -16,10 +16,10 @@ class InformationsItemType extends AbstractType
 
       $builder->add('title', TextType::class, array(
         'required' => true,
-        'label'    => 'Title',
+        'label'    => 'Titre',
       ));
       $builder->add('content',  TextareaType::class, array(
-        'label'    => 'Content',
+        'label'    => 'Contenu',
         'required' => true,
       ));
     }

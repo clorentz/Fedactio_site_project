@@ -78,69 +78,73 @@ class __TwigTemplate_4f3f078f6dd50d052fb5d1985a009cab0706e49672b97ea61cb8bf3b3bf
         $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 9, $this->source); })()), "session", array()), "flashbag", array()), "get", array(0 => "success"), "method"));
         foreach ($context['_seq'] as $context["_key"] => $context["flashMessage"]) {
             // line 10
-            echo "  <div class=\"alert alert-success\">
-    ";
+            echo "<div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">
+  ";
             // line 11
             echo $context["flashMessage"];
             echo "
-  </div>
+  <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+    <span aria-hidden=\"true\">&times;</span>
+  </button>
+</div>
 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flashMessage'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 14
+        // line 17
         echo "
-<h1>Choice of the training quiz to modify</h1>
+<h1>Choix du quiz d'entrainement à modifier</h1>
 
-<h3>Primary School</h3>
+<h3>École primaire</h3>
 <div class=\"d-flex\" role=\"group\" aria-label=\"Primary Traning Choice\">
   ";
-        // line 19
+        // line 22
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["primary_quiz"]) || array_key_exists("primary_quiz", $context) ? $context["primary_quiz"] : (function () { throw new Twig_Error_Runtime('Variable "primary_quiz" does not exist.', 19, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["primary_quiz"]) || array_key_exists("primary_quiz", $context) ? $context["primary_quiz"] : (function () { throw new Twig_Error_Runtime('Variable "primary_quiz" does not exist.', 22, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["quiz"]) {
-            // line 20
+            // line 23
             echo "      <a href=";
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_training", array("id" => twig_get_attribute($this->env, $this->source, $context["quiz"], "id", array()))), "html", null, true);
             echo " class=\"btn btn-secondary w-100 training-choice-btn\">Modifier l'entrainement du niveau ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["difficulty"]) || array_key_exists("difficulty", $context) ? $context["difficulty"] : (function () { throw new Twig_Error_Runtime('Variable "difficulty" does not exist.', 20, $this->source); })()), (twig_get_attribute($this->env, $this->source, $context["quiz"], "difficulty", array()) - 1), array(), "array"), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["difficulty"]) || array_key_exists("difficulty", $context) ? $context["difficulty"] : (function () { throw new Twig_Error_Runtime('Variable "difficulty" does not exist.', 23, $this->source); })()), (twig_get_attribute($this->env, $this->source, $context["quiz"], "difficulty", array()) - 1), array(), "array"), "html", null, true);
             echo "</a>
   ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['quiz'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 22
+        // line 25
         echo "</div>
 
-<h3>Secondary School</h3>
+<h3>École Secondaire</h3>
 <div class=\"d-flex\" role=\"group\" aria-label=\"Secondary Traning Choice\">
   ";
-        // line 26
+        // line 29
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["secondary_quiz"]) || array_key_exists("secondary_quiz", $context) ? $context["secondary_quiz"] : (function () { throw new Twig_Error_Runtime('Variable "secondary_quiz" does not exist.', 26, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["secondary_quiz"]) || array_key_exists("secondary_quiz", $context) ? $context["secondary_quiz"] : (function () { throw new Twig_Error_Runtime('Variable "secondary_quiz" does not exist.', 29, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["quiz"]) {
-            // line 27
+            // line 30
             echo "      <a href=";
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_training", array("id" => twig_get_attribute($this->env, $this->source, $context["quiz"], "id", array()))), "html", null, true);
             echo " class=\"btn btn-secondary w-100 training-choice-btn\">Modifier l'entrainement du niveau ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["difficulty"]) || array_key_exists("difficulty", $context) ? $context["difficulty"] : (function () { throw new Twig_Error_Runtime('Variable "difficulty" does not exist.', 27, $this->source); })()), (twig_get_attribute($this->env, $this->source, $context["quiz"], "difficulty", array()) - 1), array(), "array"), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["difficulty"]) || array_key_exists("difficulty", $context) ? $context["difficulty"] : (function () { throw new Twig_Error_Runtime('Variable "difficulty" does not exist.', 30, $this->source); })()), (twig_get_attribute($this->env, $this->source, $context["quiz"], "difficulty", array()) - 1), array(), "array"), "html", null, true);
             echo "</a>
   ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['quiz'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 29
+        // line 32
         echo "</div>
 
-<h1> Add a new Quiz </h1>
+<h1> Ajouter un quiz </h1>
 
+<!-- Button to create a new quiz -->
 <a href=";
-        // line 33
+        // line 37
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_new_training");
-        echo " class=\"btn btn-success\">Add a new quiz</a>
+        echo " class=\"btn btn-success\">Ajouter un quiz</a>
 
 ";
         
@@ -163,7 +167,7 @@ class __TwigTemplate_4f3f078f6dd50d052fb5d1985a009cab0706e49672b97ea61cb8bf3b3bf
 
     public function getDebugInfo()
     {
-        return array (  142 => 33,  136 => 29,  125 => 27,  121 => 26,  115 => 22,  104 => 20,  100 => 19,  93 => 14,  84 => 11,  81 => 10,  77 => 9,  74 => 8,  65 => 7,  54 => 4,  45 => 3,  15 => 1,);
+        return array (  146 => 37,  139 => 32,  128 => 30,  124 => 29,  118 => 25,  107 => 23,  103 => 22,  96 => 17,  84 => 11,  81 => 10,  77 => 9,  74 => 8,  65 => 7,  54 => 4,  45 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -177,30 +181,34 @@ class __TwigTemplate_4f3f078f6dd50d052fb5d1985a009cab0706e49672b97ea61cb8bf3b3bf
 {% block body %}
 
 {% for flashMessage in app.session.flashbag.get('success') %}
-  <div class=\"alert alert-success\">
-    {{ flashMessage|raw }}
-  </div>
+<div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">
+  {{ flashMessage|raw }}
+  <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+    <span aria-hidden=\"true\">&times;</span>
+  </button>
+</div>
 {% endfor %}
 
-<h1>Choice of the training quiz to modify</h1>
+<h1>Choix du quiz d'entrainement à modifier</h1>
 
-<h3>Primary School</h3>
+<h3>École primaire</h3>
 <div class=\"d-flex\" role=\"group\" aria-label=\"Primary Traning Choice\">
   {% for quiz in primary_quiz %}
       <a href={{ path('admin_training', {'id': quiz.id}) }} class=\"btn btn-secondary w-100 training-choice-btn\">Modifier l'entrainement du niveau {{ difficulty[quiz.difficulty-1] }}</a>
   {% endfor %}
 </div>
 
-<h3>Secondary School</h3>
+<h3>École Secondaire</h3>
 <div class=\"d-flex\" role=\"group\" aria-label=\"Secondary Traning Choice\">
   {% for quiz in secondary_quiz %}
       <a href={{ path('admin_training', {'id': quiz.id}) }} class=\"btn btn-secondary w-100 training-choice-btn\">Modifier l'entrainement du niveau {{ difficulty[quiz.difficulty-1] }}</a>
   {% endfor %}
 </div>
 
-<h1> Add a new Quiz </h1>
+<h1> Ajouter un quiz </h1>
 
-<a href={{ path('admin_new_training') }} class=\"btn btn-success\">Add a new quiz</a>
+<!-- Button to create a new quiz -->
+<a href={{ path('admin_new_training') }} class=\"btn btn-success\">Ajouter un quiz</a>
 
 {% endblock %}
 ", "admin/admin_training_choice.html.twig", "/home/clorentz/www/fedactio_pangea/templates/admin/admin_training_choice.html.twig");

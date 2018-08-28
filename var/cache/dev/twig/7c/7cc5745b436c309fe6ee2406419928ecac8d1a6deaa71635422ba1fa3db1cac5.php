@@ -78,50 +78,56 @@ class __TwigTemplate_37a6098cfc4b11d3c4dd170435577481961ef0dfc293dfb1dbe9aab5e37
         $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 9, $this->source); })()), "session", array()), "flashbag", array()), "get", array(0 => "success"), "method"));
         foreach ($context['_seq'] as $context["_key"] => $context["flashMessage"]) {
             // line 10
-            echo "  <div class=\"alert alert-success\">
-    ";
+            echo "<div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">
+  ";
             // line 11
             echo $context["flashMessage"];
             echo "
-  </div>
+  <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+    <span aria-hidden=\"true\">&times;</span>
+  </button>
+</div>
 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flashMessage'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 14
-        echo "<h1>Modification of the about us section</h1>
+        // line 17
+        echo "
+<h1>Modification of the about us section</h1>
 
 
 ";
-        // line 17
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 17, $this->source); })()), 'form_start');
+        // line 21
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 21, $this->source); })()), 'form_start');
         echo "
 
+  <!-- Wrapper to dinamically add and remove items -->
+  <!-- If you want to see the functionning of dynamic add and remove check the admin.js or browse the Symfony documentation on CollectionType -->
  <div class=\"js-informations-items-wrapper\"
     data-prototype=\" ";
-        // line 20
-        echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 20, $this->source); })()), "items", array()), "vars", array()), "prototype", array()), 'widget'), "html_attr");
+        // line 26
+        echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 26, $this->source); })()), "items", array()), "vars", array()), "prototype", array()), 'widget'), "html_attr");
         echo "\"
     data-index=\"";
-        // line 21
-        echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 21, $this->source); })()), "items", array())), "html", null, true);
+        // line 27
+        echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 27, $this->source); })()), "items", array())), "html", null, true);
         echo "\">
 
    ";
-        // line 23
+        // line 29
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 23, $this->source); })()), "items", array()));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 29, $this->source); })()), "items", array()));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 24
+            // line 30
             echo "     <div class=\"row js-informations-items-item\">
        <div class=\"col-md-11\">
          ";
-            // line 26
+            // line 32
             echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, $context["item"], "title", array()), 'row');
             echo "
          ";
-            // line 27
+            // line 33
             echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, $context["item"], "content", array()), 'row');
             echo "
        </div>
@@ -134,7 +140,7 @@ class __TwigTemplate_37a6098cfc4b11d3c4dd170435577481961ef0dfc293dfb1dbe9aab5e37
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 34
+        // line 40
         echo "
    <a href=\"\" class=\"js-informations-items-add\">
             <span class=\"fa fa-plus-circle\"></span>
@@ -143,8 +149,8 @@ class __TwigTemplate_37a6098cfc4b11d3c4dd170435577481961ef0dfc293dfb1dbe9aab5e37
  </div>
 
 ";
-        // line 41
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 41, $this->source); })()), 'form_end');
+        // line 47
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 47, $this->source); })()), 'form_end');
         echo "
 
 
@@ -169,7 +175,7 @@ class __TwigTemplate_37a6098cfc4b11d3c4dd170435577481961ef0dfc293dfb1dbe9aab5e37
 
     public function getDebugInfo()
     {
-        return array (  147 => 41,  138 => 34,  125 => 27,  121 => 26,  117 => 24,  113 => 23,  108 => 21,  104 => 20,  98 => 17,  93 => 14,  84 => 11,  81 => 10,  77 => 9,  74 => 8,  65 => 7,  54 => 4,  45 => 3,  15 => 1,);
+        return array (  153 => 47,  144 => 40,  131 => 33,  127 => 32,  123 => 30,  119 => 29,  114 => 27,  110 => 26,  102 => 21,  96 => 17,  84 => 11,  81 => 10,  77 => 9,  74 => 8,  65 => 7,  54 => 4,  45 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -183,15 +189,21 @@ class __TwigTemplate_37a6098cfc4b11d3c4dd170435577481961ef0dfc293dfb1dbe9aab5e37
 {% block body %}
 
 {% for flashMessage in app.session.flashbag.get('success') %}
-  <div class=\"alert alert-success\">
-    {{ flashMessage|raw }}
-  </div>
+<div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">
+  {{ flashMessage|raw }}
+  <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+    <span aria-hidden=\"true\">&times;</span>
+  </button>
+</div>
 {% endfor %}
+
 <h1>Modification of the about us section</h1>
 
 
 {{ form_start(form) }}
 
+  <!-- Wrapper to dinamically add and remove items -->
+  <!-- If you want to see the functionning of dynamic add and remove check the admin.js or browse the Symfony documentation on CollectionType -->
  <div class=\"js-informations-items-wrapper\"
     data-prototype=\" {{ form_widget(form.items.vars.prototype)|e('html_attr') }}\"
     data-index=\"{{ form.items|length }}\">

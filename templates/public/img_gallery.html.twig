@@ -1,7 +1,7 @@
 {% extends 'homepage.html.twig' %}
 
 {% block title %}
-  Page de gallerie
+  Page de gallerie d'images
 {% endblock %}
 
 
@@ -11,6 +11,8 @@
 
   {% for i in 0..max_index %}
   <h1> Photos archivées de l'année {{years[i]}} </h1>
+
+  <!-- Thumbnail display for the last year's quiz -->
   {% if i == 0 %}
   <div class="row">
     {% for image in images_array[i] %}
@@ -18,6 +20,7 @@
     {% endfor %}
   </div>
 
+  <!-- Display as image carousel for the other years --> 
   {% else %}
   <div id="{{"ImageGallery" ~ years[i] }}" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">

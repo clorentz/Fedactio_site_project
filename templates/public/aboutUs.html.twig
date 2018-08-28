@@ -6,16 +6,19 @@
 
 {% block body %}
 
-<h1>Informations about the math quiz</h1>
+<h1>Informations sur le Quiz de Math</h1>
 
+<!-- Accordion to print out the informations items -->
 <div id="accordion">
   {% for info in informations.items %}
     <div class="card">
+      <!-- Title part (allways displayed)-->
       <a class="card-link" data-toggle="collapse" href="#{{info.id}}">
         <div class="card-header">
           {{info.title}}
         </div>
       </a>
+      <!-- The item's data displayedon click -->
       <div id="{{info.id}}" class="collapse" data-parent="#accordion">
         <div class="card-body">
           {{info.content}}

@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class PreviousQuizUploader
 {
-    private $targetDirectory;
+    private $targetDirectory; // given in parameter in config/services.yaml
 
     public function __construct($targetDirectory)
     {

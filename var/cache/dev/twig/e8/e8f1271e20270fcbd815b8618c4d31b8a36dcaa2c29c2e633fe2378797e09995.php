@@ -72,6 +72,7 @@ class __TwigTemplate_dfa483e035242b2d40ac5b2434f7fac5e3872d61fe811bd2f84f2d445ea
 
         // line 9
         echo "
+  <!-- Inscription to the coming quiz, with the google forms -->
   <h1>Inscription</h1>
 
 Veuillez vous inscrire selon votre type d'inscription (individuel ou collectif):
@@ -120,6 +121,7 @@ Veuillez vous inscrire selon votre type d'inscription (individuel ou collectif):
 
 {% block body %}
 
+  <!-- Inscription to the coming quiz, with the google forms -->
   <h1>Inscription</h1>
 
 Veuillez vous inscrire selon votre type d'inscription (individuel ou collectif):

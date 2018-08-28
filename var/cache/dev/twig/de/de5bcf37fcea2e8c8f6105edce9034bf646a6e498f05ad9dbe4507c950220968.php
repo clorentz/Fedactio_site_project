@@ -71,11 +71,12 @@ class __TwigTemplate_39af95b45dbf9056174d715d24b2c2d141ad4e68dc02bd6e72269ab0b3f
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 9
-        echo "    <h1>Page non trouvée</h1>
+        echo "    <!-- Redefinition of the Eror 404 Page not found page  --> 
+    <h1>Page non trouvée</h1>
 
     <p>
         La page demandée n'a pas été trouvée. Veuillez verifier l'URL entrée ou <a href=\"";
-        // line 12
+        // line 13
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("homepage");
         echo "\">retourner à la page d'acccueil</a>.
     </p>
@@ -100,7 +101,7 @@ class __TwigTemplate_39af95b45dbf9056174d715d24b2c2d141ad4e68dc02bd6e72269ab0b3f
 
     public function getDebugInfo()
     {
-        return array (  79 => 12,  74 => 9,  65 => 8,  54 => 5,  45 => 4,  15 => 2,);
+        return array (  80 => 13,  74 => 9,  65 => 8,  54 => 5,  45 => 4,  15 => 2,);
     }
 
     public function getSourceContext()
@@ -113,6 +114,7 @@ Erreur 404
 {% endblock %}
 
 {% block body %}
+    <!-- Redefinition of the Eror 404 Page not found page  --> 
     <h1>Page non trouvée</h1>
 
     <p>

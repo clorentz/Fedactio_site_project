@@ -12,25 +12,21 @@
 {% block body %}
 
 {% for flashMessage in app.session.flashbag.get('success') %}
-  <div class="alert alert-success">
-    {{ flashMessage|raw }}
-  </div>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  {{ flashMessage|raw }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 {% endfor %}
 
 
 
 <h3>
   Quiz modification :
-{#  {% if quiz.difficulty == 1 %}
-    First Grade
-  {% elseif quiz.difficulty == 2 %}
-    Second Grade
-  {% elseif quiz.difficulty == 3 %}
-    Third Grade
-  {% endif %}
-#}
 </h3>
 
+<!-- Start of quiz modification form -->
 {{ form_start(form) }}
 <div class="form-group">
   {{ form_row(form.difficulty)}}
@@ -43,10 +39,13 @@
 {% set question_cmpt = 1 %}
 {% set question_index = 0 %}
 
+
 <div class="js-training-questions-wrapper"
    data-prototype=" {{ form_widget(form.questions.vars.prototype)|e('html_attr') }}"
    data-index="{{ form.questions|length }}">
 {% for question in form.questions %}
+
+  <!-- Start of one question form -->
   <div class="js-training-questions-item">
   <h4> Question {{question_cmpt}} </h4>
 
@@ -54,15 +53,18 @@
   {{ form_row(question.difficulty) }}
   {{ form_row(question.image) }}
 
+    <!-- Only print the image if there is one -->
     {% if (image_locations is not empty) and (image_locations|length >= question_cmpt) and (image_locations[question_index] is not empty) %}
       <div class='question_image'>
         Image actuelle:
           <img src=" {{ asset('uploads/question_images/' ~ image_locations[question_index]) }} " alt="Question Image">
       </div>
+    <!-- if there is no image found -->
     {% else %}
       Il n'y a pas d'image actuellement
     {% endif %}
 
+    <!-- Start of the answers form for the question -->
     <h5> Answers </h5>
     <div class="js-training-answers-wrapper"
     data-prototype=" {{ form_widget(question.answers.vars.prototype)|e('html_attr') }}"
@@ -76,9 +78,7 @@
           <div class="js-training-answers-item">
           {{ form_errors(answer) }}
           {{ form_widget(answer) }}
-          <!--<div class="col-md-1">-->
             <a href='' class='js-remove-answers-item'> <i class="far fa-trash-alt"></i>Remove the answer</a>
-          <!-- </div> -->
         </div>
         </td>
         {% endfor %}
@@ -103,6 +103,7 @@
 {{ form_row(form.send) }}
 {{ form_end(form) }}
 
+<!-- Link to the quiz deletion method -->
 <a href={{ path('admin_delete_training', {'id': quiz.id}) }} class="btn btn-danger">Remove the quiz</a>
 
 {% endblock %}

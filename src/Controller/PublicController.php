@@ -34,7 +34,6 @@ class PublicController extends Controller
       $competition = $this->getDoctrine()->getRepository(Competition::class)->findAll()[0];
 
       // Changing the format of the date so it can be printed in the view
-    //  $inscriptionD = $competition->getInscriptionDate()->format('d/m/Y');
       $indivD = $competition->getIndividualDate()->format('d/m/Y');
       $competSD = $competition->getCompetitionStartDate()->format('d/m/Y');
       $competED = $competition->getCompetitionEndDate()->format('d/m/Y');
@@ -59,7 +58,6 @@ class PublicController extends Controller
       $manager = $this->getDoctrine()->getManager();
       $informations = $manager->getRepository(Informations::class)->findAll()[0];
 
-
       return $this->render('public/aboutUs.html.twig', [
         'informations' => $informations,
       ]);
@@ -79,13 +77,16 @@ class PublicController extends Controller
     * @Route("/keep_me_updated", name="updated")
     */
     public function keepMeUpdated(Request $request, \Swift_Mailer $mailer) {
+      // The mailer needs to be given in parameter
       $formFactory = $this->get('form.factory');
+      // Creation of the array that will keep the entered informations in the form afterwards
       $new_update = array(
         'surname' => 'Nom',
         'name' => 'Prénom',
         'email'  =>'example@example.com'
       );
 
+      // Creation of the form for the keep me updated part
       $form = $formFactory
         ->createBuilder(FormType::class, $new_update)
         ->add('surname', TextType::class, array(
@@ -113,6 +114,9 @@ class PublicController extends Controller
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){
+          // If the form is valid, send the two mails to the person and the administrator
+
+          // To the administrator mail
           $admin_message = (new \Swift_Message('New subscriber'))
           ->setFrom('pangea.website@gmail.com')
           ->setTo('info@fedactio.be')
@@ -125,6 +129,7 @@ class PublicController extends Controller
               'text/html'
           );
 
+          // To the new person mail
           $new_update_message = (new \Swift_Message('Pangea Mathquiz'))
           ->setFrom('pangea.website@gmail.com')
           ->setTo($new_update['email'])
@@ -190,10 +195,12 @@ class PublicController extends Controller
       $images = $manager->getRepository(GalleryImage::class)->findAll();
 
       $years = array();
+      // Adds to a single array all the images, by year
       foreach ($images as $image) {
         if (! in_array($image->getImageYear(), $years))
           $years[] = $image->getImageYear();
       }
+      // Sort the images reversly so the most recent is the first item
       rsort($years);
       $count = count($years);
       $images_array = array();
@@ -209,10 +216,10 @@ class PublicController extends Controller
 
       $max_index = $count - 1;
       return $this->render('public/img_gallery.html.twig', [
-        'informations' => 'informations',
+        'informations'     => 'informations',
         'max_index'        => $max_index,
-        'images_array' => $images_array,
-        'years' => $years,
+        'images_array'     => $images_array,
+        'years'            => $years,
       ]);
     }
 
@@ -223,6 +230,7 @@ class PublicController extends Controller
     public function quiz_gallery(){
       $manager = $this->getDoctrine()->getManager();
       $p_quizs = $manager->getRepository(PreviousQuiz::class)->findAll();
+      // To print out properly the school and difficulty of the quiz
       $school = array("Primaire", "Secondaire");
       $difficulty = array("1e/2e", "3e/4e", "5e/6e");
       $primary_quizs = array();
@@ -238,7 +246,7 @@ class PublicController extends Controller
       return $this->render('public/quiz_gallery.html.twig', [
         'informations'       => 'informations',
         'primary_quizs'      => $primary_quizs,
-        'secondary_quizs'   => $secondary_quizs,
+        'secondary_quizs'    => $secondary_quizs,
         'school'             => $school,
         'difficulty'         => $difficulty,
       ]);
@@ -281,6 +289,7 @@ class PublicController extends Controller
       $questions = $quiz->getQuestions();
       $clientAnswers = new ArrayCollection();
 
+      // Creation of a new TrainingClientAnswer entity for each question to check the answers afterwards
       foreach ($questions as $question) {
         $clientAnswer = new TrainingClientAnswer();
         $clientAnswer->setQuestion($question);
@@ -291,7 +300,7 @@ class PublicController extends Controller
         'client_answers'  => $clientAnswers,
       );
 
-
+      // Creation of the form to be displayed to the client
       $form = $formFactory
         ->createBuilder(FormType::class, $reponses)
         ->add('client_answers', CollectionType::class, array(
@@ -312,14 +321,18 @@ class PublicController extends Controller
             $form_answers[$i] = true;
             $correctAnswers = $this->getQuestionCorrectAnswers($questions[$i]);
             foreach ($reponses['client_answers'][$i]->getAnswers() as $answer) {
+              // Tests if the answer is in the correct answers array, and if so removes it
               if (! $correctAnswers->removeElement($answer))
               {
+                // if the answer was not in the correct andwers array, add a flash error message
                 $form_answers[$i] = false;
                 $this->addFlash("error", "Vous avez fait une erreur à la question " . ($i + 1));
                 $all_correct = false;
                 break;
               }
             }
+
+          // If there is a correct answer which was not ticked, add an error message too
           if ((! $correctAnswers->isEmpty()) && $form_answers[$i])
           {
             $form_answers[$i] = false;
@@ -327,12 +340,13 @@ class PublicController extends Controller
             $all_correct = false;
           }
         }
+
+        // If all the correct answers were ticked, add a success message
         if ($all_correct) {
           $this->addFlash("success", "Bravo, vous avez eu toutes les bonnes réponses.");
         }
       }
 
-      ///$reponses[] = $form_answers;
       return $this->render('public/training.html.twig', [
         'quiz'  => $quiz,
         'form'  => $form->createView(),

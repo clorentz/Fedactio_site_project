@@ -23,7 +23,7 @@ class InformationsType extends AbstractType
         'by_reference' => false,
       ));
       $builder->add('send', SubmitType::class, array(
-        'label' => "Validate",
+        'label' => "Enregistrer",
         'attr'  => array('class' => 'btn-base btn-confirm')
       ));
     }

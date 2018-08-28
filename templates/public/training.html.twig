@@ -7,11 +7,13 @@
 
 {% form_theme form _self %}
 
+
+<!-- Override of the checkbox_widget to display the checkboxes as buttons, with images if there is one -->
 {% block checkbox_widget %}
 {% spaceless %}
 <label class="btn btn-light w-100 form-check-label">
   <input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} class="form-check-input"/>
-  {% if label is defined %} {{ label|raw }} {% endif %}
+  {% if label is defined %} {{ label|raw }} {% endif %} <!-- label|raw because the label can be an <img /> tag (check the TrainingClientAnswerType file for more informations) -->
 </label>
 {% endspaceless %}
 {% endblock checkbox_widget %}
@@ -19,7 +21,8 @@
 {% block body %}
 
 
-
+<!-- Display of the error messages if the user made an error
+     And of the success if the user didn't   -->
 {% for flashMessage in app.session.flashbag.get('error') %}
 <div class="alert alert-danger alert-dismissible fade show" role="alert">
   {{ flashMessage|raw }}
@@ -38,6 +41,7 @@
   </div>
 {% endfor %}
 
+<!-- set a question cmpt to browse the list of questions -->
 {% set question_cmpt = 0 %}
 
 <h1> Training section </h1>
@@ -46,23 +50,27 @@
 
 {% for client_answer in form.client_answers %}
     <h2> Question n° {{question_cmpt + 1}}: {{quiz.questions[question_cmpt].question}} </h2>
+    <!-- Print of the stars -->
     <div class='stars'>
       {% for star in 1 .. quiz.questions[question_cmpt].difficulty %}
         <i class="fas fa-star"></i>
       {% endfor %}
     </div>
+
+    <!-- Only print the question's image if there is one -->
     {% if quiz.questions[question_cmpt].image is not null %}
       <img src=" {{ asset('uploads/question_images/' ~ quiz.questions[question_cmpt].image) }} " alt="Question Image">
     {% endif %}
 
     <div class="btn-group btn-group-toggle d-flex answers" data-toggle="buttons">
     {% for answer in client_answer.answers %}
-        {{form_widget(answer)}}
+        {{form_widget(answer)}} <!-- rendering of the answers -->
     {% endfor %}
     </div>
     {% set question_cmpt = question_cmpt + 1 %}
 {% endfor %}
 
+<!-- bottom buttons for the correction and the validation of the form -->
 <div class='d-flex'>
   <div class='col'>
     <a href={{ path('correction', {'id': quiz.id}) }} class="btn btn-warning">Voir la correction</a>
@@ -75,9 +83,9 @@
 {{form_end(form)}}
 
 {% block javascripts %}
-
+<!-- script to toggle the buttons on page reload if they were checked -->
 <script src="{{asset("build/button-toggle.js")}}"></script>
-{{ parent() }}
+{{ parent() }} <!-- to keep the public.js file -->
 
 {% endblock %}
 

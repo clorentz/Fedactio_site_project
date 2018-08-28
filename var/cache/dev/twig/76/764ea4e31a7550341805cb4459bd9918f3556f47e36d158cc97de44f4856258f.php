@@ -72,9 +72,9 @@ class __TwigTemplate_c7e5e90a277d59fb94e23b14f2f1f2041a2f7050d18108f63efe3200d89
 
         // line 8
         echo "
-<h1> Training section </h1>
+<h1> Choix du quiz à effectuer </h1>
 
-<h3>Primary School</h3>
+<h3>Primaire</h3>
 <div class=\"d-flex\" role=\"group\" aria-label=\"Primary Traning Choice\">
   ";
         // line 13
@@ -95,7 +95,7 @@ class __TwigTemplate_c7e5e90a277d59fb94e23b14f2f1f2041a2f7050d18108f63efe3200d89
         // line 16
         echo "</div>
 
-<h3>Secondary School</h3>
+<h3>Secondaire</h3>
 <div class=\"d-flex\" role=\"group\" aria-label=\"Secondary Traning Choice\">
   ";
         // line 20
@@ -164,16 +164,16 @@ class __TwigTemplate_c7e5e90a277d59fb94e23b14f2f1f2041a2f7050d18108f63efe3200d89
 
 {% block body %}
 
-<h1> Training section </h1>
+<h1> Choix du quiz à effectuer </h1>
 
-<h3>Primary School</h3>
+<h3>Primaire</h3>
 <div class=\"d-flex\" role=\"group\" aria-label=\"Primary Traning Choice\">
   {% for quiz in primary_quiz %}
       <a href={{ path('training', {'id': quiz.id}) }} class=\"btn btn-secondary w-100 training-choice-btn\">Entrainement de niveau {{ difficulty[quiz.difficulty-1] }}</a>
   {% endfor %}
 </div>
 
-<h3>Secondary School</h3>
+<h3>Secondaire</h3>
 <div class=\"d-flex\" role=\"group\" aria-label=\"Secondary Traning Choice\">
   {% for quiz in secondary_quiz %}
       <a href={{ path('training', {'id': quiz.id}) }} class=\"btn btn-secondary w-100 training-choice-btn\">Entrainement de niveau {{ difficulty[quiz.difficulty-1] }}</a>

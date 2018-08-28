@@ -27,11 +27,13 @@ class __TwigTemplate_2acd598fa5ebd069cedba10257c5868fca58445b5a3db21172596361a60
 
         // line 2
         echo "
+
+<!-- This template defines how the message sent upon a client's keep me updated registration -->
 <h2> Bonjour ";
-        // line 3
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["new_update"]) || array_key_exists("new_update", $context) ? $context["new_update"] : (function () { throw new Twig_Error_Runtime('Variable "new_update" does not exist.', 3, $this->source); })()), "name", array()), "html", null, true);
+        // line 5
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["new_update"]) || array_key_exists("new_update", $context) ? $context["new_update"] : (function () { throw new Twig_Error_Runtime('Variable "new_update" does not exist.', 5, $this->source); })()), "name", array()), "html", null, true);
         echo " ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["new_update"]) || array_key_exists("new_update", $context) ? $context["new_update"] : (function () { throw new Twig_Error_Runtime('Variable "new_update" does not exist.', 3, $this->source); })()), "surname", array()), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["new_update"]) || array_key_exists("new_update", $context) ? $context["new_update"] : (function () { throw new Twig_Error_Runtime('Variable "new_update" does not exist.', 5, $this->source); })()), "surname", array()), "html", null, true);
         echo " </h2>
 
 Merci de votre interêt pour le quiz de Math Pangea. Les inscriptions ne sont pas ouvertes pour le moment, mais vous pouvez d'ors et déjà vous entrainer ou consulter les précédents concours sur notre site web.
@@ -65,13 +67,15 @@ Les organisateurs
 
     public function getDebugInfo()
     {
-        return array (  32 => 3,  29 => 2,);
+        return array (  34 => 5,  29 => 2,);
     }
 
     public function getSourceContext()
     {
         return new Twig_Source("{# templates/emails/keep_me_updated.html.twig #}
 
+
+<!-- This template defines how the message sent upon a client's keep me updated registration -->
 <h2> Bonjour {{new_update.name}} {{new_update.surname}} </h2>
 
 Merci de votre interêt pour le quiz de Math Pangea. Les inscriptions ne sont pas ouvertes pour le moment, mais vous pouvez d'ors et déjà vous entrainer ou consulter les précédents concours sur notre site web.

@@ -71,11 +71,12 @@ class __TwigTemplate_1cef18d3c372a6e172defa1a9c9d460a3aa7162be468a030a2f51e00447
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 9
-        echo "    <h1>Erreur lors du chargement de la page</h1>
+        echo "    <!-- Override of the default error page --> 
+    <h1>Erreur lors du chargement de la page</h1>
 
     <p>
         Il y a eu une erreur lors du chargement de la page. Veuillez verifier l'URL entrée ou <a href=\"";
-        // line 12
+        // line 13
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("homepage");
         echo "\">retourner à la page d'acccueil</a>.
         Si le problème persiste, veuillez envoyer un mail à l'administrateur: <a href=\"mailto:info@fedactio.be?Subject=Erreur%20Pangea\" target=\"_top\">Envoyer un mail</a>
@@ -101,7 +102,7 @@ class __TwigTemplate_1cef18d3c372a6e172defa1a9c9d460a3aa7162be468a030a2f51e00447
 
     public function getDebugInfo()
     {
-        return array (  79 => 12,  74 => 9,  65 => 8,  54 => 5,  45 => 4,  15 => 2,);
+        return array (  80 => 13,  74 => 9,  65 => 8,  54 => 5,  45 => 4,  15 => 2,);
     }
 
     public function getSourceContext()
@@ -114,6 +115,7 @@ Erreur
 {% endblock %}
 
 {% block body %}
+    <!-- Override of the default error page --> 
     <h1>Erreur lors du chargement de la page</h1>
 
     <p>

@@ -29,6 +29,7 @@
 {% block body %}
 <img class="d-block w-100" src="{{ asset("img/banner_homepage.png") }}" alt="Homepage Banner" />
 
+<!-- Informations about the competition -->
 <h3> Les dates importantes </h3>
 <div class="row">
   <div class="col">
@@ -39,9 +40,11 @@
     </ul>
   </div>
   <div class="col">
+    <!-- Test if we are between the inscription start and end date -->
     {% if (date(competition.inscriptionStartDate) <= date()) and (date() <= date(competition.inscriptionEndDate)) %}
       <a href=" {{ path("enroll") }} " class="btn btn-secondary"> S'inscrire (jusqu'au {{inscriptionEndDate}} )</a>
     {% else %}
+        <!-- Otherwise displays the "Keep me updated" button -->
         Les inscriptions ne sont pas ouvertes pour le moment. </br>
         <a href=" {{ path("updated") }} " class="btn btn-secondary"> Me tenir au courant</a>
     {% endif %}

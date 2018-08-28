@@ -8,11 +8,15 @@
 {% block body %}
 
 {% for flashMessage in app.session.flashbag.get('success') %}
-  <div class="alert alert-success">
-    {{ flashMessage|raw }}
-  </div>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  {{ flashMessage|raw }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 {% endfor %}
 
+<!-- Keep me updated form -->
 <h1>Être tenu au courant</h1>
 {{form_start(form)}}
 

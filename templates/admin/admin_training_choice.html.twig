@@ -7,29 +7,33 @@
 {% block body %}
 
 {% for flashMessage in app.session.flashbag.get('success') %}
-  <div class="alert alert-success">
-    {{ flashMessage|raw }}
-  </div>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  {{ flashMessage|raw }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 {% endfor %}
 
-<h1>Choice of the training quiz to modify</h1>
+<h1>Choix du quiz d'entrainement à modifier</h1>
 
-<h3>Primary School</h3>
+<h3>École primaire</h3>
 <div class="d-flex" role="group" aria-label="Primary Traning Choice">
   {% for quiz in primary_quiz %}
       <a href={{ path('admin_training', {'id': quiz.id}) }} class="btn btn-secondary w-100 training-choice-btn">Modifier l'entrainement du niveau {{ difficulty[quiz.difficulty-1] }}</a>
   {% endfor %}
 </div>
 
-<h3>Secondary School</h3>
+<h3>École Secondaire</h3>
 <div class="d-flex" role="group" aria-label="Secondary Traning Choice">
   {% for quiz in secondary_quiz %}
       <a href={{ path('admin_training', {'id': quiz.id}) }} class="btn btn-secondary w-100 training-choice-btn">Modifier l'entrainement du niveau {{ difficulty[quiz.difficulty-1] }}</a>
   {% endfor %}
 </div>
 
-<h1> Add a new Quiz </h1>
+<h1> Ajouter un quiz </h1>
 
-<a href={{ path('admin_new_training') }} class="btn btn-success">Add a new quiz</a>
+<!-- Button to create a new quiz -->
+<a href={{ path('admin_new_training') }} class="btn btn-success">Ajouter un quiz</a>
 
 {% endblock %}

@@ -72,34 +72,37 @@ class __TwigTemplate_a54bd3c33291835245aaf23aca1c2426920119b47f7c69d13820a8621c0
 
         // line 8
         echo "
-<h1>Informations about the math quiz</h1>
+<h1>Informations sur le Quiz de Math</h1>
 
+<!-- Accordion to print out the informations items -->
 <div id=\"accordion\">
   ";
-        // line 12
+        // line 13
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["informations"]) || array_key_exists("informations", $context) ? $context["informations"] : (function () { throw new Twig_Error_Runtime('Variable "informations" does not exist.', 12, $this->source); })()), "items", array()));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["informations"]) || array_key_exists("informations", $context) ? $context["informations"] : (function () { throw new Twig_Error_Runtime('Variable "informations" does not exist.', 13, $this->source); })()), "items", array()));
         foreach ($context['_seq'] as $context["_key"] => $context["info"]) {
-            // line 13
-            echo "    <div class=\"card\">
-      <a class=\"card-link\" data-toggle=\"collapse\" href=\"#";
             // line 14
+            echo "    <div class=\"card\">
+      <!-- Title part (allways displayed)-->
+      <a class=\"card-link\" data-toggle=\"collapse\" href=\"#";
+            // line 16
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["info"], "id", array()), "html", null, true);
             echo "\">
         <div class=\"card-header\">
           ";
-            // line 16
+            // line 18
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["info"], "title", array()), "html", null, true);
             echo "
         </div>
       </a>
+      <!-- The item's data displayedon click -->
       <div id=\"";
-            // line 19
+            // line 22
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["info"], "id", array()), "html", null, true);
             echo "\" class=\"collapse\" data-parent=\"#accordion\">
         <div class=\"card-body\">
           ";
-            // line 21
+            // line 24
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["info"], "content", array()), "html", null, true);
             echo "
         </div>
@@ -110,7 +113,7 @@ class __TwigTemplate_a54bd3c33291835245aaf23aca1c2426920119b47f7c69d13820a8621c0
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['info'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 26
+        // line 29
         echo "</div>
 
 ";
@@ -134,7 +137,7 @@ class __TwigTemplate_a54bd3c33291835245aaf23aca1c2426920119b47f7c69d13820a8621c0
 
     public function getDebugInfo()
     {
-        return array (  114 => 26,  103 => 21,  98 => 19,  92 => 16,  87 => 14,  84 => 13,  80 => 12,  74 => 8,  65 => 7,  54 => 4,  45 => 3,  15 => 1,);
+        return array (  117 => 29,  106 => 24,  101 => 22,  94 => 18,  89 => 16,  85 => 14,  81 => 13,  74 => 8,  65 => 7,  54 => 4,  45 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -147,16 +150,19 @@ class __TwigTemplate_a54bd3c33291835245aaf23aca1c2426920119b47f7c69d13820a8621c0
 
 {% block body %}
 
-<h1>Informations about the math quiz</h1>
+<h1>Informations sur le Quiz de Math</h1>
 
+<!-- Accordion to print out the informations items -->
 <div id=\"accordion\">
   {% for info in informations.items %}
     <div class=\"card\">
+      <!-- Title part (allways displayed)-->
       <a class=\"card-link\" data-toggle=\"collapse\" href=\"#{{info.id}}\">
         <div class=\"card-header\">
           {{info.title}}
         </div>
       </a>
+      <!-- The item's data displayedon click -->
       <div id=\"{{info.id}}\" class=\"collapse\" data-parent=\"#accordion\">
         <div class=\"card-body\">
           {{info.content}}

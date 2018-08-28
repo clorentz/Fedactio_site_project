@@ -21,16 +21,16 @@ class TrainingQuestionType extends AbstractType
 
       $builder->add('question', TextType::class);
       $builder->add('image', FileType::class, array(
-        'label'     => 'Image (PNG file)',
+        'label'     => 'Image (ficheir PNG)',
         'required'  => false,
       ));
       $builder->add('difficulty', ChoiceType::class, array(
         'choices'  => array(
-            '1 Star'   => 1,
-            '2 Stars'  => 2,
-            '3 Stars'  => 3,
-            '4 Stars'  => 4,
-            '5 Stars'  => 5,
+            '1 Étoile'   => 1,
+            '2 Étoiles'  => 2,
+            '3 Étoiles'  => 3,
+            '4 Étoiles'  => 4,
+            '5 Étoiles'  => 5,
         )
       ));
       $builder->add('answers', CollectionType::class, array(

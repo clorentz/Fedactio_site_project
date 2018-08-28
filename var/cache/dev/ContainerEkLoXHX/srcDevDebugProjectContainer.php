@@ -1,6 +1,6 @@
 <?php
 
-namespace Container6cy3x3I;
+namespace ContainerEkLoXHX;
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -65,6 +65,8 @@ class srcDevDebugProjectContainer extends Container
             'App\\Controller\\SecurityController' => 'getSecurityControllerService.php',
             'App\\EventListener\\GalleryImageListener' => 'getGalleryImageListenerService.php',
             'App\\EventListener\\PreviousQuizListener' => 'getPreviousQuizListenerService.php',
+            'App\\EventListener\\TrainingAnswerListener' => 'getTrainingAnswerListenerService.php',
+            'App\\EventListener\\TrainingQuestionListener' => 'getTrainingQuestionListenerService.php',
             'Symfony\\Bundle\\FrameworkBundle\\Controller\\RedirectController' => 'getRedirectControllerService.php',
             'Symfony\\Bundle\\FrameworkBundle\\Controller\\TemplateController' => 'getTemplateControllerService.php',
             'cache.app_clearer' => 'getCache_AppClearerService.php',

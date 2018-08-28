@@ -32,6 +32,7 @@ class PreviousQuizListener
     $fileSystem = new Filesystem();
     $entityManager = $args->getEntityManager();
 
-    $fileSystem->remove($this->getTargetDirectory() . '/' . basename($entity->getQuiz()));  
+    // On entity removal, remove the linked image from it's directory to not overload the uploads directory
+    $fileSystem->remove($this->getTargetDirectory() . '/' . basename($entity->getQuiz()));
   }
 }

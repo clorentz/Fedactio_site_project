@@ -1,3 +1,5 @@
+// This function toggles the buttons on the public training page
+// On page reload, it will verify each checkbox and add an active class to every button linked to the checkboxes 
 $(document).ready(function() {
   var checkBoxes = document.getElementsByClassName("form-check-input");
   console.log(checkBoxes);

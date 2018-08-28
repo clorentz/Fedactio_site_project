@@ -20,11 +20,11 @@ class TrainingAnswerType extends AbstractType
         'label'    => false,
       ));
       $builder->add('isTrue',  CheckboxType::class, array(
-        'label'    => 'Is this question the correct one?',
+        'label'    => 'Cette question est-elle la bonne?',
         'required' => false,
       ));
       $builder->add('image', FileType::class, array(
-        'label'     => 'Image (PNG file)',
+        'label'     => 'Image (fichier PNG)',
         'required'  => false,
       ));
     }

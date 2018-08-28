@@ -6,6 +6,7 @@
     background-color: #ccc;
 }
 
+// remove the rounded border for the dropdown button
 .btn.btn-primary.dropdown-toggle.w-100 {
     border-radius: 0;
 }
@@ -22,10 +23,12 @@
     border-radius: 0;
 }
 
+// add a margin to answers in the training section
 .answers {
   margin: 10px 0px;
 }
 
+// Puts a 100% width for the forms in the enroll section
 .enroll-form {
     width: 100%;
     height: 750px;

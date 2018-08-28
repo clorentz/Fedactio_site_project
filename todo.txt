@@ -1,5 +1,0 @@
-photo header
-ajouter contact footer
-ajouter une page avec toutes les informations en plus ou juste garder la page d'accueil?
-Admin authentification
-langues

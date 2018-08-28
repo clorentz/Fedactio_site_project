@@ -2,18 +2,21 @@
 {% extends 'homepage.html.twig' %}
 
 {% block title %}
-  Page d'inscription au concours
+  Page de correction de quiz
 {% endblock %}
 
 {% block body %}
 
 {% set question_cmpt = 0 %}
 
+<!-- Print out the correction to the math quiz selected -->
 {% for question in quiz.questions %}
  <h2> Question n°{{question_cmpt + 1}}: {{quiz.questions[question_cmpt].question}}</h2>
 
  <div class="btn-group d-flex" role="group" aria-label="{{ question_cmpt + 1}}">
    {% for answer in question.answers %}
+   <!-- The buttons are disabled so there is no click possible -->
+   <!-- If the answer is one of the correct ones, it is green, otherwise it is gray -->
      <button type="button" class="btn {% if answer.isTrue %} btn-success {% else %} btn-light {% endif %} w-100" disabled>{{answer.answer}}</button>
    {% endfor %}
  </div>

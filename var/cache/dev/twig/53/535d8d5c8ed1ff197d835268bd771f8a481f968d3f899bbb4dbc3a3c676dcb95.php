@@ -51,7 +51,7 @@ class __TwigTemplate_09fd84dd0ca503e36f0d0c8d7878e57449319d4b29bc1f6f85b704027ae
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         // line 4
-        echo "  Page de gallerie de quiz
+        echo "  Page de gallerie des quiz précédents
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -75,68 +75,72 @@ class __TwigTemplate_09fd84dd0ca503e36f0d0c8d7878e57449319d4b29bc1f6f85b704027ae
 Voici les fichiers recensant les quizs des années précédentes ainsi que les réponses de ceux-ci:
 
   <h1> Quizs de l'école primaire </h1>
+  <!-- Tests if there is a Primary quiz uplaoded -->
   ";
-        // line 12
-        if ((twig_length_filter($this->env, (isset($context["primary_quizs"]) || array_key_exists("primary_quizs", $context) ? $context["primary_quizs"] : (function () { throw new Twig_Error_Runtime('Variable "primary_quizs" does not exist.', 12, $this->source); })())) > 0)) {
-            // line 13
+        // line 13
+        if ((twig_length_filter($this->env, (isset($context["primary_quizs"]) || array_key_exists("primary_quizs", $context) ? $context["primary_quizs"] : (function () { throw new Twig_Error_Runtime('Variable "primary_quizs" does not exist.', 13, $this->source); })())) > 0)) {
+            // line 14
             echo "    <ul>
       ";
-            // line 14
+            // line 15
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable((isset($context["primary_quizs"]) || array_key_exists("primary_quizs", $context) ? $context["primary_quizs"] : (function () { throw new Twig_Error_Runtime('Variable "primary_quizs" does not exist.', 14, $this->source); })()));
+            $context['_seq'] = twig_ensure_traversable((isset($context["primary_quizs"]) || array_key_exists("primary_quizs", $context) ? $context["primary_quizs"] : (function () { throw new Twig_Error_Runtime('Variable "primary_quizs" does not exist.', 15, $this->source); })()));
             foreach ($context['_seq'] as $context["_key"] => $context["quiz"]) {
-                // line 15
+                // line 16
                 echo "      <li> <a href=\" ";
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/previous_quiz/" . twig_get_attribute($this->env, $this->source, $context["quiz"], "quiz", array()))), "html", null, true);
                 echo "\" class=\"quiz_link\">Quiz de ";
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["quiz"], "yearOfQuiz", array()), "html", null, true);
                 echo " pour les ";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["difficulty"]) || array_key_exists("difficulty", $context) ? $context["difficulty"] : (function () { throw new Twig_Error_Runtime('Variable "difficulty" does not exist.', 15, $this->source); })()), (twig_get_attribute($this->env, $this->source, $context["quiz"], "difficulty", array()) - 1), array(), "array"), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["difficulty"]) || array_key_exists("difficulty", $context) ? $context["difficulty"] : (function () { throw new Twig_Error_Runtime('Variable "difficulty" does not exist.', 16, $this->source); })()), (twig_get_attribute($this->env, $this->source, $context["quiz"], "difficulty", array()) - 1), array(), "array"), "html", null, true);
                 echo " </a> </li>
       ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['quiz'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 17
+            // line 18
             echo "    </ul>
+  <!-- If there is no quiz found, displays an empty message -->
   ";
         } else {
-            // line 19
+            // line 21
             echo "      Il n'y a aucun quiz disponible pour ce niveau.
   ";
         }
-        // line 21
+        // line 23
         echo "
   <h1> Quizs de l'école secondaire </h1>
+    <!-- Tests if there is a Secondary quiz uplaoded -->
   ";
-        // line 23
-        if ((twig_length_filter($this->env, (isset($context["secondary_quizs"]) || array_key_exists("secondary_quizs", $context) ? $context["secondary_quizs"] : (function () { throw new Twig_Error_Runtime('Variable "secondary_quizs" does not exist.', 23, $this->source); })())) > 0)) {
-            // line 24
+        // line 26
+        if ((twig_length_filter($this->env, (isset($context["secondary_quizs"]) || array_key_exists("secondary_quizs", $context) ? $context["secondary_quizs"] : (function () { throw new Twig_Error_Runtime('Variable "secondary_quizs" does not exist.', 26, $this->source); })())) > 0)) {
+            // line 27
             echo "    <ul>
       ";
-            // line 25
+            // line 28
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable((isset($context["secondary_quizs"]) || array_key_exists("secondary_quizs", $context) ? $context["secondary_quizs"] : (function () { throw new Twig_Error_Runtime('Variable "secondary_quizs" does not exist.', 25, $this->source); })()));
+            $context['_seq'] = twig_ensure_traversable((isset($context["secondary_quizs"]) || array_key_exists("secondary_quizs", $context) ? $context["secondary_quizs"] : (function () { throw new Twig_Error_Runtime('Variable "secondary_quizs" does not exist.', 28, $this->source); })()));
             foreach ($context['_seq'] as $context["_key"] => $context["quiz"]) {
-                // line 26
+                // line 29
                 echo "      <li> <a href=\" ";
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/previous_quiz/" . twig_get_attribute($this->env, $this->source, $context["quiz"], "quiz", array()))), "html", null, true);
                 echo "\" class=\"quiz_link\">Quiz de ";
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["quiz"], "yearOfQuiz", array()), "html", null, true);
                 echo " pour les ";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["difficulty"]) || array_key_exists("difficulty", $context) ? $context["difficulty"] : (function () { throw new Twig_Error_Runtime('Variable "difficulty" does not exist.', 26, $this->source); })()), (twig_get_attribute($this->env, $this->source, $context["quiz"], "difficulty", array()) - 1), array(), "array"), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["difficulty"]) || array_key_exists("difficulty", $context) ? $context["difficulty"] : (function () { throw new Twig_Error_Runtime('Variable "difficulty" does not exist.', 29, $this->source); })()), (twig_get_attribute($this->env, $this->source, $context["quiz"], "difficulty", array()) - 1), array(), "array"), "html", null, true);
                 echo " </a> </li>
       ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['quiz'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 28
+            // line 31
             echo "    </ul>
+  <!-- If there is no quiz found, displays an empty message -->
   ";
         } else {
-            // line 30
+            // line 34
             echo "    Il n'y a aucun quiz disponible pour ce niveau.
   ";
         }
@@ -160,7 +164,7 @@ Voici les fichiers recensant les quizs des années précédentes ainsi que les r
 
     public function getDebugInfo()
     {
-        return array (  140 => 30,  136 => 28,  123 => 26,  119 => 25,  116 => 24,  114 => 23,  110 => 21,  106 => 19,  102 => 17,  89 => 15,  85 => 14,  82 => 13,  80 => 12,  74 => 8,  65 => 7,  54 => 4,  45 => 3,  15 => 1,);
+        return array (  144 => 34,  139 => 31,  126 => 29,  122 => 28,  119 => 27,  117 => 26,  112 => 23,  108 => 21,  103 => 18,  90 => 16,  86 => 15,  83 => 14,  81 => 13,  74 => 8,  65 => 7,  54 => 4,  45 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -168,7 +172,7 @@ Voici les fichiers recensant les quizs des années précédentes ainsi que les r
         return new Twig_Source("{% extends 'homepage.html.twig' %}
 
 {% block title %}
-  Page de gallerie de quiz
+  Page de gallerie des quiz précédents
 {% endblock %}
 
 {% block body %}
@@ -176,23 +180,27 @@ Voici les fichiers recensant les quizs des années précédentes ainsi que les r
 Voici les fichiers recensant les quizs des années précédentes ainsi que les réponses de ceux-ci:
 
   <h1> Quizs de l'école primaire </h1>
+  <!-- Tests if there is a Primary quiz uplaoded -->
   {% if primary_quizs|length > 0 %}
     <ul>
       {% for quiz in primary_quizs %}
       <li> <a href=\" {{ asset(\"uploads/previous_quiz/\" ~ quiz.quiz) }}\" class=\"quiz_link\">Quiz de {{quiz.yearOfQuiz}} pour les {{ difficulty[quiz.difficulty-1] }} </a> </li>
       {% endfor %}
     </ul>
+  <!-- If there is no quiz found, displays an empty message -->
   {% else %}
       Il n'y a aucun quiz disponible pour ce niveau.
   {% endif %}
 
   <h1> Quizs de l'école secondaire </h1>
+    <!-- Tests if there is a Secondary quiz uplaoded -->
   {% if secondary_quizs|length > 0 %}
     <ul>
       {% for quiz in secondary_quizs %}
       <li> <a href=\" {{ asset(\"uploads/previous_quiz/\" ~ quiz.quiz) }}\" class=\"quiz_link\">Quiz de {{quiz.yearOfQuiz}} pour les {{ difficulty[quiz.difficulty-1] }} </a> </li>
       {% endfor %}
     </ul>
+  <!-- If there is no quiz found, displays an empty message -->
   {% else %}
     Il n'y a aucun quiz disponible pour ce niveau.
   {% endif %}

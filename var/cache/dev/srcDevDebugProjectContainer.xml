@@ -439,6 +439,14 @@
       <tag name="doctrine.event_listener" event="preRemove" lazy="1"/>
       <argument>/home/clorentz/www/fedactio_pangea/public/uploads/previous_quiz</argument>
     </service>
+    <service id="App\EventListener\TrainingAnswerListener" class="App\EventListener\TrainingAnswerListener" public="true" autowire="true" autoconfigure="true">
+      <tag name="doctrine.event_listener" event="preRemove" lazy="1"/>
+      <argument>/home/clorentz/www/fedactio_pangea/public/uploads/answer_images</argument>
+    </service>
+    <service id="App\EventListener\TrainingQuestionListener" class="App\EventListener\TrainingQuestionListener" public="true" autowire="true" autoconfigure="true">
+      <tag name="doctrine.event_listener" event="preRemove" lazy="1"/>
+      <argument>/home/clorentz/www/fedactio_pangea/public/uploads/question_images</argument>
+    </service>
     <service id="App\Form\CompetitionType" class="App\Form\CompetitionType" public="false" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -3771,6 +3779,18 @@
           <argument>preRemove</argument>
         </argument>
         <argument>App\EventListener\PreviousQuizListener</argument>
+      </call>
+      <call method="addEventListener">
+        <argument type="collection">
+          <argument>preRemove</argument>
+        </argument>
+        <argument>App\EventListener\TrainingAnswerListener</argument>
+      </call>
+      <call method="addEventListener">
+        <argument type="collection">
+          <argument>preRemove</argument>
+        </argument>
+        <argument>App\EventListener\TrainingQuestionListener</argument>
       </call>
       <call method="addEventListener">
         <argument type="collection">

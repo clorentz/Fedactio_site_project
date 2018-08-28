@@ -80,44 +80,45 @@ class __TwigTemplate_c11cbc6705a764ddd7a05767d5b2880971b3f499d894786a04c209751d1
         $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 9, $this->source); })()), "session", array()), "flashbag", array()), "get", array(0 => "success"), "method"));
         foreach ($context['_seq'] as $context["_key"] => $context["flashMessage"]) {
             // line 10
-            echo "  <div class=\"alert alert-success\">
-    ";
+            echo "<div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">
+  ";
             // line 11
             echo $context["flashMessage"];
             echo "
-  </div>
+  <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+    <span aria-hidden=\"true\">&times;</span>
+  </button>
+</div>
 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flashMessage'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 14
+        // line 17
         echo "
 <h1> Modification page for the image below </h1>
 
 
 <div class=\"row quiz-infos\">
   <div class=\"col-sm-6\">
+    <!-- Image print -->
     <img src=\"";
-        // line 20
-        echo twig_escape_filter($this->env, ($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("uploads/gallery_images/") . (isset($context["bname"]) || array_key_exists("bname", $context) ? $context["bname"] : (function () { throw new Twig_Error_Runtime('Variable "bname" does not exist.', 20, $this->source); })())), "html", null, true);
+        // line 24
+        echo twig_escape_filter($this->env, ($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("uploads/gallery_images/") . (isset($context["bname"]) || array_key_exists("bname", $context) ? $context["bname"] : (function () { throw new Twig_Error_Runtime('Variable "bname" does not exist.', 24, $this->source); })())), "html", null, true);
         echo "\" />
-    <!-- <a href=\" ";
-        // line 21
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/previous_quiz/" . (isset($context["bname"]) || array_key_exists("bname", $context) ? $context["bname"] : (function () { throw new Twig_Error_Runtime('Variable "bname" does not exist.', 21, $this->source); })()))), "html", null, true);
-        echo "\"> <button type=\"button\" class=\"btn btn-light\"> See the file </button> </a> -->
   </div>
   <div class=\"col-sm-6\">
+      <!-- Button linking to the delete method of the controller -->
      <a href=\" ";
-        // line 24
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_gallery_image_delete", array("id" => twig_get_attribute($this->env, $this->source, (isset($context["image"]) || array_key_exists("image", $context) ? $context["image"] : (function () { throw new Twig_Error_Runtime('Variable "image" does not exist.', 24, $this->source); })()), "id", array()))), "html", null, true);
+        // line 28
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_gallery_image_delete", array("id" => twig_get_attribute($this->env, $this->source, (isset($context["image"]) || array_key_exists("image", $context) ? $context["image"] : (function () { throw new Twig_Error_Runtime('Variable "image" does not exist.', 28, $this->source); })()), "id", array()))), "html", null, true);
         echo " \"> <button type=\"button\" class=\"btn btn-danger\"> Delete the image </button> </a>
   </div>
 </div>
 
 ";
-        // line 28
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 28, $this->source); })()), 'form');
+        // line 32
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 32, $this->source); })()), 'form');
         echo "
 
 ";
@@ -141,7 +142,7 @@ class __TwigTemplate_c11cbc6705a764ddd7a05767d5b2880971b3f499d894786a04c209751d1
 
     public function getDebugInfo()
     {
-        return array (  120 => 28,  113 => 24,  107 => 21,  103 => 20,  95 => 14,  86 => 11,  83 => 10,  79 => 9,  76 => 8,  67 => 7,  54 => 4,  45 => 3,  15 => 1,);
+        return array (  121 => 32,  114 => 28,  107 => 24,  98 => 17,  86 => 11,  83 => 10,  79 => 9,  76 => 8,  67 => 7,  54 => 4,  45 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -155,9 +156,12 @@ class __TwigTemplate_c11cbc6705a764ddd7a05767d5b2880971b3f499d894786a04c209751d1
 {% block body %}
 
 {% for flashMessage in app.session.flashbag.get('success') %}
-  <div class=\"alert alert-success\">
-    {{ flashMessage|raw }}
-  </div>
+<div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">
+  {{ flashMessage|raw }}
+  <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+    <span aria-hidden=\"true\">&times;</span>
+  </button>
+</div>
 {% endfor %}
 
 <h1> Modification page for the image below </h1>
@@ -165,10 +169,11 @@ class __TwigTemplate_c11cbc6705a764ddd7a05767d5b2880971b3f499d894786a04c209751d1
 
 <div class=\"row quiz-infos\">
   <div class=\"col-sm-6\">
+    <!-- Image print -->
     <img src=\"{{ asset(\"uploads/gallery_images/\") ~ bname}}\" />
-    <!-- <a href=\" {{ asset(\"uploads/previous_quiz/\" ~ bname) }}\"> <button type=\"button\" class=\"btn btn-light\"> See the file </button> </a> -->
   </div>
   <div class=\"col-sm-6\">
+      <!-- Button linking to the delete method of the controller -->
      <a href=\" {{ path('admin_gallery_image_delete', {'id': image.id}) }} \"> <button type=\"button\" class=\"btn btn-danger\"> Delete the image </button> </a>
   </div>
 </div>
