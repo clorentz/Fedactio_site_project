@@ -426,7 +426,6 @@ class AdminController extends Controller
       // Creation of the quiz form
       $form = $formFactory->createBuilder(TrainingQuizType::class, $quiz)->getForm();
 
-
       $form->handleRequest($request);
       if ($form->isSubmitted() && $form->isValid()) {
         $modif = true;
@@ -466,16 +465,16 @@ class AdminController extends Controller
         }
         foreach ($question->getAnswers() as $answer) {
           // File uploading part
-          $file = $answer->getImage();
+          $answer_file = $answer->getImage();
 
-          if ($file != null) {
-            $fileName = $answerUploader->upload($file); // The uploader will hash the name so the file won't be used by third parties
+          if ($answer_file != null) {
+            $fileName = $answerUploader->upload($answer_file); // The uploader will hash the name so the file won't be used by third parties
             $answer->setImage($fileName);
           }
         }
       }
 
-      // If there was no deletion, the modification message will be printed 
+      // If there was no deletion, the modification message will be printed
       if ($modif){
         $manager->persist($question);
         $manager->flush();
